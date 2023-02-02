@@ -1,23 +1,19 @@
-import { Suspense, useContext, useState } from "react";
+import { Suspense } from "react";
 import { Route, Routes, Link } from "react-router-dom";
 import './styles/index.scss';
 import { AsyncAboutPage, AsyncAboutPage1 } from "./pages/AboutPage/AsyncAboutPage";
 import { AsyncMainPage } from "./pages/MainPage/AsyncMainPage";
-import { LOCAL_STORAGE_THEME_KEY, Theme, ThemeContext } from "./theme/ThemeContext";
+import { useTheme } from "./theme/useTheme";
+import { classNames } from "./helpers/classNames/classNames";
 
 
 
 export const App = () => {
 
-  const { theme, setTheme } = useContext(ThemeContext);
-
-  const toggleTheme = () => {
-    setTheme(theme === Theme.DARK ? Theme.LIGHT : Theme.DARK)
-    localStorage.setItem(LOCAL_STORAGE_THEME_KEY, theme)
-  }
+  const { theme, toggleTheme } = useTheme();
 
   return (
-    <div className={`app ${theme}`}>
+    <div className={classNames('app', {}, [theme])}>
       <button onClick={toggleTheme}>TOGGLE</button>
       <Link to={"/"}>Main</Link>
       <Link to={"/about"}>About</Link>
