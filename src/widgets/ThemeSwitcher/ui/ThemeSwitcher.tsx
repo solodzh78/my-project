@@ -20,6 +20,7 @@ export const ThemeSwitcher: FC<ThemeSwitcherProps> = (props) => {
     <AppButton
       className={classNames([s.themeswitcher, className])}
       onClick={toggleTheme}
+      // eslint-disable-next-line i18next/no-literal-string
       theme="clear"
     >
       {theme === 'dark' ? <DarkIcon /> : <LightIcon />}
