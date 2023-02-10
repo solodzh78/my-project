@@ -3,7 +3,8 @@ declare module '*.scss' {
   export = classNames;
 }
 
-declare module "*.svg" {
+declare module '*.svg' {
+  // eslint-disable-next-line no-undef
   const content: React.VFC<React.SVGProps<SVGSVGElement>>;
   export default content;
 }

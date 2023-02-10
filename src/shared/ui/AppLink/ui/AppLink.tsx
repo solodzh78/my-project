@@ -4,13 +4,12 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import { ValueOf } from 'shared/types/ValueOf';
 import s from './AppLink.module.scss';
 
-
-export type LinkThemeType = ValueOf<typeof LinkTheme>
-
 export const LinkTheme = {
   PRIMARY: 'primary',
-  SECONDARY: 'secondary'
-} as const
+  SECONDARY: 'secondary',
+} as const;
+
+export type LinkThemeType = ValueOf<typeof LinkTheme>
 
 interface AppLinkProps extends LinkProps {
   className?: string;
@@ -18,22 +17,21 @@ interface AppLinkProps extends LinkProps {
 }
 
 export const AppLink: FC<AppLinkProps> = (props) => {
-
   const {
-    className, 
-    children, 
-    to, 
-    theme = LinkTheme.PRIMARY, 
+    className,
+    children,
+    to,
+    theme = LinkTheme.PRIMARY,
     ...otherProps
   } = props;
 
   return (
-    <Link 
+    <Link
       className={classNames([s.applink, className, s[theme]])}
       to={to}
       {...otherProps}
     >
       {children}
     </Link>
-  )
-}
+  );
+};

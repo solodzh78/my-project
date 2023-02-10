@@ -5,8 +5,8 @@ import { ValueOf } from 'shared/types/ValueOf';
 import s from './AppButton.module.scss';
 
 const AppButtonTheme = {
-  CLEAR: 'clear'
-} as const
+  CLEAR: 'clear',
+} as const;
 
 type AppButtonThemeType = ValueOf<typeof AppButtonTheme>
 
@@ -16,11 +16,13 @@ interface AppButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 }
 
 export const AppButton: FC<AppButtonProps> = (props) => {
-
-  const {className, children, theme, ...otherProps} = props;
+  const {
+    className, children, theme, ...otherProps
+  } = props;
 
   return (
-    <button 
+    <button
+      type="button"
       className={classNames([s.appbutton, className, s[theme]])}
       {...otherProps}
     >

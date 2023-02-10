@@ -10,7 +10,6 @@ interface LangSwitcherProps {
 }
 
 export const LangSwitcher: FC<LangSwitcherProps> = (props) => {
-
   const { className } = props;
 
   const { t, i18n } = useTranslation();
@@ -23,7 +22,7 @@ export const LangSwitcher: FC<LangSwitcherProps> = (props) => {
     <AppButton
       className={classNames([s.langswitcher, className])}
       onClick={toggleLanguage}
-      theme='clear'
+      theme="clear"
     >
       {t('Русский')}
     </AppButton>

@@ -1,1 +1,1 @@
-export { AppButton } from './ui/AppButton'
+export { AppButton } from './ui/AppButton';
