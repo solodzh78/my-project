@@ -1,8 +1,13 @@
 /* eslint-disable react/jsx-no-constructed-context-values */
 import { FC, useState } from 'react';
-import { Theme, ThemeContext, LOCAL_STORAGE_THEME_KEY } from '../lib/ThemeContext';
+import {
+  Theme,
+  ThemeContext,
+  LOCAL_STORAGE_THEME_KEY,
+} from '../lib/ThemeContext';
 
-const defaultTheme = localStorage.getItem(LOCAL_STORAGE_THEME_KEY) as Theme || Theme.LIGHT;
+const defaultTheme = localStorage
+  .getItem(LOCAL_STORAGE_THEME_KEY) as Theme || Theme.LIGHT;
 
 const ThemeProvider:FC = ({ children }) => {
   const [theme, setTheme] = useState<Theme>(defaultTheme);

@@ -9,6 +9,7 @@ import {
 } from 'webpack';
 import { BuildOptions } from './types/config';
 
+// eslint-disable-next-line max-len
 export function buildPlugins({ paths, isDev }: BuildOptions): WebpackPluginInstance[] {
   return [
     new HtmlWebpackPlugin({
