@@ -1,3 +1,10 @@
 {
-  "Русский": "English"
+  "Русский": "English",
+  "Страница не найдена": "PAGE NOT FOUND",
+  "О сайте": "About",
+  "Главная": "Main",
+  "Что-то пошло не так": "Something went wrong",
+  "Создать ошибку": "Make Error",
+  "Свернуть": "Roll up",
+  "Развернуть": "Expand"
 }

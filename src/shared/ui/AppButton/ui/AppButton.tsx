@@ -24,6 +24,7 @@ export const AppButton: FC<AppButtonProps> = (props) => {
     <button
       type="button"
       className={classNames([s.appbutton, className, s[theme]])}
+      // eslint-disable-next-line react/jsx-props-no-spreading
       {...otherProps}
     >
       {children}
