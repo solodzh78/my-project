@@ -17,14 +17,15 @@ export const SideBar: FC<SideBarProps> = (props) => {
   const { t } = useTranslation();
 
   const toggle = () => setCollapsed((prev) => !prev);
-
   return (
-    <div className={classNames(
-      [s.sidebar, className],
-      { [s.collapsed]: collapsed },
-    )}
+    <div
+      data-testid="sidebar"
+      className={classNames(
+        [s.sidebar, className],
+        { [s.collapsed]: collapsed },
+      )}
     >
-      <button type="button" onClick={toggle}>
+      <button data-testid="sidebar-toggle" type="button" onClick={toggle}>
         { collapsed ? t('Развернуть') : t('Свернуть') }
       </button>
       <div className={s.switchers}>

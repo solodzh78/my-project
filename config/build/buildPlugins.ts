@@ -7,6 +7,7 @@ import {
   ProgressPlugin,
   WebpackPluginInstance,
 } from 'webpack';
+import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
 import { BuildOptions } from './types/config';
 
 // eslint-disable-next-line max-len
@@ -25,5 +26,6 @@ export function buildPlugins({ paths, isDev }: BuildOptions): WebpackPluginInsta
     }),
     isDev && new HotModuleReplacementPlugin(),
     isDev && new ReactRefreshWebpackPlugin({ overlay: false }),
-  ];
+    new BundleAnalyzerPlugin({ openAnalyzer: false }),
+  ].filter(Boolean);
 }
