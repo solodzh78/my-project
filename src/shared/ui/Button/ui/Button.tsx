@@ -2,20 +2,20 @@ import { ButtonHTMLAttributes, FC } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { ValueOf } from 'shared/types/ValueOf';
 
-import s from './AppButton.module.scss';
+import s from './Button.module.scss';
 
-const AppButtonTheme = {
+const ButtonTheme = {
   CLEAR: 'clear',
 } as const;
 
-type AppButtonThemeType = ValueOf<typeof AppButtonTheme>
+type ButtonThemeType = ValueOf<typeof ButtonTheme>
 
-interface AppButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   className?: string;
-  theme?: AppButtonThemeType;
+  theme?: ButtonThemeType;
 }
 
-export const AppButton: FC<AppButtonProps> = (props) => {
+export const Button: FC<ButtonProps> = (props) => {
   const {
     className, children, theme, ...otherProps
   } = props;
@@ -23,7 +23,7 @@ export const AppButton: FC<AppButtonProps> = (props) => {
   return (
     <button
       type="button"
-      className={classNames([s.appbutton, className, s[theme]])}
+      className={classNames([s.Button, className, s[theme]])}
       // eslint-disable-next-line react/jsx-props-no-spreading
       {...otherProps}
     >

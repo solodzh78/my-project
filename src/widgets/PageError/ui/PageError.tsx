@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import { useTranslation } from 'react-i18next';
 import { classNames } from 'shared/lib/classNames/classNames';
-import { AppButton } from 'shared/ui/AppButton';
+import { Button } from 'shared/ui/Button';
 
 import s from './PageError.module.scss';
 
@@ -21,9 +21,9 @@ export const PageError: FC<PageErrorProps> = (props) => {
       <p>
         {t('Что-то пошло не так')}
       </p>
-      <AppButton onClick={onReload}>
+      <Button onClick={onReload}>
         {t('Перезагрузить')}
-      </AppButton>
+      </Button>
     </div>
   );
 };

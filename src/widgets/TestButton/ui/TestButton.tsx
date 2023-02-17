@@ -1,7 +1,7 @@
 import { FC, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { classNames } from 'shared/lib/classNames/classNames';
-import { AppButton } from 'shared/ui/AppButton';
+import { Button } from 'shared/ui/Button';
 
 import s from './TestButton.module.scss';
 
@@ -22,11 +22,11 @@ export const TestButton: FC<TestButtonProps> = (props) => {
   }, [isError]);
 
   return (
-    <AppButton
+    <Button
       onClick={makeError}
       className={classNames([s.testbutton, className])}
     >
       { t('Создать ошибку') }
-    </AppButton>
+    </Button>
   );
 };
