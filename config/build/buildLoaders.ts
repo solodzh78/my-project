@@ -1,5 +1,6 @@
 import { RuleSetRule } from 'webpack';
 import ReactRefreshTypeScript from 'react-refresh-typescript';
+import { buildSvgLoader } from './loaders/buildSvgLoader';
 import { buildScssLoader } from './loaders/buildScssLoader';
 import { BuildOptions } from './types/config';
 
@@ -29,10 +30,7 @@ export function buildLoaders({ isDev }: BuildOptions): RuleSetRule[] {
     type: 'asset/resource',
   };
 
-  const svgLoader = {
-    test: /\.svg$/,
-    use: ['@svgr/webpack'],
-  };
+  const svgLoader = buildSvgLoader;
 
   const sassLoader = buildScssLoader(isDev);
 
