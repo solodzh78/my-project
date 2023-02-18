@@ -11,8 +11,8 @@ import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
 import { BuildOptions } from './types/config';
 
 // eslint-disable-next-line max-len
-export function buildPlugins({ paths, isDev }: BuildOptions): WebpackPluginInstance[] {
-  return [
+export function buildPlugins({ paths, isDev, bundleAnalyze }: BuildOptions): WebpackPluginInstance[] {
+  const plugins: WebpackPluginInstance[] = [
     new HtmlWebpackPlugin({
       template: paths.html,
     }),
@@ -24,8 +24,16 @@ export function buildPlugins({ paths, isDev }: BuildOptions): WebpackPluginInsta
     new DefinePlugin({
       __IS_DEV__: JSON.stringify(isDev),
     }),
-    isDev && new HotModuleReplacementPlugin(),
-    isDev && new ReactRefreshWebpackPlugin({ overlay: false }),
-    new BundleAnalyzerPlugin({ openAnalyzer: false }),
-  ].filter(Boolean);
+  ];
+
+  if (isDev) {
+    plugins.push(new HotModuleReplacementPlugin());
+    plugins.push(new ReactRefreshWebpackPlugin({ overlay: false }));
+  }
+
+  if (bundleAnalyze) {
+    plugins.push(new BundleAnalyzerPlugin({ openAnalyzer: true }));
+  }
+
+  return plugins;
 }
