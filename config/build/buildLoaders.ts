@@ -30,7 +30,7 @@ export function buildLoaders({ isDev }: BuildOptions): RuleSetRule[] {
     type: 'asset/resource',
   };
 
-  const svgLoader = buildSvgLoader;
+  const svgLoader = buildSvgLoader();
 
   const sassLoader = buildScssLoader(isDev);
 
