@@ -6,6 +6,7 @@ import s from './Button.module.scss';
 
 const ButtonTheme = {
   CLEAR: 'clear',
+  OUTLINE: 'outline',
 } as const;
 
 type ButtonThemeType = ValueOf<typeof ButtonTheme>

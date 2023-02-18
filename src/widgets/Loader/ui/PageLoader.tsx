@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
-import { Loader } from 'shared/ui/Spinner';
+import { Loader } from 'shared/ui/Loader';
 
 import s from './PageLoader.module.scss';
 

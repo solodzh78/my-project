@@ -7,6 +7,7 @@ import s from './AppLink.module.scss';
 export const LinkTheme = {
   PRIMARY: 'primary',
   SECONDARY: 'secondary',
+  RED: 'red',
 } as const;
 
 export type LinkThemeType = ValueOf<typeof LinkTheme>

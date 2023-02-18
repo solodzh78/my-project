@@ -1,10 +1,10 @@
-import { buildScssLoader } from './loaders/buildScssLoader';
-import webpack from 'webpack';
-import MiniCssExtractPlugin from 'mini-css-extract-plugin';
+import { RuleSetRule } from 'webpack';
 import ReactRefreshTypeScript from 'react-refresh-typescript';
+import { buildScssLoader } from './loaders/buildScssLoader';
 import { BuildOptions } from './types/config';
+import { buildSvgLoader } from './loaders/buildSVGLoader';
 
-export function buildLoaders({ isDev }: BuildOptions): webpack.RuleSetRule[] {
+export function buildLoaders({ isDev }: BuildOptions): RuleSetRule[] {
   const babelLoader = {
     test: /\.(js|jsx|tsx)$/,
     exclude: /node_modules/,
@@ -30,10 +30,7 @@ export function buildLoaders({ isDev }: BuildOptions): webpack.RuleSetRule[] {
     type: 'asset/resource',
   };
 
-  const svgLoader = {
-    test: /\.svg$/,
-    use: ['@svgr/webpack'],
-  };
+  const svgLoader = buildSvgLoader();
 
   const sassLoader = buildScssLoader(isDev);
 
