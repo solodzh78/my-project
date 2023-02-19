@@ -4,6 +4,8 @@ import { buildScssLoader } from './loaders/buildScssLoader';
 import { BuildOptions } from './types/config';
 
 export function buildLoaders({ isDev }: BuildOptions): RuleSetRule[] {
+  console.log('buildLoaders');
+
   const babelLoader = {
     test: /\.(js|jsx|tsx)$/,
     exclude: /node_modules/,
@@ -38,8 +40,6 @@ export function buildLoaders({ isDev }: BuildOptions): RuleSetRule[] {
     use: 'ts-loader',
     exclude: /node_modules/,
   };
-
-  console.log('buildLoaders');
 
   return [
     assetLoader,

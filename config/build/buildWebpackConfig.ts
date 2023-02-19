@@ -6,6 +6,8 @@ import { buildResolvers } from './buildResolvers';
 import { BuildOptions } from './types/config';
 
 export function buildWebpackConfig(options: BuildOptions): Configuration {
+  console.log('buildWebpackConfig');
+
   const { paths, mode, isDev } = options;
   const config: Configuration = {
     mode,
