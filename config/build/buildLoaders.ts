@@ -1,11 +1,10 @@
 import { RuleSetRule } from 'webpack';
-import { buildSvgLoader } from './loaders/buildSvgLoader';
+import ReactRefreshTypeScript from 'react-refresh-typescript';
 import { buildScssLoader } from './loaders/buildScssLoader';
 import { BuildOptions } from './types/config';
+import { buildSvgLoader } from './loaders/buildSvgLoader';
 
 export function buildLoaders({ isDev }: BuildOptions): RuleSetRule[] {
-  console.log('buildLoaders');
-
   const babelLoader = {
     test: /\.(js|jsx|tsx)$/,
     exclude: /node_modules/,
@@ -37,7 +36,15 @@ export function buildLoaders({ isDev }: BuildOptions): RuleSetRule[] {
 
   const typescriptLoader = {
     test: /\.tsx?$/,
-    use: 'ts-loader',
+    use: {
+      loader: require.resolve('ts-loader'),
+      options: {
+        getCustomTransformers: () => ({
+          before: [isDev && ReactRefreshTypeScript()].filter(Boolean),
+        }),
+        transpileOnly: isDev,
+      },
+    },
     exclude: /node_modules/,
   };
 
