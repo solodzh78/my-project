@@ -24,5 +24,3 @@ Dark.args = {
   // theme: 'outline',
 };
 Dark.decorators = [ThemeDecorator('dark')];
-
-// sidebar
