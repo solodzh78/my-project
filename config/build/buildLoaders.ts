@@ -39,6 +39,8 @@ export function buildLoaders({ isDev }: BuildOptions): RuleSetRule[] {
     exclude: /node_modules/,
   };
 
+  console.log('buildLoaders');
+
   return [
     assetLoader,
     svgLoader,

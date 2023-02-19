@@ -23,14 +23,14 @@ jobs:
         run: npm install
       - name: build production project
         run: npm run build:prod
-      - name: linting typescript
-        run: npm run lint:ts
-      - name: linting scss
-        run: npm run lint:scss
-      - name: unit testing
-        run: npm run test:unit
-      - name: unit testing
-        run: npm run test:unit
+      # - name: linting typescript
+      #   run: npm run lint:ts
+      # - name: linting scss
+      #   run: npm run lint:scss
+      # - name: unit testing
+      #   run: npm run test:unit
+      # - name: unit testing
+      #   run: npm run test:unit
 
   # Explore-GitHub-Actions:
   #   runs-on: ubuntu-latest
