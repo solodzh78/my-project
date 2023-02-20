@@ -25,15 +25,83 @@ Clear.args = {
   theme: 'clear',
 };
 
-export const Outline = Template.bind({});
-Outline.args = {
+export const BackgroundTheme = Template.bind({});
+BackgroundTheme.args = {
   children: 'Text',
-  theme: 'outline',
+  theme: 'background',
 };
 
-export const OutlineDark = Template.bind({});
-OutlineDark.args = {
+export const BackgroundInvertedTheme = Template.bind({});
+BackgroundInvertedTheme.args = {
+  children: 'Text',
+  theme: 'backgroundInverted',
+};
+
+export const SquareSizeM = Template.bind({});
+SquareSizeM.args = {
+  children: '>',
+  theme: 'backgroundInverted',
+  square: true,
+  size: 'size_m',
+};
+
+export const SquareSizeL = Template.bind({});
+SquareSizeL.args = {
+  children: '>',
+  theme: 'backgroundInverted',
+  square: true,
+  size: 'size_l',
+};
+
+export const SquareSizeXL = Template.bind({});
+SquareSizeXL.args = {
+  children: '>',
+  theme: 'backgroundInverted',
+  square: true,
+  size: 'size_xl',
+};
+
+export const OutlineSizeM = Template.bind({});
+OutlineSizeM.args = {
   children: 'Text',
   theme: 'outline',
+  size: 'size_m',
 };
-OutlineDark.decorators = [ThemeDecorator('dark')];
+
+export const OutlineSizeL = Template.bind({});
+OutlineSizeL.args = {
+  children: 'Text',
+  theme: 'outline',
+  size: 'size_l',
+};
+
+export const OutlineSizeXL = Template.bind({});
+OutlineSizeXL.args = {
+  children: 'Text',
+  theme: 'outline',
+  size: 'size_xl',
+};
+
+export const OutlineDarkSizeM = Template.bind({});
+OutlineDarkSizeM.args = {
+  children: 'Text',
+  theme: 'outline',
+  size: 'size_m',
+};
+OutlineDarkSizeM.decorators = [ThemeDecorator('dark')];
+
+export const OutlineDarkSizeL = Template.bind({});
+OutlineDarkSizeL.args = {
+  children: 'Text',
+  theme: 'outline',
+  size: 'size_l',
+};
+OutlineDarkSizeL.decorators = [ThemeDecorator('dark')];
+
+export const OutlineDarkSizeXL = Template.bind({});
+OutlineDarkSizeXL.args = {
+  children: 'Text',
+  theme: 'outline',
+  size: 'size_xl',
+};
+OutlineDarkSizeXL.decorators = [ThemeDecorator('dark')];
