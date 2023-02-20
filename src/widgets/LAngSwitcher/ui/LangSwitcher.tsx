@@ -25,6 +25,7 @@ export const LangSwitcher: FC<LangSwitcherProps> = (props) => {
       onClick={toggleLanguage}
       theme="clear"
     >
+      {/* i18next-extract-disable-next-line */}
       {t(short ? 'Язык сокращенно' : 'Язык')}
     </Button>
   );

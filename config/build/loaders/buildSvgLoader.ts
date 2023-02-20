@@ -1,7 +1,4 @@
-export const buildSvgLoader = () => {
-  console.log('buildSvgLoader');
-  return ({
-    test: /\.svg$/,
-    use: ['@svgr/webpack'],
-  });
-};
+export const buildSvgLoader = () => ({
+  test: /\.svg$/,
+  use: ['@svgr/webpack'],
+});
