@@ -1,9 +1,21 @@
+import { FC } from 'react';
 import { Story } from '@storybook/react';
-import { Theme } from 'app/providers/ThemeProvider';
+import { Theme, ThemeProvider, useTheme } from 'app/providers/ThemeProvider';
 import 'app/styles/index.scss';
 
+const App: FC = ({ children }) => {
+  const { theme } = useTheme();
+  return (
+    <div className={`app ${theme}`}>
+      { children }
+    </div>
+  );
+};
+
 export const ThemeDecorator = (theme: Theme) => (StoryComponent: Story) => (
-  <div className={`app ${theme}`}>
-    <StoryComponent />
-  </div>
+  <ThemeProvider initialTheme={theme}>
+    <App>
+      <StoryComponent />
+    </App>
+  </ThemeProvider>
 );

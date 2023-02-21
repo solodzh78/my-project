@@ -25,6 +25,12 @@ Clear.args = {
   theme: 'clear',
 };
 
+export const ClearInverted = Template.bind({});
+ClearInverted.args = {
+  children: 'Text',
+  theme: 'clearInverted',
+};
+
 export const BackgroundTheme = Template.bind({});
 BackgroundTheme.args = {
   children: 'Text',

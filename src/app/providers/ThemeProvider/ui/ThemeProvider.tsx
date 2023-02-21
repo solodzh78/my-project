@@ -1,5 +1,5 @@
 /* eslint-disable react/jsx-no-constructed-context-values */
-import { FC, useState } from 'react';
+import { FC, ReactNode, useState } from 'react';
 import {
   Theme,
   ThemeContext,
@@ -10,8 +10,18 @@ import {
 const defaultTheme = localStorage
   .getItem(LOCAL_STORAGE_THEME_KEY) as Theme || ThemeObject.LIGHT;
 
-const ThemeProvider:FC = ({ children }) => {
-  const [theme, setTheme] = useState<Theme>(defaultTheme);
+interface ThemeProviderProps {
+  children: ReactNode;
+  initialTheme?: Theme;
+}
+
+const ThemeProvider:FC<ThemeProviderProps> = (props) => {
+  const {
+    children,
+    initialTheme,
+  } = props;
+
+  const [theme, setTheme] = useState<Theme>(initialTheme || defaultTheme);
 
   return (
     <ThemeContext.Provider value={{

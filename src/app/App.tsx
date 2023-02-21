@@ -1,3 +1,4 @@
+/* eslint-disable i18next/no-literal-string */
 import { Suspense } from 'react';
 
 import { classNames } from 'shared/lib/classNames/classNames';
@@ -5,8 +6,6 @@ import { NavBar } from 'widgets/NavBar';
 import { SideBar } from 'widgets/SideBar';
 import { useTheme } from './providers/ThemeProvider/lib/useTheme';
 import { AppRouter } from './providers/router';
-
-import './styles/index.scss';
 
 export const App = () => {
   const { theme } = useTheme();
