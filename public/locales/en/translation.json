@@ -8,5 +8,7 @@
   "Создать ошибку": "Make Error",
   "Свернуть": "Roll up",
   "Развернуть": "Expand",
-  "Войти": "SignIn"
+  "Войти": "SignIn",
+  "decrement": "Decrease",
+  "increment": "Increase"
 }
