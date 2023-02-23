@@ -36,7 +36,7 @@ module.exports = {
     'no-unused-vars': 'warn',
     'react/require-default-props': 'off',
     'react/react-in-jsx-scope': 'off',
-    'react/jsx-props-no-spreading': 'warn',
+    // 'react/jsx-props-no-spreading': 'warn',
     'react/function-component-definition': 'off',
     'no-shadow': 'off',
     'import/extensions': 'off',
@@ -56,6 +56,7 @@ module.exports = {
     'react-hooks/rules-of-hooks': 'error',
     'react-hooks/exhaustive-deps': 'error',
     'no-param-reassign': 'off',
+    'react/jsx-props-no-spreading': ['error', { html: 'ignore' }],
   },
   settings: {
     react: {

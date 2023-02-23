@@ -10,5 +10,8 @@
   "Развернуть": "Развернуть",
   "Войти": "Войти",
   "decrement": "Уменьшить",
-  "increment": "Увеличивать"
+  "increment": "Увеличивать",
+  "loginform-login-btn": "Войти",
+  "loginform-placeholder-user": "Введите username",
+  "loginform-placeholder-password": "Введите пароль"
 }
