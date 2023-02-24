@@ -28,4 +28,5 @@ export const parameters = {
 addDecorator(StyleDecorator);
 addDecorator(ThemeDecorator('light'));
 addDecorator(RouterDecorator);
+// addDecorator(StoreDecorator);
 // addDecorator(i18nDecorator);

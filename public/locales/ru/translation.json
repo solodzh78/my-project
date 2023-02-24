@@ -9,9 +9,11 @@
   "Свернуть": "Свернуть",
   "Развернуть": "Развернуть",
   "Войти": "Войти",
+  "Выйти": "Выйти",
   "decrement": "Уменьшить",
   "increment": "Увеличивать",
   "loginform-login-btn": "Войти",
   "loginform-placeholder-user": "Введите username",
-  "loginform-placeholder-password": "Введите пароль"
+  "loginform-placeholder-password": "Введите пароль",
+  "login_form_title": "Форма авторизации"
 }

@@ -11,4 +11,8 @@
 .loginBtn {
   margin-top: 15px;
   margin-left: auto;
+
+  &:disabled {
+    cursor: unset;
+  }
 }

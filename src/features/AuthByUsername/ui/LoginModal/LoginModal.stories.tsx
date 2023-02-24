@@ -1,11 +1,12 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { StoreDecorator } from 'shared/config/storyBook/StoreDecorator/StoreDecorator';
 import { ThemeDecorator } from 'shared/config/storyBook/ThemeDecorator/ThemeDecorator';
 import { LoginForm } from '../LoginForm/LoginForm';
 
 import { LoginModal } from './LoginModal';
 
 export default {
-  title: 'shared/LoginModal',
+  title: 'features/LoginModal',
   component: LoginModal,
   args: {
     isOpen: true,
@@ -23,9 +24,54 @@ Primary.args = {
   children: <LoginForm isOpen />,
   isOpen: true,
 };
+Primary.decorators = [
+  StoreDecorator({ loginForm: { username: 'user', password: 'pass' } }),
+];
+
 export const PrimaryDark = Template.bind({});
 PrimaryDark.args = {
   children: <LoginForm isOpen />,
   isOpen: true,
 };
-PrimaryDark.decorators = [ThemeDecorator('dark')];
+PrimaryDark.decorators = [
+  ThemeDecorator('dark'),
+  StoreDecorator({ loginForm: { username: 'user', password: 'pass' } }),
+];
+
+export const PrimaryError = Template.bind({});
+PrimaryError.args = {
+  children: <LoginForm isOpen />,
+  isOpen: true,
+};
+PrimaryError.decorators = [
+  StoreDecorator({ loginForm: { username: 'user', password: 'pass', error: 'ERROR' } }),
+];
+
+export const PrimaryDarkError = Template.bind({});
+PrimaryDarkError.args = {
+  children: <LoginForm isOpen />,
+  isOpen: true,
+};
+PrimaryDarkError.decorators = [
+  ThemeDecorator('dark'),
+  StoreDecorator({ loginForm: { username: 'user', password: 'pass', error: 'ERROR' } }),
+];
+
+export const PrimaryLoading = Template.bind({});
+PrimaryLoading.args = {
+  children: <LoginForm isOpen />,
+  isOpen: true,
+};
+PrimaryLoading.decorators = [
+  StoreDecorator({ loginForm: { username: 'user', password: 'pass', isLoading: true } }),
+];
+
+export const PrimaryDarkLoading = Template.bind({});
+PrimaryDarkLoading.args = {
+  children: <LoginForm isOpen />,
+  isOpen: true,
+};
+PrimaryDarkLoading.decorators = [
+  ThemeDecorator('dark'),
+  StoreDecorator({ loginForm: { username: 'user', password: 'pass', isLoading: true } }),
+];

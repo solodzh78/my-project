@@ -20,6 +20,7 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   theme?: ButtonThemeType;
   square?: boolean;
   size?: ButtonSize;
+  disabled?: boolean;
 }
 
 export const Button: FC<ButtonProps> = (props) => {
@@ -28,17 +29,20 @@ export const Button: FC<ButtonProps> = (props) => {
     children,
     theme,
     square = false,
-    size = 'size_l',
+    size = 'size_m',
+    disabled,
     ...otherProps
   } = props;
 
   const mods: Record<string, boolean> = {
     [s.square]: square,
+    [s.disabled]: disabled,
   };
 
   return (
     <button
       type="button"
+      disabled={disabled}
       className={
         // eslint-disable-next-line function-paren-newline
         classNames(

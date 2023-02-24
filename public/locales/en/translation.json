@@ -9,9 +9,11 @@
   "Свернуть": "Roll up",
   "Развернуть": "Expand",
   "Войти": "SignIn",
+  "Выйти": "LogOut",
   "decrement": "Decrease",
   "increment": "Increase",
   "loginform-login-btn": "SignIn",
   "loginform-placeholder-user": "Enter username",
-  "loginform-placeholder-password": "Enter password"
+  "loginform-placeholder-password": "Enter password",
+  "login_form_title": "Authorization form"
 }

@@ -1,4 +1,4 @@
-import { Configuration, RuleSetRule } from 'webpack';
+import { Configuration, DefinePlugin, RuleSetRule } from 'webpack';
 import path from 'path';
 import { buildSvgLoader } from '../build/loaders/buildSvgLoader';
 import { buildScssLoader } from '../build/loaders/buildScssLoader';
@@ -28,6 +28,10 @@ export default ({ config }: {config: Configuration}) => {
   config.resolve?.modules?.push(paths.src);
   config.resolve?.extensions?.push('.ts', '.tsx');
   config.module?.rules?.push(buildScssLoader(true));
+
+  config.plugins?.push(new DefinePlugin({
+    __IS_DEV__: true,
+  }));
 
   return config;
 };

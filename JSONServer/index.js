@@ -32,7 +32,7 @@ server.post('/login', (req, res) => {
       return res.json(userFromDb);
     }
 
-    return res.status(403).json({ message: 'User not found' });
+    return res.status(401).json({ message: 'User not found' });
   } catch (e) {
     // eslint-disable-next-line no-console
     console.log(e);
