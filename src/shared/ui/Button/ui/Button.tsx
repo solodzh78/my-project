@@ -1,4 +1,4 @@
-import { ButtonHTMLAttributes, FC } from 'react';
+import { ButtonHTMLAttributes, memo } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { ValueOf } from 'shared/types/ValueOf';
 
@@ -23,7 +23,7 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   disabled?: boolean;
 }
 
-export const Button: FC<ButtonProps> = (props) => {
+export const Button = memo((props: ButtonProps) => {
   const {
     className,
     children,
@@ -44,7 +44,6 @@ export const Button: FC<ButtonProps> = (props) => {
       type="button"
       disabled={disabled}
       className={
-        // eslint-disable-next-line function-paren-newline
         classNames(
           [
             className,
@@ -55,10 +54,10 @@ export const Button: FC<ButtonProps> = (props) => {
           mods,
         )
       }
-      // eslint-disable-next-line react/jsx-props-no-spreading
       {...otherProps}
     >
       {children}
     </button>
   );
-};
+});
+Button.displayName = 'Button';

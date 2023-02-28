@@ -18,5 +18,5 @@ export interface BuildOptions {
 export interface BuildEnv {
   mode: BuildMode;
   port: number;
-  bundleAnalyze: boolean;
+  analyze: boolean;
 }

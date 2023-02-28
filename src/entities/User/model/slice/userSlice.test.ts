@@ -1,13 +1,24 @@
-// import { UserSchema } from '../types/userSchema';
-// import { userReducer, userActions } from './userSlice';
+import { UserSchema } from '../types/userSchema';
+import { userReducer, userActions } from './userSlice';
 
 describe('counterSlice.test', () => {
-  test('test increment', () => {
+  test('test setAuthData', () => {
+    const state: UserSchema = { authData: undefined };
+    expect(userReducer(state, userActions.setAuthData({ id: '1', username: 'user' })))
+      .toEqual({ authData: { id: '1', username: 'user' } });
   });
 
-  test('test decrement', () => {
+  test('test logout', () => {
+    const state: UserSchema = { authData: { id: '1', username: 'user' } };
+    expect(userReducer(state, userActions.logout()))
+      .toEqual({ authData: undefined });
   });
 
-  test('test empty state', () => {
+  test('test empty initAuthData', () => {
+    const state: UserSchema = undefined;
+    expect(userReducer(state, userActions.initAuthData()))
+      .toEqual({ authData: undefined });
   });
 });
+
+// { id: '1', username: 'user' }

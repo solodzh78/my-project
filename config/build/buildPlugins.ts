@@ -32,7 +32,7 @@ export function buildPlugins({ paths, isDev, bundleAnalyze }: BuildOptions): Web
   }
 
   if (bundleAnalyze) {
-    plugins.push(new BundleAnalyzerPlugin({ openAnalyzer: true }));
+    plugins.push(new BundleAnalyzerPlugin());
   }
 
   return plugins;

@@ -1,7 +1,5 @@
-/* eslint-disable react/prop-types */
 import {
   ChangeEventHandler,
-  FC,
   InputHTMLAttributes,
   memo,
   ReactEventHandler,
@@ -18,20 +16,18 @@ type HTMLInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'onC
 interface InputProps extends HTMLInputProps {
   className?: string;
   value: string;
-  // eslint-disable-next-line no-unused-vars
   onChange?: (value: string) => void;
-  isOpen?: boolean;
+  autoFocus?: boolean;
 }
 
-export const Input: FC<InputProps> = memo((props) => {
+export const Input = memo((props: InputProps) => {
   const {
     className,
     value,
     onChange,
     type = 'text',
     placeholder,
-    autoFocus,
-    isOpen,
+    autoFocus = false,
     ...otherProps
   } = props;
 
@@ -50,23 +46,16 @@ export const Input: FC<InputProps> = memo((props) => {
       onChange?.(value);
     }
   };
-
-  const onFocus = () => {
-    setIsFocused(true);
-  };
-
-  const onBlur = () => {
-    setIsFocused(false);
-  };
-
+  const onFocus = () => { setIsFocused(true); };
+  const onBlur = () => { setIsFocused(false); };
   const onSelect: ReactEventHandler<HTMLInputElement> = (e) => {
     setCaretPosition(e.currentTarget?.selectionEnd);
   };
 
   useEffect(() => {
-    if (!isOpen) return;
+    if (!autoFocus) return;
     ref.current.focus();
-  }, [isOpen]);
+  }, [autoFocus]);
 
   return (
     <div className={classNames([s.inputWrapper, className])}>
@@ -93,16 +82,11 @@ export const Input: FC<InputProps> = memo((props) => {
             value={inputCaretValue(caretPosition)}
             readOnly
             tabIndex={-1}
-            // eslint-disable-next-line jsx-a11y/no-autofocus
           />
         )}
-        {/* {isFocused && (
-          <span
-            className={s.caret}
-            style={{ left: `${caretPosition * 8.8}px` }}
-          />
-        )} */}
       </div>
     </div>
   );
 });
+
+Input.displayName = 'Input';

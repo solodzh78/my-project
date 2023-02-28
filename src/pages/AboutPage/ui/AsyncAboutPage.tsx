@@ -7,12 +7,12 @@ export const AsyncAboutPage = lazy(
     .then((module) => ({ default: module.AboutPage })),
 );
 
-const asyncPageGenerator = (name: string) => {
-  // (factory: () => Promise<{ default: ComponentType<any> }>)
+// const asyncPageGenerator = (name: string) => {
+//   // (factory: () => Promise<{ default: ComponentType<any> }>)
 
-  const Page = lazy(() => import(`./${name}`)
-    .then((module) => ({ default: module[name] })));
-  return () => <Page />;
-};
+//   const Page = lazy(() => import(`./${name}`)
+//     .then((module) => ({ default: module[name] })));
+//   return () => <Page />;
+// };
 
-export const AsyncAboutPage1 = asyncPageGenerator('AboutPage');
+// export const AsyncAboutPage1 = asyncPageGenerator('AboutPage');

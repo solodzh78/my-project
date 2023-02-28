@@ -22,9 +22,9 @@ export const NavBar: FC<NavBarProps> = (props) => {
   const onShowModal = useCallback(() => { setIsOpenAuthModal(true); }, []);
   const onLogout = useCallback(() => { dispatch(userActions.logout()); }, [dispatch]);
 
-  const userAuthData = useSelector(getUserAuthData);
+  const authData = useSelector(getUserAuthData);
 
-  if (userAuthData) {
+  if (authData) {
     return (
       <div className={classNames([s.navbar, className])}>
         <Button
@@ -40,10 +40,12 @@ export const NavBar: FC<NavBarProps> = (props) => {
 
   return (
     <div className={classNames([s.navbar, className])}>
-      <LoginModal
-        isOpen={isOpenAuthModal}
-        onClose={onCloseModal}
-      />
+      {isOpenAuthModal && (
+        <LoginModal
+          isOpen={isOpenAuthModal}
+          onClose={onCloseModal}
+        />
+      )}
       <Button
         theme="clearInverted"
         className={s.links}

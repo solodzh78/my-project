@@ -6,16 +6,19 @@ import { ErrorBoundary } from 'app/providers/ErrorBoundary';
 import { StoreProvider } from 'app/providers/StoreProvider';
 import 'shared/config/i18n/i18n';
 import 'app/styles/index.scss';
+import { StrictMode } from 'react';
 
 render(
-  <ErrorBoundary>
-    <BrowserRouter>
-      <StoreProvider>
-        <ThemeProvider>
-          <App />
-        </ThemeProvider>
-      </StoreProvider>
-    </BrowserRouter>
-  </ErrorBoundary>,
+  <StrictMode>
+    <ErrorBoundary>
+      <BrowserRouter>
+        <StoreProvider>
+          <ThemeProvider>
+            <App />
+          </ThemeProvider>
+        </StoreProvider>
+      </BrowserRouter>
+    </ErrorBoundary>
+  </StrictMode>,
   document.getElementById('root'),
 );

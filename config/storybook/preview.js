@@ -2,18 +2,18 @@ import { addDecorator } from '@storybook/react';
 import { StyleDecorator } from '../../src/shared/config/storyBook/StyleDecorator/StyleDecorator';
 import { ThemeDecorator } from '../../src/shared/config/storyBook/ThemeDecorator/ThemeDecorator';
 import { RouterDecorator } from '../../src/shared/config/storyBook/RouterDecorator/RouterDecorator';
-// import { i18nDecorator } from '../../src/shared/config/storyBook/i18nDecorator/i18nDecorator';
-import i18n from './i18next.js';
-// import 'shared/config/i18n/i18nForStorybook';
+import { i18nDecorator } from '../../src/shared/config/storyBook/i18nDecorator/i18nDecorator';
+// import '../../src/shared/config/storyBook/i18n/i18n';
 
-export const parameters = {
-  i18n,
-  locale: 'ru',
-  locales: {
-    en: 'English',
-    ru: 'Русский',
-  },
-};
+// import i18n from './i18next.js';
+// export const parameters = {
+//   i18n,
+//   locale: 'ru',
+//   locales: {
+//     en: 'English',
+//     ru: 'Русский',
+//   },
+// };
 
 // export const parameters = {
 //   actions: { argTypesRegex: '^on[A-Z].*' },
@@ -29,4 +29,4 @@ addDecorator(StyleDecorator);
 addDecorator(ThemeDecorator('light'));
 addDecorator(RouterDecorator);
 // addDecorator(StoreDecorator);
-// addDecorator(i18nDecorator);
+addDecorator(i18nDecorator);

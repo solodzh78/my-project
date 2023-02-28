@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Modal } from 'shared/ui/Modal';
-import { LoginForm } from '../LoginForm/LoginForm';
+import { AsyncLoginForm as LoginForm } from '../LoginForm/AsyncLoginForm';
 
 import s from './LoginModal.module.scss';
 
