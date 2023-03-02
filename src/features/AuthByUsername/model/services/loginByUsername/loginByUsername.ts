@@ -13,12 +13,13 @@ export const loginByUsername = createAsyncThunk<User, LoginByUsernameProps, {rej
   async (authData, thunkAPI) => {
     try {
       const response = await axios.post<User>('http://localhost:8000/login', authData);
-      if (!response.data) {
+      const { data } = response;
+      if (!data) {
         throw new Error('Received empty response');
       }
 
-      localStorage.setItem(USER_LOCALSTORAGE_KEY, JSON.stringify(response.data));
-      thunkAPI.dispatch(userActions.setAuthData(response.data));
+      localStorage.setItem(USER_LOCALSTORAGE_KEY, JSON.stringify(data));
+      thunkAPI.dispatch(userActions.setAuthData(data));
 
       return response.data;
     } catch (error) {

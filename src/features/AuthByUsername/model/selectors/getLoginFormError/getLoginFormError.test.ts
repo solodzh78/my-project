@@ -9,10 +9,14 @@ describe('getLoginFormError', () => {
     };
     expect(getLoginFormError(state as StateSchema)).toBe(undefined);
   });
-  test('return Error value true', () => {
+  test('return Error value', () => {
     const state: DeepPartial<StateSchema> = {
       loginForm: { username: 'user', password: '123', error: 'Error message' },
     };
     expect(getLoginFormError(state as StateSchema)).toBe('Error message');
+  });
+  test('return no Error wit empty state', () => {
+    const state: DeepPartial<StateSchema> = {};
+    expect(getLoginFormError(state as StateSchema)).toBe(undefined);
   });
 });

@@ -9,4 +9,8 @@ describe('getLoginFormPassword', () => {
     };
     expect(getLoginFormPassword(state as StateSchema)).toBe('123');
   });
+  test('return user value with empty state', () => {
+    const state: DeepPartial<StateSchema> = {};
+    expect(getLoginFormPassword(state as StateSchema)).toBe('');
+  });
 });

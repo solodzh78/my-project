@@ -1,5 +1,6 @@
 import {
   ChangeEventHandler,
+  FC,
   InputHTMLAttributes,
   memo,
   ReactEventHandler,
@@ -20,7 +21,7 @@ interface InputProps extends HTMLInputProps {
   autoFocus?: boolean;
 }
 
-export const Input = memo((props: InputProps) => {
+export const Input: FC<InputProps> = memo((props: InputProps) => {
   const {
     className,
     value,

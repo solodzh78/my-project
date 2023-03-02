@@ -9,4 +9,8 @@ describe('getLoginFormUsername', () => {
     };
     expect(getLoginFormUsername(state as StateSchema)).toBe('user');
   });
+  test('return user value from empty state', () => {
+    const state: DeepPartial<StateSchema> = {};
+    expect(getLoginFormUsername(state as StateSchema)).toBe('');
+  });
 });
