@@ -2,6 +2,8 @@ import { addDecorator } from '@storybook/react';
 import { StyleDecorator } from '../../src/shared/config/storyBook/StyleDecorator/StyleDecorator';
 import { ThemeDecorator } from '../../src/shared/config/storyBook/ThemeDecorator/ThemeDecorator';
 import { RouterDecorator } from '../../src/shared/config/storyBook/RouterDecorator/RouterDecorator';
+import { SuspenseDecorator }
+  from '../../src/shared/config/storyBook/SuspenseDecorator/SuspenseDecorator';
 // import { i18nDecorator } from '../../src/shared/config/storyBook/i18nDecorator/i18nDecorator';
 // import '../../src/shared/config/storyBook/i18n/i18n';
 
@@ -29,5 +31,6 @@ export const parameters = {
 addDecorator(StyleDecorator);
 addDecorator(ThemeDecorator('light'));
 addDecorator(RouterDecorator);
+addDecorator(SuspenseDecorator);
 // addDecorator(StoreDecorator);
 // addDecorator(i18nDecorator);
