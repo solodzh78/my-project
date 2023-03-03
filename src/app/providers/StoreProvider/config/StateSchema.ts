@@ -8,19 +8,17 @@ import {
 import { UserSchema } from 'entities/User';
 import { CounterSchema } from 'entities/Counter';
 import { LoginSchema } from 'features/AuthByUsername';
+import { ProfileSchema } from 'entities/Profile';
+import { RequiredFieldsOnly, OptionalFieldsOnly } from 'shared/types/RequiredFieldsOnly';
 
 export interface StateSchema {
   counter: CounterSchema;
   user: UserSchema;
 
   // Async reducers
+  profile?: ProfileSchema;
   loginForm?: LoginSchema;
 }
-
-type RequiredFieldsOnly<T> =
-  Pick<T, { [K in keyof T]-?: {} extends Pick<T, K> ? never : K }[keyof T]>;
-type OptionalFieldsOnly<T> =
-Pick<T, { [K in keyof T]-?: {} extends Pick<T, K> ? K : never }[keyof T]>;
 
 export type RequiredStateSchema = RequiredFieldsOnly<StateSchema>
 export type OptionalStateSchema = OptionalFieldsOnly<StateSchema>

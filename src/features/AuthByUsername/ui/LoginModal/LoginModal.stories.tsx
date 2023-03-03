@@ -21,7 +21,7 @@ const Template: ComponentStory<typeof LoginModal> = (args) => <LoginModal {...ar
 
 export const Primary = Template.bind({});
 Primary.args = {
-  children: <LoginForm isOpen />,
+  children: <LoginForm isOpen onSuccess={() => {}} />,
   isOpen: true,
 };
 Primary.decorators = [
@@ -30,7 +30,7 @@ Primary.decorators = [
 
 export const PrimaryDark = Template.bind({});
 PrimaryDark.args = {
-  children: <LoginForm isOpen />,
+  children: <LoginForm isOpen onSuccess={() => {}} />,
   isOpen: true,
 };
 PrimaryDark.decorators = [
@@ -40,7 +40,7 @@ PrimaryDark.decorators = [
 
 export const PrimaryError = Template.bind({});
 PrimaryError.args = {
-  children: <LoginForm isOpen />,
+  children: <LoginForm isOpen onSuccess={() => {}} />,
   isOpen: true,
 };
 PrimaryError.decorators = [
@@ -49,7 +49,7 @@ PrimaryError.decorators = [
 
 export const PrimaryDarkError = Template.bind({});
 PrimaryDarkError.args = {
-  children: <LoginForm isOpen />,
+  children: <LoginForm isOpen onSuccess={() => {}} />,
   isOpen: true,
 };
 PrimaryDarkError.decorators = [
@@ -59,7 +59,7 @@ PrimaryDarkError.decorators = [
 
 export const PrimaryLoading = Template.bind({});
 PrimaryLoading.args = {
-  children: <LoginForm isOpen />,
+  children: <LoginForm isOpen onSuccess={() => {}} />,
   isOpen: true,
 };
 PrimaryLoading.decorators = [
@@ -68,7 +68,7 @@ PrimaryLoading.decorators = [
 
 export const PrimaryDarkLoading = Template.bind({});
 PrimaryDarkLoading.args = {
-  children: <LoginForm isOpen />,
+  children: <LoginForm isOpen onSuccess={() => {}} />,
   isOpen: true,
 };
 PrimaryDarkLoading.decorators = [

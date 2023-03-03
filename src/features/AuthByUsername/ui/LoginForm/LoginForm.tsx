@@ -5,7 +5,7 @@ import {
   useCallback,
 } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Button } from 'shared/ui/Button';
 import { Input } from 'shared/ui/Input';
@@ -19,6 +19,7 @@ import {
   getLoginFormPassword,
   getLoginFormUsername,
 } from 'features/AuthByUsername/model/selectors';
+import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { loginByUsername } from '../../model/services/loginByUsername/loginByUsername';
 import { loginActions, loginReducer } from '../../model/slice/loginSlice';
 
@@ -27,6 +28,7 @@ import s from './LoginForm.module.scss';
 interface LoginFormProps {
   className?: string;
   isOpen: boolean;
+  onSuccess: () => void;
 }
 
 const initialReducers: ReducersList = {
@@ -34,10 +36,10 @@ const initialReducers: ReducersList = {
 };
 
 export const LoginForm = memo((props: LoginFormProps) => {
-  const { className, isOpen } = props;
+  const { className, isOpen, onSuccess } = props;
 
   const { t } = useTranslation();
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const username = useSelector(getLoginFormUsername);
   const password = useSelector(getLoginFormPassword);
   const isLoading = useSelector(getLoginFormIsLoading);
@@ -51,9 +53,12 @@ export const LoginForm = memo((props: LoginFormProps) => {
     dispatch(loginActions.setPassword(value));
   }, [dispatch]);
 
-  const onLoginClick = useCallback(() => {
-    dispatch(loginByUsername({ username, password }));
-  }, [dispatch, password, username]);
+  const onLoginClick = useCallback(async () => {
+    const result = await dispatch(loginByUsername({ username, password }));
+    if (result.meta.requestStatus === 'fulfilled') {
+      onSuccess();
+    }
+  }, [dispatch, onSuccess, password, username]);
 
   const onSubmit: FormEventHandler<HTMLFormElement> = useCallback((e) => {
     e.preventDefault();

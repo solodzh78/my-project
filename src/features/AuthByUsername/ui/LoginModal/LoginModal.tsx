@@ -25,7 +25,10 @@ export const LoginModal: FC<LoginModalProps> = (props) => {
       onClose={onClose}
       lazy
     >
-      <LoginForm isOpen={isOpen} />
+      <LoginForm
+        isOpen={isOpen}
+        onSuccess={onClose}
+      />
     </Modal>
   );
 };

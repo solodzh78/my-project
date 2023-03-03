@@ -2,10 +2,13 @@
 import { userActions } from 'entities/User';
 import { getUserAuthData } from 'entities/User/model/selectors';
 import { LoginModal } from 'features/AuthByUsername';
-import { FC, useCallback, useState } from 'react';
+import {
+  FC, memo, useCallback, useState,
+} from 'react';
 import { useTranslation } from 'react-i18next';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { classNames } from 'shared/lib/classNames/classNames';
+import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { Button } from 'shared/ui/Button';
 import s from './NavBar.module.scss';
 
@@ -13,11 +16,11 @@ interface NavBarProps {
   className?: string;
 }
 
-export const NavBar: FC<NavBarProps> = (props) => {
+export const NavBar: FC<NavBarProps> = memo((props: NavBarProps) => {
   const { className = '' } = props;
   const { t } = useTranslation();
   const [isOpenAuthModal, setIsOpenAuthModal] = useState(false);
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const onCloseModal = useCallback(() => { setIsOpenAuthModal(false); }, []);
   const onShowModal = useCallback(() => { setIsOpenAuthModal(true); }, []);
   const onLogout = useCallback(() => { dispatch(userActions.logout()); }, [dispatch]);
@@ -55,4 +58,4 @@ export const NavBar: FC<NavBarProps> = (props) => {
       </Button>
     </div>
   );
-};
+});
