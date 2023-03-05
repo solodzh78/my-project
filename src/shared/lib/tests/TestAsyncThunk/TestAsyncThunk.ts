@@ -9,6 +9,11 @@ type ActionCreatorType<Return, Arg, RejectedValue> =
 jest.mock('axios');
 const mockedAxios = jest.mocked(axios, true);
 
+const isObject = (thing: any) => thing !== null && typeof thing === 'object';
+const isAxiosError = (payload: any) => isObject(payload) && (payload.isAxiosError === true);
+// @ts-ignore
+mockedAxios.isAxiosError = isAxiosError;
+
 export class TestAsyncThunk<Return, Arg, RejectedValue> {
   dispatch: Dispatch;
 
