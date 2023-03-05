@@ -9,8 +9,6 @@ export type ReducersList = {
   [name in OptionalStateSchemaKey]?: Reducer;
 }
 
-type ObjectEntriesReducersList = [ OptionalStateSchemaKey, Reducer ];
-
 interface DynamicConnectAsyncReducersProps {
   asyncReducers: ReducersList;
   stayAfterUnmount?: boolean;
@@ -28,15 +26,15 @@ export const DynamicConnectAsyncReducers: FC<DynamicConnectAsyncReducersProps> =
 
   // eslint-disable-next-line consistent-return
   useEffect(() => {
-    Object.entries(asyncReducers).forEach(([name, reducer]: ObjectEntriesReducersList) => {
-      store.reducerManager.add(name, reducer);
+    Object.entries(asyncReducers).forEach(([name, reducer]) => {
+      store.reducerManager?.add(name as OptionalStateSchemaKey, reducer);
       dispatch({ type: `@INIT ${name} reducer` });
     });
 
     return () => {
       if (!stayAfterUnmount) {
-        Object.entries(asyncReducers).forEach(([name]: ObjectEntriesReducersList) => {
-          store.reducerManager.remove(name);
+        Object.entries(asyncReducers).forEach(([name]) => {
+          store.reducerManager?.remove(name as OptionalStateSchemaKey);
           dispatch({ type: `@DESTROY ${name} reducer` });
         });
       }

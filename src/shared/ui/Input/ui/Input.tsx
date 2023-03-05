@@ -16,7 +16,7 @@ type HTMLInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'onC
 
 interface InputProps extends HTMLInputProps {
   className?: string;
-  value: string;
+  value?: string;
   onChange?: (value: string) => void;
   autoFocus?: boolean;
 }
@@ -24,7 +24,7 @@ interface InputProps extends HTMLInputProps {
 export const Input: FC<InputProps> = memo((props: InputProps) => {
   const {
     className,
-    value,
+    value = '',
     onChange,
     type = 'text',
     placeholder,
@@ -50,12 +50,15 @@ export const Input: FC<InputProps> = memo((props: InputProps) => {
   const onFocus = () => { setIsFocused(true); };
   const onBlur = () => { setIsFocused(false); };
   const onSelect: ReactEventHandler<HTMLInputElement> = (e) => {
-    setCaretPosition(e.currentTarget?.selectionEnd);
+    if (!e.currentTarget.selectionEnd) {
+      return;
+    }
+    setCaretPosition(e.currentTarget.selectionEnd);
   };
 
   useEffect(() => {
     if (!autoFocus) return;
-    ref.current.focus();
+    ref.current?.focus();
   }, [autoFocus]);
 
   return (

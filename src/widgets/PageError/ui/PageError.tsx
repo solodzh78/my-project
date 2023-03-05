@@ -17,7 +17,7 @@ export const PageError: FC<PageErrorProps> = (props) => {
   };
 
   return (
-    <div className={classNames([s.pageerror, className])}>
+    <div className={classNames([s.pageError, className])}>
       <p>
         {t('Что-то пошло не так')}
       </p>

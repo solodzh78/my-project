@@ -1,4 +1,4 @@
-import { DeepPartial } from '@reduxjs/toolkit';
+import { DeepPartial } from 'shared/types/DeepPartial';
 import { StateSchema } from 'app/providers/StoreProvider/config/StateSchema';
 import { getLoginFormState } from './getLoginFormState';
 

@@ -1,5 +1,5 @@
-import { DeepPartial } from '@reduxjs/toolkit';
 import { StateSchema } from 'app/providers/StoreProvider/config/StateSchema';
+import { DeepPartial } from 'shared/types/DeepPartial';
 import { getLoginFormError } from './getLoginFormError';
 
 describe('getLoginFormError', () => {

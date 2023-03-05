@@ -1,3 +1,7 @@
 {
-  "PROFILE_PAGE": "Профиль"
+  "PROFILE_PAGE": "Профиль",
+  "card_title": "Профиль",
+  "edit": "Редактировать",
+  "firstName": "Ваше Имя",
+  "lastName": "Ваша Фамилия"
 }

@@ -24,7 +24,7 @@ export const TestButton: FC<TestButtonProps> = (props) => {
   return (
     <Button
       onClick={makeError}
-      className={classNames([s.testbutton, className])}
+      className={classNames([s.testButton, className])}
     >
       { t('Создать ошибку') }
     </Button>

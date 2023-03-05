@@ -15,8 +15,7 @@ describe('counterSlice.test', () => {
   });
 
   test('test empty initAuthData', () => {
-    const state: UserSchema = undefined;
-    expect(userReducer(state, userActions.initAuthData()))
+    expect(userReducer(undefined, userActions.initAuthData()))
       .toEqual({ authData: undefined });
   });
 });

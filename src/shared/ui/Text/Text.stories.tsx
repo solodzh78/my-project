@@ -17,7 +17,7 @@ const Template: ComponentStory<typeof Text> = (args) => <Text {...args} />;
 export const Primary = Template.bind({});
 Primary.args = {
   title: 'Title',
-  text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus eveniet illo quidem quaerat consectetur odio ea, alias nihil exercitationem commodi nam quo deserunt ducimus sed non! Harum facere animi similique.',
+  text: 'Lorem ipsum dolor sit consectetur. Lorem ipsum dolor sit consectetur. Lorem ipsum dolor sit consectetur. Lorem ipsum dolor sit consectetur. Lorem ipsum dolor sit consectetur. Lorem ipsum dolor sit consectetur. Lorem ipsum dolor sit consectetur. Lorem ipsum dolor sit consectetur. Lorem ipsum dolor sit consectetur. Lorem ipsum dolor sit consectetur. Lorem ipsum dolor sit consectetur. ',
 };
 
 export const PrimaryOnlyTitle = Template.bind({});
@@ -27,13 +27,13 @@ PrimaryOnlyTitle.args = {
 
 export const PrimaryOnlyText = Template.bind({});
 PrimaryOnlyText.args = {
-  text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus eveniet illo quidem quaerat consectetur odio ea, alias nihil exercitationem commodi nam quo deserunt ducimus sed non! Harum facere animi similique.',
+  text: 'Lorem ipsum dolor sit consectetur. Lorem ipsum dolor sit consectetur. Lorem ipsum dolor sit consectetur. Lorem ipsum dolor sit consectetur. Lorem ipsum dolor sit consectetur. Lorem ipsum dolor sit consectetur. Lorem ipsum dolor sit consectetur. Lorem ipsum dolor sit consectetur. Lorem ipsum dolor sit consectetur. Lorem ipsum dolor sit consectetur. Lorem ipsum dolor sit consectetur. ',
 };
 
 export const PrimaryDark = Template.bind({});
 PrimaryDark.args = {
   title: 'Title',
-  text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus eveniet illo quidem quaerat consectetur odio ea, alias nihil exercitationem commodi nam quo deserunt ducimus sed non! Harum facere animi similique.',
+  text: 'Lorem ipsum dolor sit consectetur. Lorem ipsum dolor sit consectetur. Lorem ipsum dolor sit consectetur. Lorem ipsum dolor sit consectetur. Lorem ipsum dolor sit consectetur. Lorem ipsum dolor sit consectetur. Lorem ipsum dolor sit consectetur. Lorem ipsum dolor sit consectetur. Lorem ipsum dolor sit consectetur. Lorem ipsum dolor sit consectetur. Lorem ipsum dolor sit consectetur. ',
 };
 PrimaryDark.decorators = [ThemeDecorator('dark')];
 
@@ -45,7 +45,7 @@ PrimaryOnlyTitleDark.decorators = [ThemeDecorator('dark')];
 
 export const PrimaryOnlyTextDark = Template.bind({});
 PrimaryOnlyTextDark.args = {
-  text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus eveniet illo quidem quaerat consectetur odio ea, alias nihil exercitationem commodi nam quo deserunt ducimus sed non! Harum facere animi similique.',
+  text: 'Lorem ipsum dolor sit consectetur. Lorem ipsum dolor sit consectetur. Lorem ipsum dolor sit consectetur. Lorem ipsum dolor sit consectetur. Lorem ipsum dolor sit consectetur. Lorem ipsum dolor sit consectetur. Lorem ipsum dolor sit consectetur. Lorem ipsum dolor sit consectetur. Lorem ipsum dolor sit consectetur. Lorem ipsum dolor sit consectetur. Lorem ipsum dolor sit consectetur. ',
 };
 PrimaryOnlyTextDark.decorators = [ThemeDecorator('dark')];
 
@@ -53,13 +53,13 @@ export const Error = Template.bind({});
 Error.args = {
   variant: 'error',
   title: 'Title',
-  text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus eveniet illo quidem quaerat consectetur odio ea, alias nihil exercitationem commodi nam quo deserunt ducimus sed non! Harum facere animi similique.',
+  text: 'Lorem ipsum dolor sit consectetur. Lorem ipsum dolor sit consectetur. Lorem ipsum dolor sit consectetur. Lorem ipsum dolor sit consectetur. Lorem ipsum dolor sit consectetur. Lorem ipsum dolor sit consectetur. Lorem ipsum dolor sit consectetur. Lorem ipsum dolor sit consectetur. Lorem ipsum dolor sit consectetur. Lorem ipsum dolor sit consectetur. Lorem ipsum dolor sit consectetur. ',
 };
 
 export const ErrorDark = Template.bind({});
 ErrorDark.args = {
   variant: 'error',
   title: 'Title',
-  text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus eveniet illo quidem quaerat consectetur odio ea, alias nihil exercitationem commodi nam quo deserunt ducimus sed non! Harum facere animi similique.',
+  text: 'Lorem ipsum dolor sit consectetur. Lorem ipsum dolor sit consectetur. Lorem ipsum dolor sit consectetur. Lorem ipsum dolor sit consectetur. Lorem ipsum dolor sit consectetur. Lorem ipsum dolor sit consectetur. Lorem ipsum dolor sit consectetur. Lorem ipsum dolor sit consectetur. Lorem ipsum dolor sit consectetur. Lorem ipsum dolor sit consectetur. Lorem ipsum dolor sit consectetur. ',
 };
 ErrorDark.decorators = [ThemeDecorator('dark')];

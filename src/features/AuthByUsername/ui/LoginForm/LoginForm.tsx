@@ -71,7 +71,7 @@ export const LoginForm = memo((props: LoginFormProps) => {
       asyncReducers={initialReducers}
     >
       <form
-        className={classNames([s.loginform, className])}
+        className={classNames([s.loginForm, className])}
         onSubmit={onSubmit}
       >
         <Text title={t('login_form_title')} />

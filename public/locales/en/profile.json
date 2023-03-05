@@ -1,3 +1,7 @@
 {
-  "PROFILE_PAGE": "Profile"
+  "PROFILE_PAGE": "Profile",
+  "card_title": "Profile",
+  "edit": "Edit",
+  "firstName": "Your first name",
+  "lastName": "Your Last name"
 }

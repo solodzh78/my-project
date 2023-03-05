@@ -15,8 +15,7 @@ describe('loginSlice.test', () => {
   });
 
   test('test empty state', () => {
-    const state: LoginSchema = undefined;
-    expect(loginReducer(state, loginActions.setUsername('user')))
+    expect(loginReducer(undefined, loginActions.setUsername('user')))
       .toEqual({ username: 'user', password: '', isLoading: false });
   });
 });

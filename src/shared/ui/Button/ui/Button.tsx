@@ -1,5 +1,5 @@
 import { ButtonHTMLAttributes, memo } from 'react';
-import { classNames } from 'shared/lib/classNames/classNames';
+import { classNames, Mods } from 'shared/lib/classNames/classNames';
 import { ValueOf } from 'shared/types/ValueOf';
 
 import s from './Button.module.scss';
@@ -17,7 +17,7 @@ type ButtonSize = 'size_m' | 'size_l' | 'size_xl'
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   className?: string;
-  theme?: ButtonThemeType;
+  theme?: ButtonThemeType | undefined;
   square?: boolean;
   size?: ButtonSize;
   disabled?: boolean;
@@ -34,10 +34,11 @@ export const Button = memo((props: ButtonProps) => {
     ...otherProps
   } = props;
 
-  const mods: Record<string, boolean> = {
+  const mods: Mods = {
     [s.square]: square,
     [s.disabled]: disabled,
   };
+  const themeClass = theme ? s[theme] : undefined;
 
   return (
     <button
@@ -48,7 +49,7 @@ export const Button = memo((props: ButtonProps) => {
           [
             className,
             s.Button,
-            s[theme],
+            themeClass,
             s[size],
           ],
           mods,

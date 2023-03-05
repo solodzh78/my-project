@@ -10,6 +10,8 @@ import { CounterSchema } from 'entities/Counter';
 import { LoginSchema } from 'features/AuthByUsername';
 import { ProfileSchema } from 'entities/Profile';
 import { RequiredFieldsOnly, OptionalFieldsOnly } from 'shared/types/RequiredFieldsOnly';
+import { AxiosInstance } from 'axios';
+import { NavigateFunction } from 'react-router-dom';
 
 export interface StateSchema {
   counter: CounterSchema;
@@ -35,4 +37,14 @@ export interface ReducerManager {
 
 export interface StoreWithReducerManager extends EnhancedStore<StateSchema> {
   reducerManager?: ReducerManager;
+}
+
+export interface ThunkExtraArg {
+  api: AxiosInstance;
+  navigate?: NavigateFunction;
+}
+
+export interface ThunkConfig<T = string> {
+  rejectValue: T,
+  extra: ThunkExtraArg;
 }

@@ -11,7 +11,7 @@ interface ModalProps {
   className?: string;
   children: ReactNode;
   isOpen: boolean;
-  onClose: () => void;
+  onClose?: () => void;
   lazy?: boolean;
 }
 
@@ -56,6 +56,9 @@ export const Modal: FC<ModalProps> = (props) => {
     }
 
     const timer = setTimeout(() => {
+      if (!onClose) {
+        return;
+      }
       onClose();
       setIsClosing(false);
     }, ANIMATION_DELAY);
