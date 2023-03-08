@@ -30,8 +30,8 @@ export default ({ config }: {config: Configuration}) => {
   config.module?.rules?.push(buildScssLoader(true));
 
   config.plugins?.push(new DefinePlugin({
-    __IS_DEV__: true,
-    __API_URL__: true,
+    __IS_DEV__: JSON.stringify(true),
+    __API_URL__: JSON.stringify(''),
   }));
 
   return config;

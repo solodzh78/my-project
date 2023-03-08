@@ -49,7 +49,7 @@ module.exports = {
       'error',
       {
         markupOnly: true,
-        ignoreAttribute: ['data-testid', 'theme', 'to', 'size', 'variant'],
+        ignoreAttribute: ['data-testid', 'theme', 'to', 'size', 'variant', 'align'],
       },
     ],
     'max-len': ['error', { ignoreComments: true, code: 100 }],
@@ -78,6 +78,7 @@ module.exports = {
       rules: {
         'i18next/no-literal-string': 'off',
         'max-len': 'off',
+        'react/jsx-props-no-spreading': 'off',
       },
     },
   ],

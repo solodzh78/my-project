@@ -16,5 +16,13 @@
   "loginform-login-btn": "Войти",
   "loginform-placeholder-user": "Введите username",
   "loginform-placeholder-password": "Введите пароль",
-  "login_form_title": "Форма авторизации"
+  "login_form_title": "Форма авторизации",
+  "RUB": "Российские рубли",
+  "EUR": "Евро",
+  "USD": "Доллары США",
+  "currency_label": "Выберите валюту",
+  "RUSSIA": "Россия",
+  "KAZAKHSTAN": "Казахстан",
+  "BELARUS": "Беларусь",
+  "ARMENIA": "Армения"
 }

@@ -12,13 +12,15 @@ import { classNames } from 'shared/lib/classNames/classNames';
 
 import s from './Input.module.scss';
 
-type HTMLInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'onChange'>;
+// eslint-disable-next-line max-len
+type HTMLInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'onChange' | 'readOnly'>;
 
 interface InputProps extends HTMLInputProps {
   className?: string;
   value?: string;
   onChange?: (value: string) => void;
   autoFocus?: boolean;
+  readOnly?: boolean;
 }
 
 export const Input: FC<InputProps> = memo((props: InputProps) => {
@@ -29,6 +31,7 @@ export const Input: FC<InputProps> = memo((props: InputProps) => {
     type = 'text',
     placeholder,
     autoFocus = false,
+    readOnly,
     ...otherProps
   } = props;
 
@@ -45,6 +48,9 @@ export const Input: FC<InputProps> = memo((props: InputProps) => {
     const { value } = e.target;
     if (value?.length !== undefined) {
       onChange?.(value);
+      if (value.length === 0) {
+        setCaretPosition(0);
+      }
     }
   };
   const onFocus = () => { setIsFocused(true); };
@@ -78,9 +84,10 @@ export const Input: FC<InputProps> = memo((props: InputProps) => {
           onFocus={onFocus}
           onSelect={onSelect}
           ref={ref}
+          disabled={readOnly}
           {...otherProps}
         />
-        {isFocused && (
+        {!readOnly && isFocused && (
           <input
             className={s.caretInput}
             value={inputCaretValue(caretPosition)}

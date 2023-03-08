@@ -126,3 +126,18 @@ DisabledDark.args = {
   disabled: true,
 };
 DisabledDark.decorators = [ThemeDecorator('dark')];
+
+export const OutlineRed = Template.bind({});
+OutlineRed.args = {
+  children: 'Text',
+  theme: 'outline-red',
+  size: 'size_m',
+};
+
+export const OutlineRedDark = Template.bind({});
+OutlineRedDark.args = {
+  children: 'Text',
+  theme: 'outline-red',
+  size: 'size_m',
+};
+OutlineRedDark.decorators = [ThemeDecorator('dark')];

@@ -10,7 +10,20 @@ export default {
     {
       profile: {
         isLoading: false,
-        readonly: true,
+        readOnly: true,
+        error: undefined,
+        data: {
+          firstName: 'Sergei',
+          lastName: 'Solodzhuk',
+          username: 'admin',
+          city: 'Kaliningrad',
+          currency: 'EUR',
+          country: 'RUSSIA',
+          age: 44,
+        },
+      },
+      user: {
+        authData: {},
       },
     },
   ),

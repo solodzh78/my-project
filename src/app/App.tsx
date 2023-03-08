@@ -6,6 +6,7 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import { NavBar } from 'widgets/NavBar';
 import { SideBar } from 'widgets/SideBar';
 import { userActions } from 'entities/User';
+import { USER_LOCALSTORAGE_KEY } from 'shared/const/localStorage';
 import { useTheme } from './providers/ThemeProvider/lib/useTheme';
 import { AppRouter } from './providers/router';
 
@@ -14,7 +15,10 @@ export const App = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(userActions.initAuthData());
+    const user = localStorage.getItem(USER_LOCALSTORAGE_KEY);
+    if (user) {
+      dispatch(userActions.setAuthData(JSON.parse(user)));
+    }
   }, [dispatch]);
 
   return (

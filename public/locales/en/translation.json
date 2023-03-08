@@ -16,5 +16,13 @@
   "loginform-login-btn": "SignIn",
   "loginform-placeholder-user": "Enter username",
   "loginform-placeholder-password": "Enter password",
-  "login_form_title": "Authorization form"
+  "login_form_title": "Authorization form",
+  "RUB": "Russian rubles",
+  "EUR": "Euro",
+  "USD": "US dollars",
+  "currency_label": "Select currency",
+  "ARMENIA": "Armenia",
+  "BELARUS": "Belarus",
+  "KAZAKHSTAN": "Kazakhstan",
+  "RUSSIA": "Russia"
 }

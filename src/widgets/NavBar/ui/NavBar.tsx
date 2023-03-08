@@ -7,6 +7,7 @@ import {
 } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
+import { USER_LOCALSTORAGE_KEY } from 'shared/const/localStorage';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { Button } from 'shared/ui/Button';
@@ -23,7 +24,10 @@ export const NavBar: FC<NavBarProps> = memo((props: NavBarProps) => {
   const dispatch = useAppDispatch();
   const onCloseModal = useCallback(() => { setIsOpenAuthModal(false); }, []);
   const onShowModal = useCallback(() => { setIsOpenAuthModal(true); }, []);
-  const onLogout = useCallback(() => { dispatch(userActions.logout()); }, [dispatch]);
+  const onLogout = useCallback(() => {
+    dispatch(userActions.logout());
+    localStorage.removeItem(USER_LOCALSTORAGE_KEY);
+  }, [dispatch]);
 
   const authData = useSelector(getUserAuthData);
 

@@ -8,6 +8,7 @@ const ButtonTheme = {
   CLEAR: 'clear',
   CLEAR_INVERTED: 'clearInverted',
   OUTLINE: 'outline',
+  OUTLINE_RED: 'outline-red',
   BACKGROUND: 'background',
   BACKGROUND_INVERTED: 'backgroundInverted',
 } as const;

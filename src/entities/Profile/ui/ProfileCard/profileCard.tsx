@@ -1,47 +1,113 @@
+import { Country, CountrySelect } from 'entities/Country';
+import { Currency, CurrencySelect } from 'entities/Currency';
 import { FC } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useSelector } from 'react-redux';
-import { classNames } from 'shared/lib/classNames/classNames';
-import { Button } from 'shared/ui/Button';
+import { classNames, Mods } from 'shared/lib/classNames/classNames';
+import { Avatar } from 'shared/ui/Avatar/Avatar';
 import { Input } from 'shared/ui/Input';
-import { Text } from 'shared/ui/Text/Text';
-import {
-  getProfileData,
-  // getProfileError, getProfileIsLoading, getProfileReadonly,
-} from '../../model/selectors';
+import { Profile } from '../../model/types/profile';
+// import {
+//   getProfileData,
+//   // getProfileError, getProfileIsLoading, getProfileReadonly,
+// } from '../../model/selectors';
 
 import s from './profileCard.module.scss';
 
 interface profileCardProps {
   className?: string;
+  data?: Profile;
+  readOnly?: boolean;
+  onChangeFirstName?: (value: string) => void;
+  onChangeLastName?: (value: string) => void;
+  onChangeUsername?: (value: string) => void;
+  onChangeAge?: (value: string) => void;
+  onChangeCity?: (value: string) => void;
+  onChangeAvatar?: (value: string) => void;
+  onChangeCurrency?: (value: Currency) => void;
+  onChangeCountry?: (value: Country) => void;
 }
 
 export const ProfileCard: FC<profileCardProps> = (props) => {
-  const { className } = props;
+  const {
+    className,
+    data,
+    readOnly = true,
+    onChangeFirstName,
+    onChangeLastName,
+    onChangeUsername,
+    onChangeAge,
+    onChangeCity,
+    onChangeAvatar,
+    onChangeCurrency,
+    onChangeCountry,
+  } = props;
   const { t } = useTranslation('profile');
-  const data = useSelector(getProfileData);
-  // const readonly = useSelector(getProfileReadonly);
-  // const isLoading = useSelector(getProfileIsLoading);
-  // const error = useSelector(getProfileError);
+
+  const mods: Mods = {
+    [s.editing]: !readOnly,
+  };
 
   return (
-    <div className={classNames([s.profileCard, className])}>
-      <div className={s.header}>
-        <Text title={t('card_title')} />
-        <Button className={s.editBtn} theme="outline">
-          {t('edit')}
-        </Button>
-      </div>
+    <div className={classNames([s.profileCard, className], mods)}>
       <div className={s.data}>
+        <div className={s.avatarWrapper}>
+          <Avatar src={data?.avatar} />
+        </div>
         <Input
           value={data?.firstName}
           placeholder={t('firstName')}
           className={s.input}
+          readOnly={readOnly}
+          onChange={onChangeFirstName}
         />
         <Input
           value={data?.lastName}
           placeholder={t('lastName')}
           className={s.input}
+          readOnly={readOnly}
+          onChange={onChangeLastName}
+        />
+        <Input
+          value={data?.username}
+          placeholder={t('username')}
+          className={s.input}
+          readOnly={readOnly}
+          onChange={onChangeUsername}
+        />
+        <Input
+          value={String(data?.age)}
+          placeholder={t('age')}
+          className={s.input}
+          readOnly={readOnly}
+          onChange={onChangeAge}
+        />
+        <Input
+          value={data?.city}
+          placeholder={t('city')}
+          className={s.input}
+          readOnly={readOnly}
+          onChange={onChangeCity}
+        />
+        <Input
+          value={data?.avatar}
+          placeholder={t('avatar')}
+          className={s.input}
+          readOnly={readOnly}
+          onChange={onChangeAvatar}
+        />
+        <CurrencySelect
+          value={data?.currency}
+          label={t('currency')}
+          className={s.input}
+          readOnly={readOnly}
+          onChange={onChangeCurrency}
+        />
+        <CountrySelect
+          value={data?.country}
+          label={t('country')}
+          className={s.input}
+          readOnly={readOnly}
+          onChange={onChangeCountry}
         />
       </div>
     </div>

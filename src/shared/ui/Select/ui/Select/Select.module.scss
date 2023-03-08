@@ -1,0 +1,30 @@
+// .Select {
+
+// }
+
+.select {
+  background: none;
+  color: var(--primary-color);
+  padding: 2px 10px 2px 1px;
+  border: 1px solid var(--primary-color);
+  opacity: 1;
+
+  &:focus {
+    outline: 1px solid var(--primary-color);
+  }
+
+  &.readOnly {
+    appearance: none;
+    border: none;
+  }
+}
+
+.label {
+  color: var(--primary-color);
+  margin-right: 5px;
+}
+
+.option {
+  color: var(--inverted-primary-color);
+  background-color: var(--inverted-bg-color);
+}

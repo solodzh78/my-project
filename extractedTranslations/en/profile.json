@@ -1,7 +1,20 @@
 {
   "PROFILE_PAGE": "",
+  "age": "",
+  "avatar": "",
+  "ca": "",
+  "cancel": "",
   "card_title": "",
+  "city": "",
+  "country": "",
+  "currency": "",
   "edit": "",
+  "error_message": "",
+  "error_title": "",
+  "esdit": "",
   "firstName": "",
-  "lastName": ""
+  "lastName": "",
+  "lastNavme": "",
+  "save": "",
+  "username": ""
 }

@@ -1,4 +1,6 @@
-import { fetchProfileData, ProfileCard, profileReducer } from 'entities/Profile';
+import {
+  EditableProfileCard, fetchProfileData, profileReducer,
+} from 'features/editableProfileCard';
 import { useEffect } from 'react';
 import { DynamicConnectAsyncReducers, ReducersList } from 'shared/lib/DynamicConnectAsyncReducers';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
@@ -19,7 +21,7 @@ export const ProfilePage = () => {
       stayAfterUnmount={false}
       asyncReducers={initialReducers}
     >
-      <ProfileCard />
+      <EditableProfileCard />
     </DynamicConnectAsyncReducers>
   );
 };

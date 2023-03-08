@@ -9,6 +9,7 @@ interface SideBarLinkType {
   name: string;
   path: ValueOf<typeof RoutePaths>;
   Icon: VFC<SVGProps<SVGSVGElement>>;
+  authOnly?: boolean;
 }
 
 export const SideBarLinks: SideBarLinkType[] = [
@@ -21,6 +22,7 @@ export const SideBarLinks: SideBarLinkType[] = [
     name: 'PROFILE',
     path: RoutePaths.profile,
     Icon: ProfileIcon,
+    authOnly: true,
   },
   {
     name: 'ABOUT',

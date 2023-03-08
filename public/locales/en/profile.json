@@ -3,5 +3,15 @@
   "card_title": "Profile",
   "edit": "Edit",
   "firstName": "Your first name",
-  "lastName": "Your Last name"
+  "lastName": "Your Last name",
+  "age": "Age",
+  "city": "City",
+  "avatar": "Avatar",
+  "currency": "Currency",
+  "country": "Country",
+  "error_title": "Error",
+  "error_message": "Try reload page",
+  "cancel": "Cancel",
+  "save": "Save",
+  "username": "Username"
 }
