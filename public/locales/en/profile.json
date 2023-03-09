@@ -13,5 +13,10 @@
   "error_message": "Try reload page",
   "cancel": "Cancel",
   "save": "Save",
-  "username": "Username"
+  "username": "Username",
+  "SERVER_ERROR": "Server error on save",
+  "NO_DATA": "Data not specified",
+  "INCORRECT_USER_DATA": "First name and last name are required",
+  "INCORRECT_AGE": "Incorrect age",
+  "INCORRECT_COUNTRY": "Incorrect country"
 }

@@ -14,6 +14,7 @@ export interface BuildOptions {
   port: number;
   bundleAnalyze: boolean;
   apiUrl: string;
+  project: 'project' | 'storybook' | 'jest'
 }
 
 export interface BuildEnv {

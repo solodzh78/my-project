@@ -13,7 +13,7 @@ import { BuildOptions } from './types/config';
 // eslint-disable-next-line max-len
 export function buildPlugins(options: BuildOptions): WebpackPluginInstance[] {
   const {
-    paths, isDev, bundleAnalyze, apiUrl,
+    paths, isDev, bundleAnalyze, apiUrl, project,
   } = options;
   const plugins: WebpackPluginInstance[] = [
     new HtmlWebpackPlugin({
@@ -27,6 +27,7 @@ export function buildPlugins(options: BuildOptions): WebpackPluginInstance[] {
     new DefinePlugin({
       __IS_DEV__: JSON.stringify(isDev),
       __API_URL__: JSON.stringify(apiUrl),
+      __PROJECT__: JSON.stringify(project),
     }),
   ];
 

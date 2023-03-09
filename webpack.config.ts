@@ -16,6 +16,7 @@ export default (env: BuildEnv) => {
   const PORT = env.port || 3000;
   const bundleAnalyze = env.analyze || false;
   const apiUrl = env.apiUrl || 'http://localhost:8000';
+  const project = 'project';
 
   const config: webpack.Configuration = buildWebpackConfig({
     mode,
@@ -24,6 +25,7 @@ export default (env: BuildEnv) => {
     port: PORT,
     bundleAnalyze,
     apiUrl,
+    project,
   });
 
   return config;

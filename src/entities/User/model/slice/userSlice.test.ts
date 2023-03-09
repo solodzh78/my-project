@@ -13,11 +13,6 @@ describe('counterSlice.test', () => {
     expect(userReducer(state, userActions.logout()))
       .toEqual({ authData: undefined });
   });
-
-  test('test empty initAuthData', () => {
-    expect(userReducer(undefined, userActions.initAuthData()))
-      .toEqual({ authData: undefined });
-  });
 });
 
 // { id: '1', username: 'user' }

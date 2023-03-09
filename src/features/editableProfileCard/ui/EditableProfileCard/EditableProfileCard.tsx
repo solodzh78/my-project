@@ -1,5 +1,5 @@
 import { ProfileCard } from 'entities/Profile';
-import { FC, useCallback } from 'react';
+import { FC, useCallback, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
@@ -7,10 +7,15 @@ import { Loader } from 'shared/ui/Loader';
 import { Text } from 'shared/ui/Text/Text';
 import { Currency } from 'entities/Currency';
 import { Country } from 'entities/Country';
-import { updateProfileData } from '../../model/services/updateProfileData/updateProfileDate';
+import { ValidateProfileError } from '../../model/types/profile';
+import { updateProfileData } from '../../model/services/updateProfileData/updateProfileData';
 import { profileActions } from '../../model/slice/profileSlice';
 import {
-  getProfileReadOnly, getProfileError, getProfileIsLoading, getProfileData,
+  getProfileReadOnly,
+  getProfileError,
+  getProfileIsLoading,
+  getProfileData,
+  getProfileValidateErrors,
 } from '../../model/selectors';
 import { EditableProfileHeader } from '../EditableProfileHeader/EditableProfileHeader';
 
@@ -28,9 +33,18 @@ export const EditableProfileCard: FC<editableProfileCardProps> = (props) => {
   const readOnly = Boolean(useSelector(getProfileReadOnly));
   const isLoading = useSelector(getProfileIsLoading);
   const error = useSelector(getProfileError);
+  const validateErrors = useSelector(getProfileValidateErrors);
 
   const { t } = useTranslation('profile');
   const dispatch = useAppDispatch();
+
+  const validateErrorsTranslates = useMemo<Record<ValidateProfileError, string>>(() => ({
+    SERVER_ERROR: t('SERVER_ERROR'),
+    NO_DATA: t('NO_DATA'),
+    INCORRECT_USER_DATA: t('INCORRECT_USER_DATA'),
+    INCORRECT_AGE: t('INCORRECT_AGE'),
+    INCORRECT_COUNTRY: t('INCORRECT_COUNTRY'),
+  }), [t]);
 
   const onEdit = useCallback(() => {
     dispatch(profileActions.setReadOnly(false));
@@ -105,6 +119,9 @@ export const EditableProfileCard: FC<editableProfileCardProps> = (props) => {
         onSave={onSave}
         readOnly={readOnly}
       />
+      {validateErrors?.length && validateErrors.map((error) => (
+        <Text text={validateErrorsTranslates[error]} key={error} variant="error" />
+      ))}
       <ProfileCard
         className={className}
         data={data}

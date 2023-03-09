@@ -1,4 +1,5 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { StoreDecorator } from 'shared/config/storyBook/StoreDecorator/StoreDecorator';
 // import { i18nDecorator } from 'shared/config/storyBook/i18nDecorator/i18nDecorator';
 import { ThemeDecorator } from 'shared/config/storyBook/ThemeDecorator/ThemeDecorator';
 import { SideBar } from './SideBar';
@@ -16,14 +17,22 @@ export default {
 // eslint-disable-next-line react/jsx-props-no-spreading
 const Template: ComponentStory<typeof SideBar> = (args) => <SideBar {...args} />;
 
-export const Light = Template.bind({});
-Light.args = {
-  // children: 'Text',
+export const LightNoAuth = Template.bind({});
+LightNoAuth.args = {
 };
+LightNoAuth.decorators = [StoreDecorator({})];
 
-export const Dark = Template.bind({});
-Dark.args = {
-  // children: 'Text',
-  // theme: 'outline',
+export const DarkNoAuth = Template.bind({});
+DarkNoAuth.args = {
 };
-Dark.decorators = [ThemeDecorator('dark')];
+DarkNoAuth.decorators = [ThemeDecorator('dark'), StoreDecorator({})];
+
+export const LightAuth = Template.bind({});
+LightAuth.args = {
+};
+LightAuth.decorators = [StoreDecorator({ user: { authData: {} } })];
+
+export const DarkAuth = Template.bind({});
+DarkAuth.args = {
+};
+DarkAuth.decorators = [ThemeDecorator('dark'), StoreDecorator({ user: { authData: {} } })];

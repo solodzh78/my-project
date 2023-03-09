@@ -1,5 +1,10 @@
 {
+  "INCORRECT_AGE": "",
+  "INCORRECT_COUNTRY": "",
+  "INCORRECT_USER_DATA": "",
+  "NO_DATA": "",
   "PROFILE_PAGE": "",
+  "SERVER_ERROR": "",
   "age": "",
   "avatar": "",
   "ca": "",

@@ -55,6 +55,7 @@ export default {
   globals: {
     __IS_DEV__: true,
     __API_URL__: '',
+    __PROJECT__: 'jest',
   },
 
   // All imported modules in your tests should be mocked automatically

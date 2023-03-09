@@ -21,11 +21,11 @@ Primary.args = {
   options: [
     {
       value: 'Text123',
-      selectOption: 'Text123 selectOption',
+      content: 'Text123 selectOption',
     },
     {
       value: 'Text1234',
-      selectOption: 'Text1234 selectOption',
+      content: 'Text1234 selectOption',
     },
   ],
 };
@@ -37,11 +37,11 @@ PrimaryDark.args = {
   options: [
     {
       value: 'Text123',
-      selectOption: 'Text123 selectOption',
+      content: 'Text123 selectOption',
     },
     {
       value: 'Text1234',
-      selectOption: 'Text1234 selectOption',
+      content: 'Text1234 selectOption',
     },
   ],
 };

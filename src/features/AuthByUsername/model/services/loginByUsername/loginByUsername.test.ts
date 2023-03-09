@@ -2,8 +2,6 @@ import { AxiosError } from 'axios';
 import { userActions } from 'entities/User';
 import { TestAsyncThunk } from 'shared/lib/tests/TestAsyncThunk/TestAsyncThunk';
 import { DeepPartial } from 'shared/types/DeepPartial';
-// import { AxiosError } from 'axios';
-// import { DeepPartial } from 'shared/types/DeepPartial';
 import { loginByUsername } from './loginByUsername';
 
 describe('loginByUsername', () => {
