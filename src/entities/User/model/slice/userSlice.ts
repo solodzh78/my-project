@@ -3,6 +3,7 @@ import { User, UserSchema } from '../types/userSchema';
 
 const initialState: UserSchema = {
   authData: undefined,
+  _isMounted: false,
 };
 
 export const userSlice = createSlice({
@@ -11,6 +12,9 @@ export const userSlice = createSlice({
   reducers: {
     setAuthData: (state, action: PayloadAction<User>) => {
       state.authData = action.payload;
+    },
+    setIsMounted: (state) => {
+      state._isMounted = true;
     },
     logout: (state) => {
       state.authData = undefined;

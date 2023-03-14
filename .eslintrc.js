@@ -49,7 +49,7 @@ module.exports = {
       'error',
       {
         markupOnly: true,
-        ignoreAttribute: ['data-testid', 'theme', 'to', 'size', 'variant', 'align'],
+        ignoreAttribute: ['data-testid', 'theme', 'to', 'size', 'variant', 'align', 'redirect'],
       },
     ],
     'max-len': ['error', { ignoreComments: true, code: 100 }],
@@ -62,6 +62,7 @@ module.exports = {
     // '@typescript-eslint/no-unused-vars': 'off',
     '@typescript-eslint/no-unused-vars': 'error',
     'no-unused-vars': 'off',
+    'no-undef': 'off',
   },
   settings: {
     react: {
@@ -72,6 +73,7 @@ module.exports = {
     __IS_DEV__: true,
     __API_URL__: true,
     __PROJECT__: true,
+    // JSX: true,
   },
   overrides: [
     {
