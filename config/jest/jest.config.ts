@@ -15,6 +15,9 @@ export default {
     '\\\\node_modules\\\\',
   ],
 
+  // An array of regexp pattern strings, matched against all module paths before considered 'visible' to the module loader
+  modulePathIgnorePatterns: ['.fttemplates'],
+
   // An array of directory names to be searched recursively up from the requiring module's location
   moduleDirectories: [
     'node_modules',

@@ -12,6 +12,7 @@ import { ProfileSchema } from 'features/editableProfileCard';
 import { RequiredFieldsOnly, OptionalFieldsOnly } from 'shared/types/RequiredFieldsOnly';
 import { AxiosInstance } from 'axios';
 import { NavigateFunction } from 'react-router-dom';
+import { ArticleSchema } from 'entities/Article';
 
 export interface StateSchema {
   counter: CounterSchema;
@@ -20,6 +21,7 @@ export interface StateSchema {
   // Async reducers
   profile?: ProfileSchema;
   loginForm?: LoginSchema;
+  article?: ArticleSchema;
 }
 
 export type RequiredStateSchema = RequiredFieldsOnly<StateSchema>

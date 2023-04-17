@@ -1,6 +1,6 @@
 import { CSSProperties, FC, useMemo } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
-import DefaultAvatarIcon from '../../assets/icons/user-32-32.png';
+import DefaultAvatarIcon from '../../assets/icons/user_icon.svg';
 import s from './Avatar.module.scss';
 
 interface AvatarProps {
@@ -13,7 +13,7 @@ interface AvatarProps {
 export const Avatar: FC<AvatarProps> = (props) => {
   const {
     className,
-    src = DefaultAvatarIcon,
+    src,
     alt = 'Avatar Icon',
     size,
   } = props;
@@ -22,6 +22,12 @@ export const Avatar: FC<AvatarProps> = (props) => {
     width: size || 100,
     height: size || 100,
   }), [size]);
+
+  if (!src) {
+    return (
+      <DefaultAvatarIcon style={style} />
+    );
+  }
 
   return (
     <img

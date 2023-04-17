@@ -17,7 +17,7 @@ export const RoutePaths: Record<AppRoutes, string> = {
   [Routes.ABOUT]: '/about',
   [Routes.PROFILE]: '/profile',
   [Routes.ARTICLES]: '/articles',
-  [Routes.ARTICLE_DETAIL]: '/article',
+  [Routes.ARTICLE_DETAIL]: '/articles/',
   [Routes.NOT_FOUND]: '*',
 } as const;
 
@@ -26,7 +26,7 @@ const routePathsWithoutTypes = {
   [Routes.ABOUT]: '/about',
   [Routes.PROFILE]: '/profile',
   [Routes.ARTICLES]: '/articles',
-  [Routes.ARTICLE_DETAIL]: '/article',
+  [Routes.ARTICLE_DETAIL]: '/articles/',
   [Routes.NOT_FOUND]: '*',
 } as const;
 

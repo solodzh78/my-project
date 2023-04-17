@@ -4,10 +4,12 @@ import { DeepPartial } from 'shared/types/DeepPartial';
 import { ReducersMapObject } from '@reduxjs/toolkit';
 import { loginReducer } from 'features/AuthByUsername';
 import { profileReducer } from 'features/editableProfileCard';
+import { articleReducer } from 'entities/Article';
 
 const defaultAsyncReducers: DeepPartial<ReducersMapObject<StateSchema>> = {
   loginForm: loginReducer,
   profile: profileReducer,
+  article: articleReducer,
 };
 
 // eslint-disable-next-line max-len
