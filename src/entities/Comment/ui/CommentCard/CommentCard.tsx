@@ -1,5 +1,5 @@
 import { FC, memo } from 'react';
-import { useTranslation } from 'react-i18next';
+// import { useTranslation } from 'react-i18next';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Avatar } from 'shared/ui/Avatar/Avatar';
 import { Text } from 'shared/ui/Text/Text';
@@ -17,7 +17,7 @@ interface CommentCardProps {
 export const CommentCard: FC<CommentCardProps> = memo((props: CommentCardProps) => {
   const { className, isLoading, comment } = props;
 
-  const { t } = useTranslation();
+  // const { t } = useTranslation();
 
   if (isLoading) {
     return (
