@@ -2,5 +2,7 @@
   "articles_page": "Articles",
   "article_details_page": "Details Article",
   "article_details_page_not_found": "Article not found",
-  "article_error_message": "Error loading article"
+  "article_error_message": "Error loading article",
+  "comments": "Comments",
+  "nocomments": "No comments"
 }

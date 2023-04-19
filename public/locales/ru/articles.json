@@ -2,5 +2,7 @@
   "articles_page": "Статьи",
   "article_details_page": "Статья детали",
   "article_details_page_not_found": "Статья не найдена",
-  "article_error_message": "Произошла ошибка при загрузке статьи"
+  "article_error_message": "Произошла ошибка при загрузке статьи",
+  "comments": "Комментарии",
+  "nocomments": "Rомментарии отсутствуют"
 }

@@ -9,6 +9,7 @@ import { UserSchema } from 'entities/User';
 import { CounterSchema } from 'entities/Counter';
 import { LoginSchema } from 'features/AuthByUsername';
 import { ProfileSchema } from 'features/editableProfileCard';
+import { ArticleCommentsSchema } from 'features/ArticleCommentsList';
 import { RequiredFieldsOnly, OptionalFieldsOnly } from 'shared/types/RequiredFieldsOnly';
 import { AxiosInstance } from 'axios';
 import { NavigateFunction } from 'react-router-dom';
@@ -22,6 +23,7 @@ export interface StateSchema {
   profile?: ProfileSchema;
   loginForm?: LoginSchema;
   article?: ArticleSchema;
+  articleComments?: ArticleCommentsSchema;
 }
 
 export type RequiredStateSchema = RequiredFieldsOnly<StateSchema>

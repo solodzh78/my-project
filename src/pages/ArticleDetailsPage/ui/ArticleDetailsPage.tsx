@@ -2,7 +2,8 @@ import { ArticleDetails } from 'entities/Article';
 import { useTranslation } from 'react-i18next';
 import { useParams } from 'react-router-dom';
 import { classNames } from 'shared/lib/classNames/classNames';
-
+import { Text } from 'shared/ui/Text/Text';
+import { ArticleCommentsList } from 'features/ArticleCommentsList';
 import s from './ArticleDetailsPage.module.scss';
 
 interface ArticleDetailsPageProps {
@@ -26,6 +27,8 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
     <div className={classNames([s.ArticleDetailsPage, className])}>
       {t('article_details_page')}
       {id && <ArticleDetails articleId={id} />}
+      <Text className={s.commentTitle} title={t('comments')} />
+      <ArticleCommentsList articleId={id} />
     </div>
   );
 };

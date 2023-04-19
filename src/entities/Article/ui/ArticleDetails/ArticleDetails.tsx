@@ -12,6 +12,7 @@ import { Text } from 'shared/ui/Text/Text';
 import EyeIcon from 'shared/assets/icons/eye-20-20.svg';
 import CalendarIcon from 'shared/assets/icons/calendar-20-20.svg';
 import { Icon } from 'shared/ui/Icon/Icon';
+import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
 import {
   getArticleData, getArticleError, getArticleIsLoading,
 } from '../../model/selectors/article';
@@ -55,6 +56,8 @@ export const ArticleDetails: FC<ArticleDetailsProps> = memo((props: ArticleDetai
       return null;
     }
   }, []);
+
+  useInitialEffect(() => dispatch(fetchArticleById(articleId)));
 
   useEffect(() => {
     if (__PROJECT__ === 'storybook') {

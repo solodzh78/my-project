@@ -3,12 +3,14 @@
     {
       "id": "1",
       "title": "json-server",
-      "userId": "1"
+      "userId": "1",
+      "avatar": "https://mykaleidoscope.ru/x/uploads/posts/2022-09/1663198100_26-mykaleidoscope-ru-p-chuvstvo-adrenalina-oboi-29.jpg"
     },
     {
       "id": "2",
       "title": "json-server",
-      "userId": "2"
+      "userId": "2",
+      "avatar": "https://mykaleidoscope.ru/x/uploads/posts/2022-09/1663198100_26-mykaleidoscope-ru-p-chuvstvo-adrenalina-oboi-29.jpg"
     }
   ],
   "articles": [
@@ -107,7 +109,8 @@
       "id": "1",
       "username": "admin",
       "password": "123",
-      "role": "ADMIN"
+      "role": "ADMIN",
+      "avatar": "https://mykaleidoscope.ru/x/uploads/posts/2022-09/1663198100_26-mykaleidoscope-ru-p-chuvstvo-adrenalina-oboi-29.jpg"
     },
     {
       "id": "2",
