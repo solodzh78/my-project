@@ -16,7 +16,7 @@ describe('fetchProfileData', () => {
       age: 44,
     };
     thunk.api.get.mockReturnValue(Promise.resolve({ data: profileFromServer }));
-    const result = await thunk.callThunk();
+    const result = await thunk.callThunk('1');
     expect(thunk.dispatch).toBeCalledTimes(2);
     expect(thunk.api.get).toBeCalled();
     expect(result.meta.requestStatus).toBe('fulfilled');
@@ -35,7 +35,7 @@ describe('fetchProfileData', () => {
       isAxiosError: true,
     };
     thunk.api.get.mockRejectedValueOnce(err);
-    const result = await thunk.callThunk();
+    const result = await thunk.callThunk('1');
     expect(thunk.dispatch).toBeCalledTimes(2);
     expect(thunk.api.get).toBeCalled();
     expect(result.payload).toBe('Error with status 403');
@@ -45,7 +45,7 @@ describe('fetchProfileData', () => {
     const thunk = new TestAsyncThunk(fetchProfileData);
     const err = new Error('Network Error');
     thunk.api.get.mockRejectedValueOnce(err);
-    const result = await thunk.callThunk();
+    const result = await thunk.callThunk('1');
     expect(thunk.dispatch).toBeCalledTimes(2);
     expect(thunk.api.get).toBeCalled();
     expect(result.payload).toBe('Network Error');
@@ -55,7 +55,7 @@ describe('fetchProfileData', () => {
     const responseFromServer = {};
     const thunk = new TestAsyncThunk(fetchProfileData);
     thunk.api.get.mockReturnValue(Promise.reject(responseFromServer));
-    const result = await thunk.callThunk();
+    const result = await thunk.callThunk('1');
     expect(thunk.dispatch).toBeCalledTimes(2);
     expect(thunk.api.get).toBeCalled();
     expect(result.payload).toBe('Неизвестная ошибка');

@@ -3,8 +3,14 @@ import { StoreDecorator } from 'shared/config/storyBook/StoreDecorator/StoreDeco
 import { ThemeDecorator } from 'shared/config/storyBook/ThemeDecorator/ThemeDecorator';
 import { CommentCard } from './CommentCard';
 
+const comment = {
+  id: '1',
+  text: 'hello world',
+  user: { id: '1', username: 'Vasya' },
+};
+
 export default {
-  title: 'widgets/CommentCard',
+  title: 'entities/Comment/CommentCard',
   component: CommentCard,
   // decorators: [i18nDecorator],
   // argTypes: {
@@ -15,22 +21,18 @@ export default {
 // eslint-disable-next-line react/jsx-props-no-spreading
 const Template: ComponentStory<typeof CommentCard> = (args) => <CommentCard {...args} />;
 
-export const LightNoAuth = Template.bind({});
-LightNoAuth.args = {
-};
-LightNoAuth.decorators = [StoreDecorator({})];
+export const LightNormal = Template.bind({});
+LightNormal.args = { comment };
+LightNormal.decorators = [StoreDecorator({})];
 
-export const DarkNoAuth = Template.bind({});
-DarkNoAuth.args = {
-};
-DarkNoAuth.decorators = [ThemeDecorator('dark'), StoreDecorator({})];
+export const DarkNormal = Template.bind({});
+DarkNormal.args = { comment };
+DarkNormal.decorators = [ThemeDecorator('dark'), StoreDecorator({})];
 
-export const LightAuth = Template.bind({});
-LightAuth.args = {
-};
-LightAuth.decorators = [StoreDecorator({ user: { authData: {} } })];
+export const LightLoading = Template.bind({});
+LightLoading.args = { comment, isLoading: true };
+LightLoading.decorators = [StoreDecorator({})];
 
-export const DarkAuth = Template.bind({});
-DarkAuth.args = {
-};
-DarkAuth.decorators = [ThemeDecorator('dark'), StoreDecorator({ user: { authData: {} } })];
+export const DarkLoading = Template.bind({});
+DarkLoading.args = { comment, isLoading: true };
+DarkLoading.decorators = [ThemeDecorator('dark'), StoreDecorator({})];

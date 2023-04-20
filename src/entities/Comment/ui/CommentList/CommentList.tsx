@@ -15,11 +15,17 @@ interface CommentListProps {
 export const CommentList: FC<CommentListProps> = memo((props: CommentListProps) => {
   const { className, comments, isLoading } = props;
 
-  const { t } = useTranslation();
+  const { t } = useTranslation('articles');
 
-  // if (isLoading) {
-  //   return '...loading';
-  // }
+  if (isLoading) {
+    return (
+      <div className={classNames([s.CommentList, className])}>
+        <CommentCard isLoading />
+        <CommentCard isLoading />
+        <CommentCard isLoading />
+      </div>
+    );
+  }
 
   return (
     <div
@@ -35,7 +41,7 @@ export const CommentList: FC<CommentListProps> = memo((props: CommentListProps) 
             isLoading={isLoading}
           />
         ))
-        : <Text text={t('nocomments')} />}
+        : <Text className={s.comment} text={t('nocomments')} />}
     </div>
   );
 });

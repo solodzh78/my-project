@@ -21,7 +21,9 @@
       "img": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
       "views": 1022,
       "createdAt": "26.02.2022",
-      "type": ["IT"],
+      "type": [
+        "IT"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -102,6 +104,66 @@
       "text": "some comment 3",
       "articleId": "1",
       "userId": "1"
+    },
+    {
+      "userId": "1",
+      "articleId": "1",
+      "text": "еуые",
+      "id": "-x9nXZo"
+    },
+    {
+      "userId": "1",
+      "articleId": "1",
+      "text": "Testing",
+      "id": "VmHwe4A"
+    },
+    {
+      "userId": "1",
+      "articleId": "1",
+      "text": "ghghghghghgghhg",
+      "id": "Ga3AKeT"
+    },
+    {
+      "userId": "1",
+      "articleId": "1",
+      "text": "dddddddddd",
+      "id": "pvxaLXh"
+    },
+    {
+      "userId": "1",
+      "articleId": "1",
+      "text": "sdsdsdsdsdsd",
+      "id": "U3Ti3ts"
+    },
+    {
+      "userId": "1",
+      "articleId": "1",
+      "text": "fffffffffffffffffffff",
+      "id": "-HIcjVP"
+    },
+    {
+      "userId": "1",
+      "articleId": "1",
+      "text": "dfdfdfdfvvvvvv",
+      "id": "o6Nkp9e"
+    },
+    {
+      "userId": "1",
+      "articleId": "1",
+      "text": "aaaaaaaaaaa",
+      "id": "bm9qMnV"
+    },
+    {
+      "userId": "1",
+      "articleId": "1",
+      "text": "dgdfgdfgdfgdf",
+      "id": "gOpzyBX"
+    },
+    {
+      "userId": "2",
+      "articleId": "1",
+      "text": "dddddddddddddddddddddddddddd",
+      "id": "L_50Jfn"
     }
   ],
   "users": [
@@ -116,17 +178,32 @@
       "id": "2",
       "username": "user",
       "password": "123",
-      "role": "USER"
+      "role": "USER",
+      "avatar": "https://teknotower.com/wp-content/uploads/2020/11/js.png"
     }
   ],
-  "profile": {
-    "firstName": "Сергей",
-    "lastName": "Солоджук",
-    "age": 44,
-    "currency": "RUB",
-    "country": "RUSSIA",
-    "city": "Kaliningrad",
-    "username": "admin",
-    "avatar": "https://mykaleidoscope.ru/x/uploads/posts/2022-09/1663198100_26-mykaleidoscope-ru-p-chuvstvo-adrenalina-oboi-29.jpg"
-  }
+  "profile": [
+    {
+      "id": "1",
+      "firstName": "Сергей",
+      "lastName": "Солоджук",
+      "age": 44,
+      "currency": "RUB",
+      "country": "RUSSIA",
+      "city": "Kaliningrad",
+      "username": "admin",
+      "avatar": "https://mykaleidoscope.ru/x/uploads/posts/2022-09/1663198100_26-mykaleidoscope-ru-p-chuvstvo-adrenalina-oboi-29.jpg"
+    },
+    {
+      "id": "2",
+      "firstName": "John",
+      "lastName": "Smith",
+      "age": 44,
+      "currency": "RUB",
+      "country": "RUSSIA",
+      "city": "Kaliningrad",
+      "username": "user",
+      "avatar": "https://teknotower.com/wp-content/uploads/2020/11/js.png"
+    }
+  ]
 }

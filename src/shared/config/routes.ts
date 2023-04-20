@@ -15,7 +15,7 @@ export type AppRoutes = ValueOf<typeof Routes>
 export const RoutePaths: Record<AppRoutes, string> = {
   [Routes.MAIN]: '/',
   [Routes.ABOUT]: '/about',
-  [Routes.PROFILE]: '/profile',
+  [Routes.PROFILE]: '/profile/',
   [Routes.ARTICLES]: '/articles',
   [Routes.ARTICLE_DETAIL]: '/articles/',
   [Routes.NOT_FOUND]: '*',

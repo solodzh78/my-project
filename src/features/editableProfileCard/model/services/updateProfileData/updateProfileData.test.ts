@@ -10,6 +10,7 @@ const profileFromServer: Profile = {
   currency: 'EUR',
   country: 'RUSSIA',
   age: 44,
+  id: '1',
 };
 
 describe('updateProfileData', () => {

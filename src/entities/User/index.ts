@@ -1,3 +1,4 @@
+export { getUserAuthData } from './model/selectors/getUserAuthData/getUserAuthData';
 // export { User } from './ui/User';
 export { type UserSchema, type User } from './model/types/userSchema';
 export { userActions, userReducer, userSlice } from './model/slice/userSlice';

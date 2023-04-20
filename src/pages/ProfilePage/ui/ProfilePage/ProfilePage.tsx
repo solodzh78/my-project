@@ -1,9 +1,10 @@
 import {
   EditableProfileCard, fetchProfileData, profileReducer,
 } from 'features/editableProfileCard';
-import { useEffect } from 'react';
+import { useParams } from 'react-router-dom';
 import { DynamicConnectAsyncReducers, ReducersList } from 'shared/lib/DynamicConnectAsyncReducers';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
 
 const initialReducers: ReducersList = {
   profile: profileReducer,
@@ -12,12 +13,13 @@ const initialReducers: ReducersList = {
 export const ProfilePage = () => {
   const dispatch = useAppDispatch();
 
-  useEffect(() => {
-    if (__PROJECT__ === 'storybook') {
-      return;
+  const { id } = useParams();
+
+  useInitialEffect(() => {
+    if (id) {
+      dispatch(fetchProfileData(id));
     }
-    dispatch(fetchProfileData());
-  }, [dispatch]);
+  });
 
   return (
     <DynamicConnectAsyncReducers

@@ -14,6 +14,7 @@ import { RequiredFieldsOnly, OptionalFieldsOnly } from 'shared/types/RequiredFie
 import { AxiosInstance } from 'axios';
 import { NavigateFunction } from 'react-router-dom';
 import { ArticleSchema } from 'entities/Article';
+import { AddNewCommentSchema } from 'features/AddNewComment';
 
 export interface StateSchema {
   counter: CounterSchema;
@@ -24,6 +25,7 @@ export interface StateSchema {
   loginForm?: LoginSchema;
   article?: ArticleSchema;
   articleComments?: ArticleCommentsSchema;
+  addNewComment?: AddNewCommentSchema;
 }
 
 export type RequiredStateSchema = RequiredFieldsOnly<StateSchema>

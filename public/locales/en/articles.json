@@ -4,5 +4,7 @@
   "article_details_page_not_found": "Article not found",
   "article_error_message": "Error loading article",
   "comments": "Comments",
-  "nocomments": "No comments"
+  "nocomments": "No comments",
+  "addComment": "Type comment",
+  "send": "Send"
 }
