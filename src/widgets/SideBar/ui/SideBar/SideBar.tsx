@@ -7,10 +7,9 @@ import { LangSwitcher } from 'widgets/LAngSwitcher/ui/LangSwitcher';
 import { ThemeSwitcher } from 'features/ThemeSwitcher';
 import { Button } from 'shared/ui/Button';
 import { useSelector } from 'react-redux';
-import { getUserAuthData } from 'entities/User/model/selectors';
-import { SideBarLinks } from '../../model/sideBarLinks';
-import s from './SideBar.module.scss';
 import { SideBarItem } from '../SideBarItem/SideBarItem';
+import { getSidebarItems } from '../../model/selectors/getSidebarItems';
+import s from './SideBar.module.scss';
 
 interface SideBarProps {
   className?: string;
@@ -21,25 +20,23 @@ export const SideBar: FC<SideBarProps> = memo((props: SideBarProps) => {
 
   const [collapsed, setCollapsed] = useState(false);
   const { t } = useTranslation();
-  const isAuth = useSelector(getUserAuthData);
+  const sidebarItemsList = useSelector(getSidebarItems);
 
   const toggle = () => setCollapsed((prev) => !prev);
 
-  const itemsList = useMemo(() => (
-    <>
-      {SideBarLinks
-        .filter((item) => (isAuth || (!isAuth && !item.authOnly)))
-        .map(({ name, path, Icon }) => (
-          <SideBarItem
-            name={t(name)}
-            path={path}
-            Icon={Icon}
-            collapsed={collapsed}
-            key={path}
-          />
-        ))}
-    </>
-  ), [collapsed, isAuth, t]);
+  const itemsList = useMemo(
+    () => sidebarItemsList
+      .map(({ name, path, Icon }) => (
+        <SideBarItem
+          name={t(name)}
+          path={path}
+          Icon={Icon}
+          collapsed={collapsed}
+          key={path}
+        />
+      )),
+    [collapsed, sidebarItemsList, t],
+  );
 
   return (
     <div
