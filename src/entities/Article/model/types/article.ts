@@ -1,3 +1,6 @@
+import { User } from 'entities/User';
+import { ValueOf } from 'shared/types/ValueOf';
+
 export type ArticleBlockType = 'TEXT' | 'CODE' | 'IMAGE'
 
 export interface ArticleBlockBase {
@@ -29,6 +32,7 @@ export type ArticleType = 'IT' | 'SCIENCE' | 'ECONOMICS';
 export interface Article {
   id: string;
   title: string;
+  userId: User;
   subtitle: string;
   img: string;
   views: number;
@@ -42,3 +46,10 @@ export interface ArticleSchema {
   error?: string;
   articleData: Article
 }
+
+export const VIEW = {
+  LIST: 'list',
+  TILE: 'tile',
+} as const;
+
+export type ArticleView = ValueOf<typeof VIEW>

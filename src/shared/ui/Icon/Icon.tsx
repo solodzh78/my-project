@@ -14,7 +14,6 @@ export const Icon: FC<IconProps> = memo((props: IconProps) => {
 
   return (
     <div
-      data-testid="Icon"
       className={classNames([s.Icon, className])}
     >
       <Svg />

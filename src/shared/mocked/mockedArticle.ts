@@ -1,22 +1,22 @@
-import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { ThemeDecorator } from 'shared/config/storyBook/ThemeDecorator/ThemeDecorator';
-import { Article } from 'entities/Article';
-import { StoreDecorator } from 'shared/config/storyBook/StoreDecorator/StoreDecorator';
-import { ArticleDetailsPage } from './ArticleDetailsPage';
+/* eslint-disable max-len */
+import ArticleImage from './images/js.png';
+import userAvatar from './images/avatar.jpg';
 
-const articleData: Article = {
+export const mockedArticle = {
   id: '1',
-  title: 'Javascript news',
+  title: 'Javascript news news news',
   subtitle: 'Что нового в JS за 2022 год?',
-  img: 'https://teknotower.com/wp-content/uploads/2020/11/js.png',
+  img: ArticleImage,
   views: 1022,
   createdAt: '26.02.2022',
   userId: {
     id: '1',
     username: 'admin',
+    avatar: userAvatar,
   },
-
-  type: ['IT'],
+  type: [
+    'IT', 'ECONOMICS', 'SCIENCE', 'ECONOMICS',
+  ],
   blocks: [
     {
       id: '1',
@@ -78,34 +78,3 @@ const articleData: Article = {
     },
   ],
 };
-
-export default {
-  title: 'pages/ArticleDetailsPage',
-  component: ArticleDetailsPage,
-  parameters: {
-    router: {
-      path: '/articles/:id',
-      route: '/articles/1',
-    },
-  },
-  decorators: [StoreDecorator({
-    article: {
-      articleData,
-    },
-  })],
-  // argTypes: {
-  //   backgroundColor: { control: 'color' },
-  // },
-} as ComponentMeta<typeof ArticleDetailsPage>;
-
-// eslint-disable-next-line react/jsx-props-no-spreading
-const Template: ComponentStory<typeof ArticleDetailsPage> = (args) => <ArticleDetailsPage {...args as {}} />;
-
-export const Light = Template.bind({});
-Light.args = {
-};
-
-export const Dark = Template.bind({});
-Dark.args = {
-};
-Dark.decorators = [ThemeDecorator('dark')];

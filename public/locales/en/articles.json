@@ -6,5 +6,7 @@
   "comments": "Comments",
   "nocomments": "No comments",
   "addComment": "Type comment",
-  "send": "Send"
+  "send": "Send",
+  "readMore": "Read more...",
+  "backToList": "Back to List"
 }
