@@ -3,7 +3,7 @@ import { lazy } from 'react';
 // export const AsyncAboutPage = lazy(() => import('./AboutPage'));
 
 export const AsyncArticlesPage = lazy(
-  () => import(/* webpackChunkName: "about_page" */'./ArticlesPage')
+  () => import(/* webpackChunkName: "articles_page" */'./ArticlesPage')
     .then((module) => ({ default: module.ArticlesPage })),
 );
 

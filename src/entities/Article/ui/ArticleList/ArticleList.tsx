@@ -20,6 +20,17 @@ export const ArticleList: FC<ArticleListProps> = memo((props: ArticleListProps) 
     view = VIEW.TILE,
   } = props;
 
+  const getSkeleton = (view: ArticleView) => (
+    <div className={classNames([s.ArticleList, s[view], className])}>
+      {new Array(view === VIEW.LIST ? 3 : 9)
+        .fill(0)
+        .map((_, index) => (
+          // eslint-disable-next-line react/no-array-index-key
+          <ArticleListItemSkeleton view={view} key={index} />
+        ))}
+    </div>
+  );
+
   const renderArticle = (article: Article) => (
     <ArticleListItem
       key={article.id}
@@ -29,12 +40,7 @@ export const ArticleList: FC<ArticleListProps> = memo((props: ArticleListProps) 
   );
 
   if (isLoading) {
-    return (
-      <div className={classNames([s.ArticleList, s[view], className])}>
-        {new Array(view === VIEW.LIST ? 3 : 9)
-          .fill(<ArticleListItemSkeleton view={view} />)}
-      </div>
-    );
+    return getSkeleton(view);
   }
 
   return (

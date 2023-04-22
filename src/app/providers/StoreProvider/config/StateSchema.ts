@@ -1,3 +1,4 @@
+import { ArticlesPageSchema } from 'pages/ArticlesPage';
 import {
   AnyAction,
   CombinedState,
@@ -26,6 +27,7 @@ export interface StateSchema {
   article?: ArticleSchema;
   articleComments?: ArticleCommentsSchema;
   addNewComment?: AddNewCommentSchema;
+  articlesPage?: ArticlesPageSchema;
 }
 
 export type RequiredStateSchema = RequiredFieldsOnly<StateSchema>
