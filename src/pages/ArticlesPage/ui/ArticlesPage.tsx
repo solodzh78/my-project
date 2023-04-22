@@ -20,14 +20,16 @@ interface ArticlesPageProps {
 }
 
 // isArticleType - typeGuard function for type ArticleView
-const isArticleType = (value: string): value is ArticleView => (
-  Object
-    .values(VIEW)
-    .reduce((akk, elem) => (
-      elem === value
-        ? true
-        : akk
-    ), false));
+const isArticleType = (value: unknown): value is ArticleView => (
+  Boolean(Object.values(VIEW).find((elem) => elem === value))
+);
+  // Object
+  //   .values(VIEW)
+  //   .reduce((akk, elem) => (
+  //     elem === value
+  //       ? true
+  //       : akk
+  //   ), false));
 
 const ArticlesPage = (props: ArticlesPageProps) => {
   const { className } = props;
