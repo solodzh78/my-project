@@ -13,12 +13,18 @@ export const AppRouter = () => {
 
   const routes = useMemo(() => Object.values(routeConfig).map((route) => {
     const { element, authOnly } = route;
-    const wrappedElement = <div className="page-wrapper">{element}</div>;
     const mappedRoute = {
       ...route,
       element: authOnly
-        ? <AppRequireAuth isAuth={isAuth} redirect="/">{wrappedElement}</AppRequireAuth>
-        : wrappedElement,
+        ? (
+          <AppRequireAuth
+            isAuth={isAuth}
+            redirect="/"
+          >
+            {element}
+          </AppRequireAuth>
+        )
+        : element,
     };
     return mappedRoute;
   }), [isAuth]);

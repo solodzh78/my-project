@@ -5,6 +5,7 @@ import { useParams } from 'react-router-dom';
 import { DynamicConnectAsyncReducers, ReducersList } from 'shared/lib/DynamicConnectAsyncReducers';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
+import { Page } from 'shared/ui/Page/Page';
 
 const initialReducers: ReducersList = {
   profile: profileReducer,
@@ -26,7 +27,9 @@ export const ProfilePage = () => {
       stayAfterUnmount={false}
       asyncReducers={initialReducers}
     >
-      <EditableProfileCard />
+      <Page>
+        <EditableProfileCard />
+      </Page>
     </DynamicConnectAsyncReducers>
   );
 };

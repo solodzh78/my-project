@@ -9,6 +9,7 @@ import { ArticleComments } from 'widgets/ArticleComments';
 import { Button } from 'shared/ui/Button';
 import { useCallback } from 'react';
 import { RoutePaths } from 'shared/config/routes';
+import { Page } from 'shared/ui/Page/Page';
 import s from './ArticleDetailsPage.module.scss';
 
 interface ArticleDetailsPageProps {
@@ -34,7 +35,7 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
   }
 
   return (
-    <div className={classNames([s.ArticleDetailsPage, className])}>
+    <Page className={classNames([s.ArticleDetailsPage, className])}>
       {/* {t('article_details_page')} */}
       {id && (
         <>
@@ -51,7 +52,7 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
       {/* <Text className={s.commentTitle} title={t('comments')} />
       <AddNewComment />
       <ArticleCommentsList articleId={id} /> */}
-    </div>
+    </Page>
   );
 };
 

@@ -1,4 +1,5 @@
 import { useTranslation } from 'react-i18next';
+import { Page } from 'shared/ui/Page/Page';
 import { TestButton } from 'widgets/TestButton';
 
 const MainPage = () => {
@@ -6,7 +7,7 @@ const MainPage = () => {
 
   return (
     <>
-      <div>{t('Главная')}</div>
+      <Page>{t('Главная')}</Page>
       <TestButton />
     </>
   );

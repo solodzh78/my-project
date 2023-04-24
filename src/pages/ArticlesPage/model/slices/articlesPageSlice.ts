@@ -18,6 +18,9 @@ const initialState = articlesAdapter.getInitialState<ArticlesPageSchema>({
   ids: [],
   entities: {},
   view: VIEW.TILE,
+  page: 1,
+  limit: 9,
+  hasMore: true,
 });
 
 export const getArticles = articlesAdapter.getSelectors<StateSchema>(
@@ -30,6 +33,16 @@ const articlesPageSlice = createSlice({
   reducers: {
     setView: (state, action: PayloadAction<ArticleView>) => {
       state.view = action.payload;
+      state.limit = action.payload === VIEW.LIST ? 4 : 9;
+    },
+    setPage: (state, action: PayloadAction<number>) => {
+      state.page = action.payload;
+    },
+    setLimit: (state, action: PayloadAction<number>) => {
+      state.limit = action.payload;
+    },
+    setHasMore: (state, action: PayloadAction<boolean>) => {
+      state.hasMore = action.payload;
     },
   },
   extraReducers: (builder) => {
@@ -44,7 +57,8 @@ const articlesPageSlice = createSlice({
       fetchArticlesList.fulfilled,
       (state, action: PayloadAction<Article[]>) => {
         state.isLoading = false;
-        articlesAdapter.setAll(state, action.payload);
+        articlesAdapter.addMany(state, action.payload);
+        state.hasMore = Number(action.payload?.length) > 0;
       },
     );
     builder.addCase(

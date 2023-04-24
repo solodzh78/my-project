@@ -39,7 +39,7 @@ export const SideBar: FC<SideBarProps> = memo((props: SideBarProps) => {
   );
 
   return (
-    <div
+    <aside
       data-testid="sidebar"
       className={classNames(
         [s.sidebar, className],
@@ -58,13 +58,13 @@ export const SideBar: FC<SideBarProps> = memo((props: SideBarProps) => {
       >
         { collapsed ? '>' : '<' }
       </Button>
-      <div className={s.items}>
+      <menu className={s.items}>
         {itemsList}
-      </div>
+      </menu>
       <div className={s.switchers}>
         <ThemeSwitcher />
         <LangSwitcher short={collapsed} className={s.lang} />
       </div>
-    </div>
+    </aside>
   );
 });

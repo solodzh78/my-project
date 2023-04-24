@@ -39,10 +39,6 @@ export const ArticleList: FC<ArticleListProps> = memo((props: ArticleListProps) 
     />
   );
 
-  if (isLoading) {
-    return getSkeleton(view);
-  }
-
   return (
     <div
       data-testid="ArticleList"
@@ -51,6 +47,7 @@ export const ArticleList: FC<ArticleListProps> = memo((props: ArticleListProps) 
       {articles.length > 0
         ? articles.map(renderArticle)
         : null}
+      { isLoading && getSkeleton(view)}
     </div>
   );
 });

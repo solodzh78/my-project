@@ -8,12 +8,20 @@ import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEf
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useCallback } from 'react';
 import { ARTICLES_VIEW_LOCALSTORAGE_KEY } from 'shared/const/localStorage';
+import { Page } from 'shared/ui/Page/Page';
+import { Text } from 'shared/ui/Text/Text';
 import { articlesPageActions, articlesPageReducer, getArticles }
   from '../model/slices/articlesPageSlice';
 import { fetchArticlesList } from '../model/services/fetchArticlesList/fetchArticlesList';
 import s from './ArticlesPage.module.scss';
-import { getArticlesPageError, getArticlesPageIsLoading, getArticlesPageView }
-  from '../model/selectors/ArticlesPageSelectors';
+import {
+  getArticlesPageError,
+  getArticlesPageIsLoading,
+  getArticlesPageNum,
+  getArticlesPageView,
+} from '../model/selectors/ArticlesPageSelectors';
+import { fetchNextArticlesPage }
+  from '../model/services/fetchNextArticlesPage/fetchNextArticlesPage';
 
 interface ArticlesPageProps {
   className?: string;
@@ -38,10 +46,16 @@ const ArticlesPage = (props: ArticlesPageProps) => {
   const isLoading = useSelector(getArticlesPageIsLoading);
   const error = useSelector(getArticlesPageError);
   const view = useSelector(getArticlesPageView);
+  const page = useSelector(getArticlesPageNum);
 
   const onChangeView = useCallback((view: ArticleView) => {
     localStorage.setItem(ARTICLES_VIEW_LOCALSTORAGE_KEY, view);
     dispatch(articlesPageActions.setView(view));
+    dispatch(fetchArticlesList({ page }));
+  }, [dispatch, page]);
+
+  const onLoadNextPart = useCallback(() => {
+    dispatch(fetchNextArticlesPage());
   }, [dispatch]);
 
   useInitialEffect(() => {
@@ -49,12 +63,19 @@ const ArticlesPage = (props: ArticlesPageProps) => {
     if (viewFromLS && isArticleType(viewFromLS)) {
       dispatch(articlesPageActions.setView(viewFromLS));
     }
-    dispatch(fetchArticlesList());
+    dispatch(fetchArticlesList({ page: 1 }));
   });
+
+  if (error) {
+    <Text text={error} variant="error" />;
+  }
 
   return (
     <DynamicConnectAsyncReducers asyncReducers={{ articlesPage: articlesPageReducer }}>
-      <div className={classNames([s.ArticlesPage, className])}>
+      <Page
+        className={classNames([s.ArticlesPage, className])}
+        onScrollEnd={onLoadNextPart}
+      >
         <ArticleViewSelector
           className={s.selector}
           view={view}
@@ -65,7 +86,7 @@ const ArticlesPage = (props: ArticlesPageProps) => {
           articles={articles}
           view={view}
         />
-      </div>
+      </Page>
     </DynamicConnectAsyncReducers>
   );
 };
