@@ -13,7 +13,6 @@ import { ProfileSchema } from 'features/editableProfileCard';
 import { ArticleCommentsSchema } from 'features/ArticleCommentsList';
 import { RequiredFieldsOnly, OptionalFieldsOnly } from 'shared/types/RequiredFieldsOnly';
 import { AxiosInstance } from 'axios';
-import { NavigateFunction } from 'react-router-dom';
 import { ArticleSchema } from 'entities/Article';
 import { AddNewCommentSchema } from 'features/AddNewComment';
 
@@ -44,12 +43,11 @@ export interface ReducerManager {
 }
 
 export interface StoreWithReducerManager extends EnhancedStore<StateSchema> {
-  reducerManager?: ReducerManager;
+  reducerManager: ReducerManager;
 }
 
 export interface ThunkExtraArg {
   api: AxiosInstance;
-  navigate?: NavigateFunction;
 }
 
 export interface ThunkConfig<T = string> {

@@ -1,6 +1,6 @@
 import { useSelector } from 'react-redux';
 import {
-  ArticleList, ArticleView, ArticleViewSelector, VIEW,
+  ArticleList, ArticleView, ArticleViewSelector,
 } from 'entities/Article';
 import { DynamicConnectAsyncReducers } from 'shared/lib/DynamicConnectAsyncReducers';
 import { classNames } from 'shared/lib/classNames/classNames';
@@ -22,22 +22,11 @@ import {
 } from '../model/selectors/ArticlesPageSelectors';
 import { fetchNextArticlesPage }
   from '../model/services/fetchNextArticlesPage/fetchNextArticlesPage';
+import { initArticlesPage } from '../model/services/initArticlesPage/initArticlesPage';
 
 interface ArticlesPageProps {
   className?: string;
 }
-
-// isArticleType - typeGuard function for type ArticleView
-const isArticleType = (value: unknown): value is ArticleView => (
-  Boolean(Object.values(VIEW).find((elem) => elem === value))
-);
-  // Object
-  //   .values(VIEW)
-  //   .reduce((akk, elem) => (
-  //     elem === value
-  //       ? true
-  //       : akk
-  //   ), false));
 
 const ArticlesPage = (props: ArticlesPageProps) => {
   const { className } = props;
@@ -59,11 +48,7 @@ const ArticlesPage = (props: ArticlesPageProps) => {
   }, [dispatch]);
 
   useInitialEffect(() => {
-    const viewFromLS = localStorage.getItem(ARTICLES_VIEW_LOCALSTORAGE_KEY);
-    if (viewFromLS && isArticleType(viewFromLS)) {
-      dispatch(articlesPageActions.setView(viewFromLS));
-    }
-    dispatch(fetchArticlesList({ page: 1 }));
+    dispatch(initArticlesPage());
   });
 
   if (error) {
@@ -71,7 +56,10 @@ const ArticlesPage = (props: ArticlesPageProps) => {
   }
 
   return (
-    <DynamicConnectAsyncReducers asyncReducers={{ articlesPage: articlesPageReducer }}>
+    <DynamicConnectAsyncReducers
+      asyncReducers={{ articlesPage: articlesPageReducer }}
+      stayAfterUnmount
+    >
       <Page
         className={classNames([s.ArticlesPage, className])}
         onScrollEnd={onLoadNextPart}

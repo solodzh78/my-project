@@ -26,9 +26,16 @@ export const DynamicConnectAsyncReducers: FC<DynamicConnectAsyncReducersProps> =
 
   // eslint-disable-next-line consistent-return
   useEffect(() => {
+    const mountedReducersKeys = Object.keys(store.reducerManager.getReducerMap());
+    console.log('mountedReducersKeys: ', mountedReducersKeys);
+
     Object.entries(asyncReducers).forEach(([name, reducer]) => {
-      store.reducerManager?.add(name as OptionalStateSchemaKey, reducer);
-      dispatch({ type: `@INIT ${name} reducer` });
+      const mounted = mountedReducersKeys.includes(name as OptionalStateSchemaKey);
+      console.log('name: ', name, 'mounted: ', mounted);
+      if (!mounted) {
+        store.reducerManager?.add(name as OptionalStateSchemaKey, reducer);
+        dispatch({ type: `@INIT ${name} reducer` });
+      }
     });
 
     return () => {

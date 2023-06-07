@@ -21,6 +21,7 @@ const initialState = articlesAdapter.getInitialState<ArticlesPageSchema>({
   page: 1,
   limit: 9,
   hasMore: true,
+  _inited: false,
 });
 
 export const getArticles = articlesAdapter.getSelectors<StateSchema>(
@@ -43,6 +44,9 @@ const articlesPageSlice = createSlice({
     },
     setHasMore: (state, action: PayloadAction<boolean>) => {
       state.hasMore = action.payload;
+    },
+    setInited: (state) => {
+      state._inited = true;
     },
   },
   extraReducers: (builder) => {
