@@ -15,10 +15,12 @@ import { RequiredFieldsOnly, OptionalFieldsOnly } from 'shared/types/RequiredFie
 import { AxiosInstance } from 'axios';
 import { ArticleSchema } from 'entities/Article';
 import { AddNewCommentSchema } from 'features/AddNewComment';
+import { SaveScrollSchema } from 'features/SaveScroll';
 
 export interface StateSchema {
   counter: CounterSchema;
   user: UserSchema;
+  saveScroll: SaveScrollSchema;
 
   // Async reducers
   profile?: ProfileSchema;

@@ -4,12 +4,14 @@ import {
 import { counterReducer } from 'entities/Counter';
 import { userReducer } from 'entities/User';
 import { $api } from 'shared/api/api';
+import { saveScrollReducer } from 'features/SaveScroll';
 import { createReducerManager } from './ReducerManager';
 import { StateSchema, ThunkExtraArg } from './StateSchema';
 
 const constReducers = {
   counter: counterReducer,
   user: userReducer,
+  saveScroll: saveScrollReducer,
 };
 
 // type ConstReducers = typeof constReducers;

@@ -9,7 +9,7 @@ import { ArticleComments } from 'widgets/ArticleComments';
 import { Button } from 'shared/ui/Button';
 import { useCallback } from 'react';
 import { RoutePaths } from 'shared/config/routes';
-import { Page } from 'shared/ui/Page/Page';
+import { Page } from 'widgets/Page/Page';
 import s from './ArticleDetailsPage.module.scss';
 
 interface ArticleDetailsPageProps {
