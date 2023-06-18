@@ -1,7 +1,11 @@
+import {
+  ArticleSortField, ArticleType, ArticleView, VIEW,
+} from 'entities/Article';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { ThunkConfig } from 'app/providers/StoreProvider';
-import { ArticleView, VIEW } from 'entities/Article/model/types/article';
 import { ARTICLES_VIEW_LOCALSTORAGE_KEY } from 'shared/const/localStorage';
+import { SortOrder } from 'shared/types/SortOrder';
+// import { useSearchParams } from 'react-router-dom';
 import { getArticlesPageInited } from '../../selectors/ArticlesPageSelectors';
 import { articlesPageActions } from '../../slices/articlesPageSlice';
 import { fetchArticlesList } from '../fetchArticlesList/fetchArticlesList';
@@ -13,13 +17,14 @@ const isArticleType = (value: unknown): value is ArticleView => (
 
 export const initArticlesPage = createAsyncThunk<
   void,
-  void,
+  URLSearchParams,
   ThunkConfig<string>
   >(
     'articlesPage/initArticlesPage',
-    async (_, thunkAPI) => {
+    async (searchParams, thunkAPI) => {
       const { getState, dispatch } = thunkAPI;
       const inited = getArticlesPageInited(getState());
+      // const [searchParams] = useSearchParams();
 
       if (!inited) {
         dispatch(articlesPageActions.setInited());
@@ -27,7 +32,26 @@ export const initArticlesPage = createAsyncThunk<
         if (viewFromLS && isArticleType(viewFromLS)) {
           dispatch(articlesPageActions.setView(viewFromLS));
         }
-        dispatch(fetchArticlesList({ page: 1 }));
+
+        const typeFromUrl = searchParams.get('type') as ArticleType;
+        const sortFromUrl = searchParams.get('sort') as ArticleSortField;
+        const orderFromUrl = searchParams.get('order') as SortOrder;
+        const searchFromUrl = searchParams.get('search') as ArticleSortField;
+
+        if (typeFromUrl) {
+          dispatch(articlesPageActions.setType(typeFromUrl));
+        }
+        if (sortFromUrl) {
+          dispatch(articlesPageActions.setSort(sortFromUrl));
+        }
+        if (orderFromUrl) {
+          dispatch(articlesPageActions.setOrder(orderFromUrl));
+        }
+        if (searchFromUrl) {
+          dispatch(articlesPageActions.setSearch(searchFromUrl));
+        }
+
+        dispatch(fetchArticlesList({ replace: false }));
       }
     },
   );

@@ -1,28 +1,25 @@
 import { useSelector } from 'react-redux';
-import {
-  ArticleList, ArticleView, ArticleViewSelector,
-} from 'entities/Article';
+import { ArticleList } from 'entities/Article';
 import { DynamicConnectAsyncReducers } from 'shared/lib/DynamicConnectAsyncReducers';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useCallback } from 'react';
-import { ARTICLES_VIEW_LOCALSTORAGE_KEY } from 'shared/const/localStorage';
 import { Page } from 'widgets/Page/Page';
 import { Text } from 'shared/ui/Text/Text';
-import { articlesPageActions, articlesPageReducer, getArticles }
-  from '../model/slices/articlesPageSlice';
-import { fetchArticlesList } from '../model/services/fetchArticlesList/fetchArticlesList';
+import { useSearchParams } from 'react-router-dom';
+import { articlesPageReducer, getArticles }
+  from '../../model/slices/articlesPageSlice';
 import s from './ArticlesPage.module.scss';
 import {
   getArticlesPageError,
   getArticlesPageIsLoading,
-  getArticlesPageNum,
   getArticlesPageView,
-} from '../model/selectors/ArticlesPageSelectors';
+} from '../../model/selectors/ArticlesPageSelectors';
 import { fetchNextArticlesPage }
-  from '../model/services/fetchNextArticlesPage/fetchNextArticlesPage';
-import { initArticlesPage } from '../model/services/initArticlesPage/initArticlesPage';
+  from '../../model/services/fetchNextArticlesPage/fetchNextArticlesPage';
+import { initArticlesPage } from '../../model/services/initArticlesPage/initArticlesPage';
+import { ArticlesPageFilters } from '../ArticlesPageFilters/ArticlesPageFilters';
 
 interface ArticlesPageProps {
   className?: string;
@@ -35,24 +32,18 @@ const ArticlesPage = (props: ArticlesPageProps) => {
   const isLoading = useSelector(getArticlesPageIsLoading);
   const error = useSelector(getArticlesPageError);
   const view = useSelector(getArticlesPageView);
-  const page = useSelector(getArticlesPageNum);
-
-  const onChangeView = useCallback((view: ArticleView) => {
-    localStorage.setItem(ARTICLES_VIEW_LOCALSTORAGE_KEY, view);
-    dispatch(articlesPageActions.setView(view));
-    dispatch(fetchArticlesList({ page }));
-  }, [dispatch, page]);
+  const [searchParams] = useSearchParams();
 
   const onLoadNextPart = useCallback(() => {
     dispatch(fetchNextArticlesPage());
   }, [dispatch]);
 
   useInitialEffect(() => {
-    dispatch(initArticlesPage());
+    dispatch(initArticlesPage(searchParams));
   });
 
   if (error) {
-    <Text text={error} variant="error" />;
+    return <Text text={error} variant="error" />;
   }
 
   return (
@@ -64,12 +55,9 @@ const ArticlesPage = (props: ArticlesPageProps) => {
         className={classNames([s.ArticlesPage, className])}
         onScrollEnd={onLoadNextPart}
       >
-        <ArticleViewSelector
-          className={s.selector}
-          view={view}
-          onViewClick={onChangeView}
-        />
+        <ArticlesPageFilters />
         <ArticleList
+          className={s.list}
           isLoading={isLoading}
           articles={articles}
           view={view}

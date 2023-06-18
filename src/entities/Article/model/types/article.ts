@@ -27,7 +27,14 @@ export interface ArticleTextBlock extends ArticleBlockBase {
 
 export type ArticleBlock = ArticleTextBlock | ArticleImageBlock | ArticleCodeBlock;
 
-export type ArticleType = 'IT' | 'SCIENCE' | 'ECONOMICS';
+export const articleType = {
+  ALL: 'ALL',
+  IT: 'IT',
+  SCIENCE: 'SCIENCE',
+  ECONOMICS: 'ECONOMICS',
+} as const;
+
+export type ArticleType = ValueOf<typeof articleType>;
 
 export interface Article {
   id: string;

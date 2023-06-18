@@ -8,5 +8,18 @@
   "addComment": "Type comment",
   "send": "Send",
   "readMore": "Read more...",
-  "backToList": "Back to List"
+  "backToList": "Back to List",
+  "sort": "Sort at",
+  "search": "Search",
+  "at": "at",
+  "date": "date",
+  "title": "title",
+  "views": "views",
+  "asc": "asc",
+  "desc": "desc",
+  "IT": "IT",
+  "ALL": "ALL",
+  "ECONOMICS": "ECONOMICS",
+  "SCIENCE": "SCIENCE",
+  "articles_not_founded": "Articles not founded"
 }

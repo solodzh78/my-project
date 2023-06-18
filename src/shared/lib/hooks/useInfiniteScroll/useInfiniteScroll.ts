@@ -14,7 +14,7 @@ export function useInfiniteScroll({ callback, triggerRef, wrapperRef }: UseInfin
     if (callback) {
       const options = {
         root: wrapperElement,
-        rootMargin: '0px',
+        rootMargin: '10px',
         threshold: 1.0,
       };
       observer = new IntersectionObserver(([entry]) => {

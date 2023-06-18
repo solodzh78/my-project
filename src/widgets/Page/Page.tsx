@@ -47,10 +47,10 @@ export const Page: FC<PageProps> = (props: PageProps) => {
   // }, 500);
 
   const onScrollHandler = useDebounce((e: UIEvent<HTMLElement>) => {
+    const target = e.target as HTMLElement;
     dispatch(saveScrollActions.setScrollPosition({
       path: pathname,
-      // ts-ignore
-      position: e.target.scrollTop,
+      position: target.scrollTop,
     }));
   }, 500);
 
@@ -61,7 +61,7 @@ export const Page: FC<PageProps> = (props: PageProps) => {
       onScroll={onScrollHandler}
     >
       {children}
-      <div ref={triggerRef} />
+      {onScrollEnd && <div ref={triggerRef} className={s.trigger} />}
     </section>
   );
 };
