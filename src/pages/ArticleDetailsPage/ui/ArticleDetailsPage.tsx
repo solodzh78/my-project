@@ -10,6 +10,7 @@ import { Button } from 'shared/ui/Button';
 import { useCallback } from 'react';
 import { RoutePaths } from 'shared/config/routes';
 import { Page } from 'widgets/Page/Page';
+import { ArticleRecommendations } from 'features/ArticleRecommendations';
 import s from './ArticleDetailsPage.module.scss';
 
 interface ArticleDetailsPageProps {
@@ -47,6 +48,7 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
           </Button>
           <ArticleDetails articleId={id} />
           <ArticleComments articleId={id} />
+          <ArticleRecommendations articleId={id} />
         </>
       )}
       {/* <Text className={s.commentTitle} title={t('comments')} />

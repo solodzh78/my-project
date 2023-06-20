@@ -1,0 +1,10 @@
+.ArticleRecommendations {
+  box-sizing: border-box;
+}
+
+.recommendationsList {
+  margin-top: 20px;
+  flex-wrap: nowrap;
+  overflow-y: hidden;
+  overflow-x: auto;
+}

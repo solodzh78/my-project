@@ -1,15 +1,15 @@
 .ArticleList {
   box-sizing: border-box;
+}
 
-  &.list {
-    display: flex;
-    flex-direction: column;
-    row-gap: 30px;
-  }
+.list {
+  display: flex;
+  flex-direction: column;
+  row-gap: 30px;
+}
 
-  &.tile {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 30px;
-  }
+.tile {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
 }

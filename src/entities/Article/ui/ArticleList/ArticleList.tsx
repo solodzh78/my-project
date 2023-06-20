@@ -1,4 +1,4 @@
-import { FC, memo } from 'react';
+import { FC, HTMLAttributeAnchorTarget, memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Text } from 'shared/ui/Text/Text';
@@ -12,6 +12,7 @@ interface ArticleListProps {
   articles: Article[];
   isLoading?: boolean;
   view?: ArticleView;
+  target?: HTMLAttributeAnchorTarget;
 }
 
 export const ArticleList: FC<ArticleListProps> = memo((props: ArticleListProps) => {
@@ -20,6 +21,7 @@ export const ArticleList: FC<ArticleListProps> = memo((props: ArticleListProps) 
     isLoading,
     articles,
     view = VIEW.TILE,
+    target,
   } = props;
 
   const { t } = useTranslation('articles');
@@ -40,6 +42,7 @@ export const ArticleList: FC<ArticleListProps> = memo((props: ArticleListProps) 
       key={article.id}
       article={article}
       view={view}
+      target={target}
     />
   );
 

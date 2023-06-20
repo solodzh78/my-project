@@ -16,6 +16,7 @@ import { AxiosInstance } from 'axios';
 import { ArticleSchema } from 'entities/Article';
 import { AddNewCommentSchema } from 'features/AddNewComment';
 import { SaveScrollSchema } from 'features/SaveScroll';
+import { ArticleRecommendationSchema } from 'features/ArticleRecommendations';
 
 export interface StateSchema {
   counter: CounterSchema;
@@ -29,6 +30,7 @@ export interface StateSchema {
   articleComments?: ArticleCommentsSchema;
   addNewComment?: AddNewCommentSchema;
   articlesPage?: ArticlesPageSchema;
+  articleRecommendations?: ArticleRecommendationSchema;
 }
 
 export type RequiredStateSchema = RequiredFieldsOnly<StateSchema>
