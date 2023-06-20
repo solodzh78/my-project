@@ -8,9 +8,12 @@ import {
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { USER_LOCALSTORAGE_KEY } from 'shared/const/localStorage';
+import { Text } from 'shared/ui/Text/Text';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { Button } from 'shared/ui/Button';
+import { AppLink } from 'shared/ui/AppLink';
+import { RoutePaths } from 'shared/config/routes';
 import s from './NavBar.module.scss';
 
 interface NavBarProps {
@@ -34,6 +37,14 @@ export const NavBar: FC<NavBarProps> = memo((props: NavBarProps) => {
   if (authData) {
     return (
       <header className={classNames([s.navbar, className])}>
+        <Text className={s.appName} title={t('my app')} variant="inverted" />
+        <AppLink
+          className={s.create}
+          to={RoutePaths.article_create}
+          theme="secondary"
+        >
+          {t('create_new_article')}
+        </AppLink>
         <Button
           theme="clearInverted"
           className={s.links}

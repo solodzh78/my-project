@@ -51,8 +51,8 @@ export const ArticleListItem: FC<ArticleListItemProps> = memo((props: ArticleLis
       >
         <Card className={s.card}>
           <div className={s.header}>
-            <Avatar className={s.avatar} size={30} src={article.userId.avatar} />
-            <Text className={s.username} text={article.userId.username} />
+            <Avatar className={s.avatar} size={30} src={article.user.avatar} />
+            <Text className={s.username} text={article.user.username} />
             {date}
           </div>
           <Text className={s.title} text={article.title} />

@@ -2,9 +2,9 @@ export { ArticleDetails } from './ui/ArticleDetails/ArticleDetails';
 
 export { articleReducer } from './model/slice/articleSlice';
 
-export type { Article, ArticleSchema } from './model/types/article';
-
-export type { ArticleView, ArticleType } from './model/types/article';
+export type {
+  Article, ArticleSchema, ArticleView, ArticleType,
+} from './model/types/article';
 
 export { VIEW, articleType } from './model/types/article';
 
@@ -17,3 +17,5 @@ export { articleSortField } from './model/types/ArticleSortField';
 export { ArticleViewSelector } from './ui/ArticleViewSelector/ArticleViewSelector';
 
 export { ArticleSortSelector } from './ui/ArticleSortSelector/ArticleSortSelector';
+
+export { getArticleData } from './model/selectors/article';

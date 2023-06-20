@@ -22,5 +22,8 @@
   "ECONOMICS": "ECONOMICS",
   "SCIENCE": "SCIENCE",
   "articles_not_founded": "Articles not founded",
-  "recommend": "Recommentations for you"
+  "recommend": "Recommentations for you",
+  "edit": "Edit",
+  "edit_article_with_id": "Edit article with ID = ",
+  "create_new_article": "Create new article"
 }

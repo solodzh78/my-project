@@ -6,6 +6,8 @@ const Routes = {
   PROFILE: 'profile',
   ARTICLES: 'articles',
   ARTICLE_DETAIL: 'article',
+  ARTICLE_CREATE: 'article_create',
+  ARTICLE_EDIT: 'article_edit',
   //  last
   NOT_FOUND: 'not_found',
 } as const;
@@ -18,6 +20,8 @@ export const RoutePaths: Record<AppRoutes, string> = {
   [Routes.PROFILE]: '/profile/',
   [Routes.ARTICLES]: '/articles',
   [Routes.ARTICLE_DETAIL]: '/articles/',
+  [Routes.ARTICLE_CREATE]: '/articles/new',
+  [Routes.ARTICLE_EDIT]: '/articles/:id/edit',
   [Routes.NOT_FOUND]: '*',
 } as const;
 
@@ -27,6 +31,8 @@ const routePathsWithoutTypes = {
   [Routes.PROFILE]: '/profile',
   [Routes.ARTICLES]: '/articles',
   [Routes.ARTICLE_DETAIL]: '/articles/',
+  [Routes.ARTICLE_CREATE]: '/articles/new',
+  [Routes.ARTICLE_EDIT]: '/articles/:id/edit',
   [Routes.NOT_FOUND]: '*',
 } as const;
 

@@ -39,7 +39,7 @@ export type ArticleType = ValueOf<typeof articleType>;
 export interface Article {
   id: string;
   title: string;
-  userId: User;
+  user: User;
   subtitle: string;
   img: string;
   views: number;

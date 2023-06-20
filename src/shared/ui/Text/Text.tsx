@@ -3,7 +3,7 @@ import { classNames } from 'shared/lib/classNames/classNames';
 
 import s from './Text.module.scss';
 
-type TextVariants = 'primary' | 'error';
+type TextVariants = 'primary' | 'error' | 'inverted';
 type TextAlign = 'right' | 'left' | 'center';
 type TextSize = 'size_m' | 'size_l';
 

@@ -22,5 +22,8 @@
   "ECONOMICS": "Экономика",
   "SCIENCE": "Наука",
   "articles_not_founded": "Статьи не найдены",
-  "recommend": "Рекоммендуем"
+  "recommend": "Рекоммендуем",
+  "edit": "Редактировать",
+  "edit_article_with_id": "Редактирование статьи с ID = ",
+  "create_new_article": "Создать новую статью"
 }

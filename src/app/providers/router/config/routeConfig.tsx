@@ -1,5 +1,6 @@
 import { AboutPage } from 'pages/AboutPage';
 import { ArticleDetailsPage } from 'pages/ArticleDetailsPage';
+import { ArticleEditPage } from 'pages/ArticleEditPage';
 import { ArticlesPage } from 'pages/ArticlesPage';
 import { MainPage } from 'pages/MainPage';
 import { NotFoundPage } from 'pages/NotFoundPage';
@@ -38,5 +39,15 @@ export const routeConfig: Record<AppRoutes, AppRoutesProps> = {
   not_found: {
     path: RoutePaths.not_found,
     element: <NotFoundPage />,
+  },
+  article_create: {
+    path: RoutePaths.article_create,
+    element: <ArticleEditPage />,
+    authOnly: true,
+  },
+  article_edit: {
+    path: RoutePaths.article_edit,
+    element: <ArticleEditPage />,
+    authOnly: true,
   },
 };
