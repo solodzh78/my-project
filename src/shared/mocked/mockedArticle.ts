@@ -9,7 +9,7 @@ export const mockedArticle = {
   img: ArticleImage,
   views: 1022,
   createdAt: '26.02.2022',
-  userId: {
+  user: {
     id: '1',
     username: 'admin',
     avatar: userAvatar,
