@@ -21,7 +21,7 @@ const initialState = articlesAdapter.getInitialState<ArticlesPageSchema>({
   error: undefined,
   ids: [],
   entities: {},
-  view: VIEW.TILE,
+  view: VIEW.GRID,
   page: 1,
   limit: 9,
   hasMore: true,

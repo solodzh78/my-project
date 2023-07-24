@@ -14,7 +14,7 @@ export const ArticleListItemSkeleton: FC<ArticleListItemProps> = memo(
   (props: ArticleListItemProps) => {
     const {
       className,
-      view = VIEW.TILE,
+      view = VIEW.GRID,
     } = props;
 
     if (view === VIEW.LIST) {

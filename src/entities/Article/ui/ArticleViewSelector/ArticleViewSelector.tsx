@@ -2,7 +2,7 @@ import { FC, memo } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { ArticleView, VIEW } from 'entities/Article/model/types/article';
 import ListIcon from 'shared/assets/icons/list-24-24.svg';
-import TileIcon from 'shared/assets/icons/tiled-24-24.svg';
+import GridIcon from 'shared/assets/icons/grid-24-24.svg';
 import { Button } from 'shared/ui/Button';
 import { Icon } from 'shared/ui/Icon/Icon';
 import s from './ArticleViewSelector.module.scss';
@@ -19,8 +19,8 @@ const viewTypes = [
     icon: ListIcon,
   },
   {
-    view: VIEW.TILE,
-    icon: TileIcon,
+    view: VIEW.GRID,
+    icon: GridIcon,
   },
 ];
 

@@ -7,7 +7,7 @@ export const getArticlesPageIsLoading = (
 
 export const getArticlesPageView = (
   state: StateSchema,
-) => state.articlesPage?.view || VIEW.TILE;
+) => state.articlesPage?.view || VIEW.GRID;
 
 export const getArticlesPageError = (state: StateSchema) => state.articlesPage?.error;
 export const getArticlesPageNum = (state: StateSchema) => state.articlesPage?.page || 1;

@@ -33,16 +33,16 @@ DarkList.args = {
 };
 DarkList.decorators = [ThemeDecorator('dark'), StoreDecorator({})];
 
-export const LightTile = Template.bind({});
-LightTile.args = {
+export const LightGrid = Template.bind({});
+LightGrid.args = {
   article,
-  view: VIEW.TILE,
+  view: VIEW.GRID,
 };
-LightTile.decorators = [StoreDecorator({})];
+LightGrid.decorators = [StoreDecorator({})];
 
-export const DarkTile = Template.bind({});
-DarkTile.args = {
+export const DarkGrid = Template.bind({});
+DarkGrid.args = {
   article,
-  view: VIEW.TILE,
+  view: VIEW.GRID,
 };
-DarkTile.decorators = [ThemeDecorator('dark'), StoreDecorator({})];
+DarkGrid.decorators = [ThemeDecorator('dark'), StoreDecorator({})];

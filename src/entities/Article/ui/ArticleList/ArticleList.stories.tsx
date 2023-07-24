@@ -57,32 +57,32 @@ DarkList.args = {
 };
 DarkList.decorators = [ThemeDecorator('dark'), StoreDecorator({})];
 
-export const LightTileLoading = Template.bind({});
-LightTileLoading.args = {
+export const LightGridLoading = Template.bind({});
+LightGridLoading.args = {
   articles: [],
   isLoading: true,
-  view: VIEW.TILE,
+  view: VIEW.GRID,
 };
-LightTileLoading.decorators = [StoreDecorator({})];
+LightGridLoading.decorators = [StoreDecorator({})];
 
-export const DarkTileLoading = Template.bind({});
-DarkTileLoading.args = {
+export const DarkGridLoading = Template.bind({});
+DarkGridLoading.args = {
   articles: [],
   isLoading: true,
-  view: VIEW.TILE,
+  view: VIEW.GRID,
 };
-DarkTileLoading.decorators = [ThemeDecorator('dark'), StoreDecorator({})];
+DarkGridLoading.decorators = [ThemeDecorator('dark'), StoreDecorator({})];
 
-export const LightTile = Template.bind({});
-LightTile.args = {
+export const LightGrid = Template.bind({});
+LightGrid.args = {
   articles: articles(9),
-  view: VIEW.TILE,
+  view: VIEW.GRID,
 };
-LightTile.decorators = [StoreDecorator({})];
+LightGrid.decorators = [StoreDecorator({})];
 
-export const DarkTile = Template.bind({});
-DarkTile.args = {
+export const DarkGrid = Template.bind({});
+DarkGrid.args = {
   articles: articles(9),
-  view: VIEW.TILE,
+  view: VIEW.GRID,
 };
-DarkTile.decorators = [ThemeDecorator('dark'), StoreDecorator({})];
+DarkGrid.decorators = [ThemeDecorator('dark'), StoreDecorator({})];

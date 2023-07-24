@@ -26,7 +26,7 @@ export const ArticleListItem: FC<ArticleListItemProps> = memo((props: ArticleLis
   const {
     className,
     article,
-    view = VIEW.TILE,
+    view = VIEW.GRID,
     target,
   } = props;
 
@@ -40,7 +40,13 @@ export const ArticleListItem: FC<ArticleListItemProps> = memo((props: ArticleLis
     </>
   );
   const date = <Text className={s.date} text={article.createdAt} />;
-  const articleImage = <img className={s.img} src={article.img} alt={article.title} />;
+  const articleImage = (
+    <div
+      style={{ height: 250 }}
+    >
+      <img className={s.img} src={article.img} alt={article.title} />
+    </div>
+  );
 
   if (view === VIEW.LIST) {
     const textBlock = article.blocks.find((block) => block.type === 'TEXT') as ArticleTextBlock;
@@ -78,7 +84,7 @@ export const ArticleListItem: FC<ArticleListItemProps> = memo((props: ArticleLis
   return (
     <AppLink
       data-testid="ArticleListItem"
-      className={classNames([s.ArticleListItem, s[VIEW.TILE], className])}
+      className={classNames([s.ArticleListItem, s[VIEW.GRID], className])}
       to={RoutePaths.article + article.id}
       target={target}
     >

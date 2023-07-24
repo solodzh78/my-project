@@ -8,8 +8,13 @@
   row-gap: 30px;
 }
 
-.tile {
-  display: flex;
+.grid {
+  display: inline-flex;
   flex-wrap: wrap;
   gap: 30px;
+}
+
+.row {
+  display: flex;
+  gap: 20px;
 }

@@ -56,7 +56,7 @@ export interface ArticleSchema {
 
 export const VIEW = {
   LIST: 'list',
-  TILE: 'tile',
+  GRID: 'grid',
 } as const;
 
 export type ArticleView = ValueOf<typeof VIEW>
