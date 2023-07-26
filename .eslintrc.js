@@ -52,7 +52,7 @@ module.exports = {
         markupOnly: true,
         ignoreAttribute: [
           'data-testid', 'theme', 'to', 'size', 'variant', 'align', 'redirect', 'border', 'target',
-          'justify', 'direction', 'gap',
+          'justify', 'direction', 'gap', 'role',
         ],
       },
     ],
