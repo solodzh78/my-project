@@ -5,7 +5,8 @@ import { Button } from 'shared/ui/Button';
 import { Text } from 'shared/ui/Text/Text';
 import { useSelector } from 'react-redux';
 import { getUserAuthData } from 'entities/User';
-import { getProfileData } from 'features/editableProfileCard/model/selectors';
+import { HStack } from 'shared/ui/Stack';
+import { getProfileData } from '../../model/selectors';
 import s from './EditableProfileHeader.module.scss';
 
 interface EditableProfileHeaderProps {
@@ -30,7 +31,7 @@ export const EditableProfileHeader: FC<EditableProfileHeaderProps> = (props) => 
   const canEdit = authData?.id === profileData?.id;
 
   return (
-    <div className={classNames([s.header, className])}>
+    <HStack max justify="between" className={classNames([s.header, className])}>
       <Text title={t('card_title')} />
       {canEdit && (
         <div className={s.btnsWrapper}>
@@ -45,7 +46,7 @@ export const EditableProfileHeader: FC<EditableProfileHeaderProps> = (props) => 
               </Button>
             )
             : (
-              <>
+              <HStack gap={16}>
                 <Button
                   className={s.cancelBtn}
                   theme="outline-red"
@@ -60,10 +61,10 @@ export const EditableProfileHeader: FC<EditableProfileHeaderProps> = (props) => 
                 >
                   {t('save')}
                 </Button>
-              </>
+              </HStack>
             )}
         </div>
       )}
-    </div>
+    </HStack>
   );
 };

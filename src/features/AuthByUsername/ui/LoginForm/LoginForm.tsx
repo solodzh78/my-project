@@ -13,13 +13,13 @@ import { Text } from 'shared/ui/Text/Text';
 import {
   DynamicConnectAsyncReducers, ReducersList,
 } from 'shared/lib/DynamicConnectAsyncReducers/ui/DynamicConnectAsyncReducers';
+import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import {
   getLoginFormError,
   getLoginFormIsLoading,
   getLoginFormPassword,
   getLoginFormUsername,
-} from 'features/AuthByUsername/model/selectors';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
+} from '../../model/selectors';
 import { loginByUsername } from '../../model/services/loginByUsername/loginByUsername';
 import { loginActions, loginReducer } from '../../model/slice/loginSlice';
 

@@ -2,8 +2,8 @@ import { useTheme } from 'app/providers/ThemeProvider';
 import {
   FC, MouseEventHandler, ReactNode, useCallback, useEffect, useState,
 } from 'react';
-import { classNames } from 'shared/lib/classNames/classNames';
-import { Portal } from 'shared/ui/Portal';
+import { classNames } from '../../../../lib/classNames/classNames';
+import { Portal } from '../../../Portal';
 
 import s from './Modal.module.scss';
 

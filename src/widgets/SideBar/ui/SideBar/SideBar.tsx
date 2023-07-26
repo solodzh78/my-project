@@ -3,10 +3,11 @@ import {
 } from 'react';
 import { useTranslation } from 'react-i18next';
 import { classNames } from 'shared/lib/classNames/classNames';
-import { LangSwitcher } from 'widgets/LAngSwitcher/ui/LangSwitcher';
+import { LangSwitcher } from 'features/LAngSwitcher/ui/LangSwitcher';
 import { ThemeSwitcher } from 'features/ThemeSwitcher';
 import { Button } from 'shared/ui/Button';
 import { useSelector } from 'react-redux';
+import { VStack } from 'shared/ui/Stack/VStack/VStack';
 import { SideBarItem } from '../SideBarItem/SideBarItem';
 import { getSidebarItems } from '../../model/selectors/getSidebarItems';
 import s from './SideBar.module.scss';
@@ -58,9 +59,9 @@ export const SideBar: FC<SideBarProps> = memo((props: SideBarProps) => {
       >
         { collapsed ? '>' : '<' }
       </Button>
-      <menu className={s.items}>
+      <VStack gap={16} className={s.items}>
         {itemsList}
-      </menu>
+      </VStack>
       <div className={s.switchers}>
         <ThemeSwitcher />
         <LangSwitcher short={collapsed} className={s.lang} />

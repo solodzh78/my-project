@@ -1,10 +1,10 @@
 import { FC, memo } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
-import { ArticleView, VIEW } from 'entities/Article/model/types/article';
 import ListIcon from 'shared/assets/icons/list-24-24.svg';
 import GridIcon from 'shared/assets/icons/grid-24-24.svg';
 import { Button } from 'shared/ui/Button';
 import { Icon } from 'shared/ui/Icon/Icon';
+import { ArticleView, VIEW } from '../../model/types/article';
 import s from './ArticleViewSelector.module.scss';
 
 interface ArticleViewSelectorProps {

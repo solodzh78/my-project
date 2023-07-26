@@ -8,6 +8,7 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import { ArticleComments } from 'widgets/ArticleComments';
 import { Page } from 'widgets/Page/Page';
 import { ArticleRecommendations } from 'features/ArticleRecommendations';
+import { VStack } from 'shared/ui/Stack';
 import s from './ArticleDetailsPage.module.scss';
 import { ArticleDetailsPageHeader } from '../ArticleDetailsPageHeader/ArticleDetailsPageHeader';
 
@@ -32,12 +33,12 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
     <Page className={classNames([s.ArticleDetailsPage, className])}>
       {/* {t('article_details_page')} */}
       {id && (
-        <>
+        <VStack gap={16}>
           <ArticleDetailsPageHeader />
           <ArticleDetails articleId={id} />
           <ArticleComments articleId={id} />
           <ArticleRecommendations articleId={id} />
-        </>
+        </VStack>
       )}
       {/* <Text className={s.commentTitle} title={t('comments')} />
       <AddNewComment />

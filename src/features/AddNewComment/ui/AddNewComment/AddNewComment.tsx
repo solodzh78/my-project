@@ -6,6 +6,7 @@ import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { DynamicConnectAsyncReducers } from 'shared/lib/DynamicConnectAsyncReducers';
 import { Button } from 'shared/ui/Button';
 import { Input } from 'shared/ui/Input';
+import { HStack } from 'shared/ui/Stack';
 import { addNewCommentActions, addNewCommentReducer } from '../../model/slices/AddNewCommentSlice';
 import s from './AddNewComment.module.scss';
 import { getAddNewCommentText }
@@ -34,7 +35,7 @@ export const AddNewComment = memo((props: AddNewCommentProps) => {
 
   return (
     <DynamicConnectAsyncReducers asyncReducers={{ addNewComment: addNewCommentReducer }}>
-      <div className={classNames([s.AddCommentForm, className])}>
+      <HStack justify="between" max className={classNames([s.AddCommentForm, className])}>
         <Input
           className={s.input}
           placeholder={t('addComment')}
@@ -47,7 +48,7 @@ export const AddNewComment = memo((props: AddNewCommentProps) => {
         >
           {t('send')}
         </Button>
-      </div>
+      </HStack>
     </DynamicConnectAsyncReducers>
   );
 });

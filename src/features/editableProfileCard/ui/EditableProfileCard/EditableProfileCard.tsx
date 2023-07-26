@@ -7,6 +7,7 @@ import { Loader } from 'shared/ui/Loader';
 import { Text } from 'shared/ui/Text/Text';
 import { Currency } from 'entities/Currency';
 import { Country } from 'entities/Country';
+import { HStack, VStack } from 'shared/ui/Stack';
 import { ValidateProfileError } from '../../model/types/profile';
 import { updateProfileData } from '../../model/services/updateProfileData/updateProfileData';
 import { profileActions } from '../../model/slice/profileSlice';
@@ -92,27 +93,27 @@ export const EditableProfileCard: FC<editableProfileCardProps> = (props) => {
 
   if (isLoading) {
     return (
-      <div className={s.isLoading}>
+      <HStack justify="center" className={s.isLoading}>
         <Loader />
-      </div>
+      </HStack>
     );
   }
 
   if (error) {
     return (
-      <div className={s.error}>
+      <HStack justify="center" className={s.error}>
         <Text
           title={t('error_title')}
           text={t('error_message')}
           align="center"
           variant="error"
         />
-      </div>
+      </HStack>
     );
   }
 
   return (
-    <>
+    <VStack gap={16} max>
       <EditableProfileHeader
         onEdit={onEdit}
         onCancel={onCancel}
@@ -135,6 +136,6 @@ export const EditableProfileCard: FC<editableProfileCardProps> = (props) => {
         onChangeCurrency={onChangeCurrency}
         onChangeCountry={onChangeCountry}
       />
-    </>
+    </VStack>
   );
 };

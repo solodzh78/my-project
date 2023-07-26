@@ -25,6 +25,7 @@ module.exports = {
     '@typescript-eslint',
     'i18next',
     'react-hooks',
+    'solodzh-eslint-plugin',
   ],
   rules: {
     'react/jsx-indent': [2, 2],
@@ -50,7 +51,9 @@ module.exports = {
       {
         markupOnly: true,
         ignoreAttribute: [
-          'data-testid', 'theme', 'to', 'size', 'variant', 'align', 'redirect', 'border', 'target'],
+          'data-testid', 'theme', 'to', 'size', 'variant', 'align', 'redirect', 'border', 'target',
+          'justify', 'direction', 'gap',
+        ],
       },
     ],
     'max-len': ['error', { ignoreComments: true, code: 100 }],
@@ -64,6 +67,7 @@ module.exports = {
     '@typescript-eslint/no-unused-vars': 'error',
     'no-unused-vars': 'off',
     'no-undef': 'off',
+    'solodzh-eslint-plugin/path-checker': 'error',
   },
   settings: {
     react: {

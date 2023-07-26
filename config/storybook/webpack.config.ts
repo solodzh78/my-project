@@ -10,6 +10,8 @@ export default ({ config }: {config: Configuration}) => {
     entry: '',
     html: '',
     src: path.resolve(__dirname, '..', '..', 'src'),
+    locales: '',
+    buildLocales: '',
   };
 
   if (config.module?.rules) {
