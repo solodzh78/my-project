@@ -48,10 +48,10 @@ export const Button = memo((props: ButtonProps) => {
       className={
         classNames(
           [
-            className,
             s.Button,
             themeClass,
             s[size],
+            className,
           ],
           mods,
         )

@@ -105,7 +105,7 @@ export const ArticleDetails: FC<ArticleDetailsProps> = memo((props: ArticleDetai
           text={articleData?.subtitle}
           size="size_l"
         />
-        <VStack gap={4}>
+        <VStack>
           <HStack gap={8} className={s.articleInfo}>
             <Icon className={s.icon} Svg={EyeIcon} />
             <Text text={String(articleData?.views)} />
@@ -115,7 +115,7 @@ export const ArticleDetails: FC<ArticleDetailsProps> = memo((props: ArticleDetai
             <Text text={articleData?.createdAt} />
           </HStack>
         </VStack>
-        {articleData?.blocks.map(renderBlock)}
+        <VStack>{articleData?.blocks.map(renderBlock)}</VStack>
       </>
     );
   }

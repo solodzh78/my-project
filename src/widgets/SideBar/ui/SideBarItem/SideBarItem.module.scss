@@ -5,6 +5,8 @@
 
 .link {
   margin-left: 10px;
+  opacity: 1;
+  transition: opacity 0.7s;
 }
 
 .icon {
@@ -14,7 +16,7 @@
 .collapsed {
   &.link {
     opacity: 0;
-    transition: 0.2s opacity;
+    transition: opacity 0.5s;
     width: 0;
   }
 }

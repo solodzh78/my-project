@@ -1,7 +1,7 @@
 import { memo, useCallback, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { classNames } from 'shared/lib/classNames/classNames';
-import { Select, SelectOption } from 'shared/ui/Select';
+import { HSelect, HSelectItem } from 'shared/ui/HSelect';
 import { Currency } from '../../model/types/currency';
 
 // import s from './CurrencySelect.module.scss';
@@ -20,10 +20,10 @@ export const CurrencySelect = memo((props: CurrencySelectProps) => {
   } = props;
   const { t } = useTranslation();
 
-  const options = useMemo<SelectOption<Currency>[]>(() => [
-    { value: 'RUB', content: t('RUB') },
-    { value: 'EUR', content: t('EUR') },
-    { value: 'USD', content: t('USD') },
+  const options = useMemo<HSelectItem<Currency>[]>(() => [
+    { id: 'RUB', content: t('RUB') },
+    { id: 'EUR', content: t('EUR') },
+    { id: 'USD', content: t('USD') },
   ], [t]);
 
   const onChangeHandler = useCallback((value: string) => {
@@ -31,13 +31,14 @@ export const CurrencySelect = memo((props: CurrencySelectProps) => {
   }, [onChange]);
 
   return (
-    <Select
+    <HSelect
       value={value}
-      label={label}
+      label={label && (`${label}>`)}
       className={classNames([className])}
-      options={options}
+      items={options}
       onChange={onChangeHandler}
       readOnly={readOnly}
+      direction="up"
     />
   );
 });

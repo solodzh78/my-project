@@ -1,7 +1,7 @@
 import { memo, useCallback, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { classNames } from 'shared/lib/classNames/classNames';
-import { Select, SelectOption } from 'shared/ui/Select';
+import { HSelect, HSelectItem } from 'shared/ui/HSelect';
 import { Country } from '../../model/types/country';
 
 // import s from './CountrySelect.module.scss';
@@ -20,11 +20,11 @@ export const CountrySelect = memo((props: CountrySelectProps) => {
   } = props;
   const { t } = useTranslation();
 
-  const options = useMemo<SelectOption<Country>[]>(() => [
-    { value: 'ARMENIA', content: t('ARMENIA') },
-    { value: 'BELARUS', content: t('BELARUS') },
-    { value: 'KAZAKHSTAN', content: t('KAZAKHSTAN') },
-    { value: 'RUSSIA', content: t('RUSSIA') },
+  const options = useMemo<HSelectItem<Country>[]>(() => [
+    { id: 'ARMENIA', content: t('ARMENIA') },
+    { id: 'BELARUS', content: t('BELARUS') },
+    { id: 'KAZAKHSTAN', content: t('KAZAKHSTAN') },
+    { id: 'RUSSIA', content: t('RUSSIA') },
   ], [t]);
 
   const onChangeHandler = useCallback((value: string) => {
@@ -32,13 +32,14 @@ export const CountrySelect = memo((props: CountrySelectProps) => {
   }, [onChange]);
 
   return (
-    <Select
+    <HSelect
       value={value}
-      label={label}
+      label={label && (`${label}>`)}
       className={classNames([className])}
-      options={options}
+      items={options}
       onChange={onChangeHandler}
       readOnly={readOnly}
+      direction="up"
     />
   );
 });

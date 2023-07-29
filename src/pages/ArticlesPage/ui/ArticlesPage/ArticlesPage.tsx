@@ -5,7 +5,7 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useCallback } from 'react';
-import { Page } from 'widgets/Page/Page';
+import { Page } from 'widgets/Page';
 import { Text } from 'shared/ui/Text/Text';
 import { useSearchParams } from 'react-router-dom';
 import { articlesPageReducer, getArticles }

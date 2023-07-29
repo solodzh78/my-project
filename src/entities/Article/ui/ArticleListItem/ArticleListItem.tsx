@@ -9,6 +9,7 @@ import { Avatar } from 'shared/ui/Avatar/Avatar';
 import { Button } from 'shared/ui/Button';
 import { RoutePaths } from 'shared/config/routes';
 import { AppLink } from 'shared/ui/AppLink';
+import { HStack, VStack } from 'shared/ui/Stack';
 import {
   Article, ArticleTextBlock, ArticleView, VIEW,
 } from '../../model/types/article';
@@ -41,11 +42,12 @@ export const ArticleListItem: FC<ArticleListItemProps> = memo((props: ArticleLis
   );
   const date = <Text className={s.date} text={article.createdAt} />;
   const articleImage = (
-    <div
+    <HStack
+      max
       style={{ height: 250 }}
     >
       <img className={s.img} src={article.img} alt={article.title} />
-    </div>
+    </HStack>
   );
 
   if (view === VIEW.LIST) {
@@ -56,17 +58,21 @@ export const ArticleListItem: FC<ArticleListItemProps> = memo((props: ArticleLis
         className={classNames([s.ArticleListItem, s[view], className])}
       >
         <Card className={s.card}>
-          <div className={s.header}>
-            <Avatar className={s.avatar} size={30} src={article.user.avatar} />
-            <Text className={s.username} text={article.user.username} />
+          <HStack justify="between">
+            <HStack>
+              <Avatar className={s.avatar} size={30} src={article.user.avatar} />
+              <Text className={s.username} text={article.user.username} />
+            </HStack>
             {date}
-          </div>
-          <Text className={s.title} text={article.title} />
-          {types}
-          {articleImage}
-          {textBlock && (
-            <ArticleTextBlockComponent className={s.textBlock} block={textBlock} />
-          )}
+          </HStack>
+          <Text className={s.title} title={article.title} />
+          <VStack max gap={16}>
+            {types}
+            {articleImage}
+            {textBlock && (
+              <ArticleTextBlockComponent className={s.textBlock} block={textBlock} />
+            )}
+          </VStack>
           <div className={s.footer}>
             <AppLink to={RoutePaths.article + article.id} target={target}>
               <Button className={s.button} theme="outline">

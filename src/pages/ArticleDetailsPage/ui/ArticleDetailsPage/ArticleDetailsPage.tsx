@@ -6,7 +6,7 @@ import { classNames } from 'shared/lib/classNames/classNames';
 // import { ArticleCommentsList } from 'features/ArticleCommentsList';
 // import { AddNewComment } from 'features/AddNewComment';
 import { ArticleComments } from 'widgets/ArticleComments';
-import { Page } from 'widgets/Page/Page';
+import { Page } from 'widgets/Page';
 import { ArticleRecommendations } from 'features/ArticleRecommendations';
 import { VStack } from 'shared/ui/Stack';
 import s from './ArticleDetailsPage.module.scss';
