@@ -49,6 +49,22 @@
   margin-left: -20px;
 }
 
-.up {
+.optionsUpRight {
   bottom: calc(100% + 8px);
+  left: 0;
+}
+
+.optionsDownRight {
+  top: calc(100% + 8px);
+  left: 0;
+}
+
+.optionsUpLeft {
+  bottom: calc(100% + 8px);
+  right: 0;
+}
+
+.optionsDownLeft {
+  top: calc(100% + 8px);
+  right: 0;
 }

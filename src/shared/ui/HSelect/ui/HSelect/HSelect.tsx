@@ -2,6 +2,7 @@ import { Fragment, useMemo } from 'react';
 import { Listbox } from '@headlessui/react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import CheckIcon from 'shared/assets/icons/check.svg';
+import { DropDirection } from 'shared/types/ui';
 import { HStack } from '../../../Stack';
 import { Button } from '../../../Button';
 import s from './HSelect.module.scss';
@@ -11,8 +12,6 @@ export interface HSelectItem<T extends string, R = string> {
   content?: R;
   disabled?: boolean;
 }
-
-type DropDirection = 'up' | 'down';
 
 interface HSelectProps<T extends string> {
   items: HSelectItem<T>[];
@@ -25,6 +24,13 @@ interface HSelectProps<T extends string> {
   direction?: DropDirection;
 }
 
+const mappedClassesListboxDirection = {
+  up_right: 'optionsUpRight',
+  down_right: 'optionsDownRight',
+  up_left: 'optionsUpLeft',
+  down_left: 'optionsDownLeft',
+};
+
 export const HSelect = <T extends string>(props: HSelectProps<T>) => {
   const {
     className,
@@ -34,7 +40,7 @@ export const HSelect = <T extends string>(props: HSelectProps<T>) => {
     onChange,
     readOnly,
     label,
-    direction = 'down',
+    direction = 'down_right',
   } = props;
 
   const normalizedItems = useMemo(() => ((items: HSelectItem<T>[]) => {
@@ -70,7 +76,9 @@ export const HSelect = <T extends string>(props: HSelectProps<T>) => {
               {value ? normalizedItems?.entities[value].content : defaultValue}
             </Button>
           </Listbox.Button>
-          <Listbox.Options className={classNames([s.items], { [s.up]: direction === 'up' })}>
+          <Listbox.Options
+            className={classNames([s.items, s[mappedClassesListboxDirection[direction]]])}
+          >
             {items?.map((item) => (
               <Listbox.Option
                 as={Fragment}

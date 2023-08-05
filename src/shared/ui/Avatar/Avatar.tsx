@@ -25,7 +25,7 @@ export const Avatar: FC<AvatarProps> = (props) => {
 
   if (!src) {
     return (
-      <DefaultAvatarIcon style={style} />
+      <DefaultAvatarIcon className={s.defaultIcon} style={style} />
     );
   }
 

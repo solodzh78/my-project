@@ -14,6 +14,9 @@ import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { Button } from 'shared/ui/Button';
 import { AppLink } from 'shared/ui/AppLink';
 import { RoutePaths } from 'shared/config/routes';
+import { DropDown } from 'shared/ui/DropDown';
+import { Avatar } from 'shared/ui/Avatar/Avatar';
+import { HStack } from 'shared/ui/Stack';
 import s from './NavBar.module.scss';
 
 interface NavBarProps {
@@ -37,27 +40,39 @@ export const NavBar: FC<NavBarProps> = memo((props: NavBarProps) => {
   if (authData) {
     return (
       <header className={classNames([s.navbar, className])}>
-        <Text className={s.appName} title={t('my app')} variant="inverted" />
-        <AppLink
-          className={s.create}
-          to={RoutePaths.article_create}
-          theme="secondary"
-        >
-          {t('create_new_article')}
-        </AppLink>
-        <Button
-          theme="clearInverted"
-          className={s.links}
-          onClick={onLogout}
-        >
-          {t('Выйти')}
-        </Button>
+        <HStack>
+          <Text className={s.appName} title={t('my app')} variant="inverted" />
+          <AppLink
+            className={s.create}
+            to={RoutePaths.article_create}
+            theme="secondary"
+          >
+            {t('create_new_article')}
+          </AppLink>
+        </HStack>
+        <DropDown
+          className={s.dropdown}
+          direction="down_left"
+          items={
+            [
+              {
+                content: t('PROFILE'),
+                href: RoutePaths.profile + authData.id,
+              },
+              {
+                content: t('Выйти'),
+                onClick: onLogout,
+              },
+            ]
+          }
+          trigger={<Avatar size={30} src={authData.avatar} />}
+        />
       </header>
     );
   }
 
   return (
-    <header className={classNames([s.navbar, className])}>
+    <header className={classNames([s.navbar, s.withoutAuth, className])}>
       {isOpenAuthModal && (
         <LoginModal
           isOpen={isOpenAuthModal}
