@@ -1,5 +1,6 @@
 import {
-  FC, MutableRefObject, ReactNode, UIEvent, useRef,
+  DetailedHTMLProps,
+  FC, HTMLAttributes, MutableRefObject, ReactNode, UIEvent, useRef,
 } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useInfiniteScroll } from 'shared/lib/hooks/useInfiniteScroll/useInfiniteScroll';
@@ -9,18 +10,20 @@ import { useLocation } from 'react-router-dom';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { useSelector } from 'react-redux';
 import { StateSchema } from 'app/providers/StoreProvider';
-// import { useThrottle } from 'shared/lib/hooks/useThrottle/useThrottle';
 import { useDebounce } from 'shared/lib/hooks/useDebounce/useDebounce';
 import s from './Page.module.scss';
 
-interface PageProps {
+type DivProps = DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>;
+interface PageProps extends DivProps {
   className?: string;
   children?: ReactNode;
   onScrollEnd?: () => void;
 }
 
 export const Page: FC<PageProps> = (props: PageProps) => {
-  const { className, children, onScrollEnd } = props;
+  const {
+    className, children, onScrollEnd, ...otherProps
+  } = props;
   const wrapperRef = useRef() as MutableRefObject<HTMLDivElement>;
   const triggerRef = useRef() as MutableRefObject<HTMLDivElement>;
   const dispatch = useAppDispatch();
@@ -37,15 +40,6 @@ export const Page: FC<PageProps> = (props: PageProps) => {
     wrapperRef.current.scrollTop = scrollPosition;
   });
 
-  // const onScrollHandler = useThrottle((e: UIEvent<HTMLElement>) => {
-  //   console.log('scroll');
-  //   // const event = e as unknown as Event;
-  //   dispatch(saveScrollActions.setScrollPosition({
-  //     path: pathname,
-  //     position: e.target.scrollTop,
-  //   }));
-  // }, 500);
-
   const onScrollHandler = useDebounce((e: UIEvent<HTMLElement>) => {
     const target = e.target as HTMLElement;
     dispatch(saveScrollActions.setScrollPosition({
@@ -60,6 +54,7 @@ export const Page: FC<PageProps> = (props: PageProps) => {
       className={classNames([s.Page, className])}
       onScroll={onScrollHandler}
       id="page"
+      {...otherProps}
     >
       {children}
       {onScrollEnd && <div ref={triggerRef} className={s.trigger} />}

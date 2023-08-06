@@ -1,21 +1,30 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { StoreDecorator } from 'shared/config/storyBook/StoreDecorator/StoreDecorator';
-// import { ThemeDecorator } from 'shared/config/storyBook/ThemeDecorator/ThemeDecorator';
 import { HSelect } from './HSelect';
 
 export default {
   title: 'shared/HSelect',
   component: HSelect,
-  // decorators: [i18nDecorator],
-  // argTypes: {
-  //   backgroundColor: { control: 'color' },
-  // },
 } as ComponentMeta<typeof HSelect>;
 
+const items = [
+  {
+    id: '1',
+    content: 'item1',
+  },
+  {
+    id: '2',
+    content: 'item2',
+  },
+  {
+    id: '3',
+    content: 'item3',
+  },
+];
+
 // eslint-disable-next-line react/jsx-props-no-spreading
-const Template: ComponentStory<typeof HSelect> = () => <HSelect />;
+const Template: ComponentStory<typeof HSelect> = () => <HSelect items={items} />;
 
 export const LightNoAuth = Template.bind({});
-LightNoAuth.args = {
-};
+LightNoAuth.args = {};
 LightNoAuth.decorators = [StoreDecorator({})];

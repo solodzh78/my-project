@@ -17,11 +17,13 @@ import { ArticleSchema } from 'entities/Article';
 import { AddNewCommentSchema } from 'features/AddNewComment';
 import { SaveScrollSchema } from 'features/SaveScroll';
 import { ArticleRecommendationSchema } from 'features/ArticleRecommendations';
+import { rtkApi } from 'shared/api/rtkApi';
 
 export interface StateSchema {
   counter: CounterSchema;
   user: UserSchema;
   saveScroll: SaveScrollSchema;
+  [rtkApi.reducerPath]: ReturnType<typeof rtkApi.reducer>;
 
   // Async reducers
   profile?: ProfileSchema;

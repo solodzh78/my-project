@@ -64,6 +64,7 @@ export const HSelect = <T extends string>(props: HSelectProps<T>) => {
       value={value}
       onChange={onChange}
       disabled={readOnly}
+      data-testid="HSelect"
     >
       <HStack gap={4}>
         {label && <Listbox.Label>{label}</Listbox.Label>}

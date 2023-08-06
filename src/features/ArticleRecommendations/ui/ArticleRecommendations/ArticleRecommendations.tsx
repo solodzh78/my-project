@@ -1,57 +1,37 @@
 import { FC, memo } from 'react';
-import { classNames } from 'shared/lib/classNames/classNames';
-import { DynamicConnectAsyncReducers } from 'shared/lib/DynamicConnectAsyncReducers';
-import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
-import { useSelector } from 'react-redux';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { Text } from 'shared/ui/Text/Text';
 import { useTranslation } from 'react-i18next';
 import { ArticleList } from 'entities/Article';
+import { VStack } from 'shared/ui/Stack';
 import s from './ArticleRecommendations.module.scss';
-import {
-  articleRecommendationsReducer, getArticleRecommendations,
-} from '../../model/slices/articleRecommendationsSlice';
-import { getArticleRecommendationsIsLoading } from '../../model/selectors/articleRecommendation';
-import { fetchArticleRecommendations } from '../../model/services/fetchArticleRecommendations';
+import { useArticleRecommendations } from '../../api/articleRecommendationsApi';
 
 interface ArticleRecommendationsProps {
   className?: string;
-  articleId: string;
 }
 
 export const ArticleRecommendations: FC<ArticleRecommendationsProps> = memo(
   (props: ArticleRecommendationsProps) => {
-    const { className, articleId } = props;
-
-    const recommendations = useSelector(getArticleRecommendations.selectAll);
-    const isLoading = useSelector(getArticleRecommendationsIsLoading);
-    const dispatch = useAppDispatch();
+    const { className } = props;
+    const { isLoading, data: recommendations, error } = useArticleRecommendations(3);
+    // console.log('data: ', recommendations);
 
     const { t } = useTranslation('articles');
 
-    useInitialEffect(() => dispatch(fetchArticleRecommendations(articleId)));
+    if (isLoading || error) {
+      return null;
+    }
 
     return (
-      <DynamicConnectAsyncReducers
-        asyncReducers={
-          {
-            articleRecommendations: articleRecommendationsReducer,
-          }
-        }
-      >
-        <div
-          data-testid="ArticleCommentsList"
-          className={classNames([s.ArticleRecommendations, className])}
-        >
-          <Text size="size_l" className={s.ArticleRecommendations} title={t('recommend')} />
-        </div>
+      <VStack gap={8} className={className}>
+        <Text size="size_l" className={s.ArticleRecommendations} title={t('recommend')} />
         <ArticleList
           className={s.recommendationsList}
           articles={recommendations}
           isLoading={isLoading}
           target="_blank"
         />
-      </DynamicConnectAsyncReducers>
+      </VStack>
     );
   },
 );

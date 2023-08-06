@@ -2,9 +2,6 @@ import { ArticleDetails } from 'entities/Article';
 import { useTranslation } from 'react-i18next';
 import { useParams } from 'react-router-dom';
 import { classNames } from 'shared/lib/classNames/classNames';
-// import { Text } from 'shared/ui/Text/Text';
-// import { ArticleCommentsList } from 'features/ArticleCommentsList';
-// import { AddNewComment } from 'features/AddNewComment';
 import { ArticleComments } from 'widgets/ArticleComments';
 import { Page } from 'widgets/Page';
 import { ArticleRecommendations } from 'features/ArticleRecommendations';
@@ -37,12 +34,9 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
           <ArticleDetailsPageHeader />
           <ArticleDetails articleId={id} />
           <ArticleComments articleId={id} />
-          <ArticleRecommendations articleId={id} />
+          <ArticleRecommendations />
         </VStack>
       )}
-      {/* <Text className={s.commentTitle} title={t('comments')} />
-      <AddNewComment />
-      <ArticleCommentsList articleId={id} /> */}
     </Page>
   );
 };

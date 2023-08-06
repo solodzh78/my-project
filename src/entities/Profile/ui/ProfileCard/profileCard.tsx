@@ -7,10 +7,6 @@ import { Avatar } from 'shared/ui/Avatar/Avatar';
 import { Input } from 'shared/ui/Input';
 import { HStack, VStack } from 'shared/ui/Stack';
 import { Profile } from '../../model/types/profile';
-// import {
-//   getProfileData,
-//   // getProfileError, getProfileIsLoading, getProfileReadonly,
-// } from '../../model/selectors';
 
 import s from './profileCard.module.scss';
 

@@ -20,7 +20,7 @@ export const CommentList: FC<CommentListProps> = memo((props: CommentListProps) 
 
   if (isLoading) {
     return (
-      <VStack gap={16} max>
+      <VStack gap={16} max data-testid="CommentList">
         <CommentCard isLoading />
         <CommentCard isLoading />
         <CommentCard isLoading />
