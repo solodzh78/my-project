@@ -41,6 +41,7 @@ export const EditableProfileHeader: FC<EditableProfileHeaderProps> = (props) => 
                 className={s.editBtn}
                 theme="outline"
                 onClick={onEdit}
+                data-testid="EditableProfileCardHeader.EditButton"
               >
                 {t('edit')}
               </Button>
@@ -51,6 +52,7 @@ export const EditableProfileHeader: FC<EditableProfileHeaderProps> = (props) => 
                   className={s.cancelBtn}
                   theme="outline-red"
                   onClick={onCancel}
+                  data-testid="EditableProfileCardHeader.CancelButton"
                 >
                   {t('cancel')}
                 </Button>
@@ -58,6 +60,7 @@ export const EditableProfileHeader: FC<EditableProfileHeaderProps> = (props) => 
                   className={s.saveBtn}
                   theme="outline"
                   onClick={onSave}
+                  data-testid="EditableProfileCardHeader.SaveButton"
                 >
                   {t('save')}
                 </Button>

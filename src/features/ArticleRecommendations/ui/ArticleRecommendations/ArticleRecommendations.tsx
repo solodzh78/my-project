@@ -18,7 +18,7 @@ export const ArticleRecommendations: FC<ArticleRecommendationsProps> = memo(
 
     const { t } = useTranslation('articles');
 
-    if (isLoading || error) {
+    if (isLoading || error || !recommendations) {
       return null;
     }
 
@@ -30,6 +30,7 @@ export const ArticleRecommendations: FC<ArticleRecommendationsProps> = memo(
           articles={recommendations}
           isLoading={isLoading}
           target="_blank"
+          virtualized={false}
         />
       </VStack>
     );

@@ -113,7 +113,7 @@ export const EditableProfileCard: FC<editableProfileCardProps> = (props) => {
   }
 
   return (
-    <VStack gap={16} max>
+    <VStack gap={16} max data-testid="editableProfileCard">
       <EditableProfileHeader
         onEdit={onEdit}
         onCancel={onCancel}
@@ -121,7 +121,12 @@ export const EditableProfileCard: FC<editableProfileCardProps> = (props) => {
         readOnly={readOnly}
       />
       {validateErrors?.length && validateErrors.map((error) => (
-        <Text text={validateErrorsTranslates[error]} key={error} variant="error" />
+        <Text
+          data-testid="EditableProfileCard.Error"
+          text={validateErrorsTranslates[error]}
+          key={error}
+          variant="error"
+        />
       ))}
       <ProfileCard
         className={className}
