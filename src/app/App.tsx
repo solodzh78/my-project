@@ -20,8 +20,8 @@ export const App = () => {
     const user = localStorage.getItem(USER_LOCALSTORAGE_KEY);
     if (user) {
       dispatch(userActions.setAuthData(JSON.parse(user)));
-      dispatch(userActions.setIsMounted());
     }
+    dispatch(userActions.setIsMounted());
   }, [dispatch]);
 
   return (

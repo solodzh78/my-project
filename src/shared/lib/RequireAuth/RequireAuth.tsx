@@ -6,10 +6,16 @@ interface RequireAuthProps<T=string> {
   children: ReactNode;
   redirect: T;
 }
-export type RequireAuthType<T> = (props: RequireAuthProps<T>)=> any;
+export type RequireAuthType<T> = (props: RequireAuthProps<T>) => any;
 
-export const RequireAuth = ({ isAuth, children, redirect }: RequireAuthProps) => {
+export const RequireAuth = (
+  { isAuth, children, redirect }: RequireAuthProps,
+) => {
   // const location = useLocation();
+
+  // if (!children) {
+  //   return null;
+  // }
 
   if (!isAuth) {
     return <Navigate to={redirect} replace />;

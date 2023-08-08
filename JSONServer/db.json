@@ -604,14 +604,28 @@
       "id": "1",
       "username": "admin",
       "password": "123",
-      "role": "ADMIN",
+      "roles": ["ADMIN"],
       "avatar": "https://mykaleidoscope.ru/x/uploads/posts/2022-09/1663198100_26-mykaleidoscope-ru-p-chuvstvo-adrenalina-oboi-29.jpg"
     },
     {
       "id": "2",
       "username": "user",
       "password": "123",
-      "role": "USER",
+      "roles": ["USER"],
+      "avatar": "https://teknotower.com/wp-content/uploads/2020/11/js.png"
+    },
+    {
+      "id": "3",
+      "username": "manager",
+      "password": "123",
+      "roles": ["MANAGER"],
+      "avatar": "https://teknotower.com/wp-content/uploads/2020/11/js.png"
+    },
+    {
+      "id": "4",
+      "username": "madmin",
+      "password": "123",
+      "roles": ["MANAGER", "ADMIN"],
       "avatar": "https://teknotower.com/wp-content/uploads/2020/11/js.png"
     }
   ],
@@ -636,6 +650,28 @@
       "country": "RUSSIA",
       "city": "Kaliningrad",
       "username": "user",
+      "avatar": "https://teknotower.com/wp-content/uploads/2020/11/js.png"
+    },
+    {
+      "id": "3",
+      "firstName": "John",
+      "lastName": "Smith",
+      "age": 44,
+      "currency": "RUB",
+      "country": "RUSSIA",
+      "city": "Kaliningrad",
+      "username": "manager",
+      "avatar": "https://teknotower.com/wp-content/uploads/2020/11/js.png"
+    },
+    {
+      "id": "4",
+      "firstName": "John",
+      "lastName": "Smith",
+      "age": 44,
+      "currency": "RUB",
+      "country": "RUSSIA",
+      "city": "Kaliningrad",
+      "username": "madmin",
       "avatar": "https://teknotower.com/wp-content/uploads/2020/11/js.png"
     }
   ]

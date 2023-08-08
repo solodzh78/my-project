@@ -28,5 +28,7 @@
   "BELARUS": "Беларусь",
   "ARMENIA": "Армения",
   "my app": "Мое приложение",
-  "create_new_article": "Создать новую статью"
+  "create_new_article": "Создать новую статью",
+  "admin_panel": "Админка",
+  "ForbiddenPage": "У вас нет доступа к этой странице"
 }

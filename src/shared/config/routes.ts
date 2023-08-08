@@ -8,6 +8,8 @@ const Routes = {
   ARTICLE_DETAIL: 'article',
   ARTICLE_CREATE: 'article_create',
   ARTICLE_EDIT: 'article_edit',
+  ADMIN_PANEL: 'admin_panel',
+  FORBIDDEN: 'forbidden',
   //  last
   NOT_FOUND: 'not_found',
 } as const;
@@ -22,6 +24,8 @@ export const RoutePaths: Record<AppRoutes, string> = {
   [Routes.ARTICLE_DETAIL]: '/articles/',
   [Routes.ARTICLE_CREATE]: '/articles/new',
   [Routes.ARTICLE_EDIT]: '/articles/:id/edit',
+  [Routes.ADMIN_PANEL]: '/admin',
+  [Routes.FORBIDDEN]: '/forbidden',
   [Routes.NOT_FOUND]: '*',
 } as const;
 
@@ -33,6 +37,8 @@ const routePathsWithoutTypes = {
   [Routes.ARTICLE_DETAIL]: '/articles/',
   [Routes.ARTICLE_CREATE]: '/articles/new',
   [Routes.ARTICLE_EDIT]: '/articles/:id/edit',
+  [Routes.ADMIN_PANEL]: '/admin',
+  [Routes.FORBIDDEN]: '/forbidden',
   [Routes.NOT_FOUND]: '*',
 } as const;
 

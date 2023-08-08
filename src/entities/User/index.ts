@@ -1,5 +1,9 @@
 export { getUserAuthData } from './model/selectors/getUserAuthData/getUserAuthData';
-// export { User } from './ui/User';
-export { type UserSchema, type User } from './model/types/userSchema';
+export { type UserSchema, type User, type UserRole } from './model/types/userSchema';
 export { userActions, userReducer, userSlice } from './model/slice/userSlice';
 export { useAuth } from './model/hooks/useAuth';
+export {
+  isUserAdmin,
+  isUserManager,
+  getUserRoles,
+} from './model/selectors/roleSelectors/roleSelectors';

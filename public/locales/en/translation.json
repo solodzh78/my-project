@@ -28,5 +28,7 @@
   "KAZAKHSTAN": "Kazakhstan",
   "RUSSIA": "Russia",
   "my app": "My App",
-  "create_new_article": "Create new article"
+  "create_new_article": "Create new article",
+  "admin_panel": "Admin\u00A0Panel",
+  "ForbiddenPage": "You have no access to this page"
 }
