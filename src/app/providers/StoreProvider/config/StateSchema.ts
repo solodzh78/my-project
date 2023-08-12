@@ -10,7 +10,6 @@ import { UserSchema } from 'entities/User';
 import { CounterSchema } from 'entities/Counter';
 import { LoginSchema } from 'features/AuthByUsername';
 import { ProfileSchema } from 'features/editableProfileCard';
-import { ArticleCommentsSchema } from 'features/ArticleCommentsList';
 import { RequiredFieldsOnly, OptionalFieldsOnly } from 'shared/types/RequiredFieldsOnly';
 import { AxiosInstance } from 'axios';
 import { ArticleSchema } from 'entities/Article';
@@ -18,6 +17,7 @@ import { AddNewCommentSchema } from 'features/AddNewComment';
 import { SaveScrollSchema } from 'features/SaveScroll';
 import { ArticleRecommendationSchema } from 'features/ArticleRecommendations';
 import { rtkApi } from 'shared/api/rtkApi';
+import { ArticleCommentsSchema } from 'widgets/ArticleComments';
 
 export interface StateSchema {
   counter: CounterSchema;

@@ -59,7 +59,7 @@ export const NavBar: FC<NavBarProps> = memo((props: NavBarProps) => {
           direction="down_left"
           items={
             [
-              ...(isAdmin
+              ...(isAdminPanelAvailable
                 ? [{
                   content: t('admin_panel'),
                   href: RoutePaths.admin_panel,

@@ -3,16 +3,16 @@ export { ArticleDetails } from './ui/ArticleDetails/ArticleDetails';
 export { articleReducer } from './model/slice/articleSlice';
 
 export type {
-  Article, ArticleSchema, ArticleView, ArticleType,
+  Article, ArticleSchema, ArticleView, ArticleType, VIEW,
 } from './model/types/article';
-
-export { VIEW, articleType } from './model/types/article';
-
-export { ArticleList } from './ui/ArticleList/ArticleList';
 
 export type { ArticleSortField } from './model/types/ArticleSortField';
 
-export { articleSortField } from './model/types/ArticleSortField';
+export { articleType } from './model/const/article';
+
+export { ArticleList } from './ui/ArticleList/ArticleList';
+
+export { articleSortField } from './model/const/articleSortField';
 
 export { ArticleViewSelector } from './ui/ArticleViewSelector/ArticleViewSelector';
 

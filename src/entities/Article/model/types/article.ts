@@ -1,5 +1,6 @@
 import { User } from 'entities/User';
 import { ValueOf } from 'shared/types/ValueOf';
+import { articleType } from '../const/article';
 
 export type ArticleBlockType = 'TEXT' | 'CODE' | 'IMAGE'
 
@@ -26,13 +27,6 @@ export interface ArticleTextBlock extends ArticleBlockBase {
 }
 
 export type ArticleBlock = ArticleTextBlock | ArticleImageBlock | ArticleCodeBlock;
-
-export const articleType = {
-  ALL: 'ALL',
-  IT: 'IT',
-  SCIENCE: 'SCIENCE',
-  ECONOMICS: 'ECONOMICS',
-} as const;
 
 export type ArticleType = ValueOf<typeof articleType>;
 
