@@ -2,7 +2,7 @@ import { Reducer } from '@reduxjs/toolkit';
 import {
   OptionalStateSchemaKey, StoreWithReducerManager,
 } from 'app/providers/StoreProvider/config/StateSchema';
-import { FC, useEffect } from 'react';
+import { FC, ReactNode, useEffect } from 'react';
 import { useDispatch, useStore } from 'react-redux';
 
 export type ReducersList = {
@@ -12,6 +12,7 @@ export type ReducersList = {
 interface DynamicConnectAsyncReducersProps {
   asyncReducers: ReducersList;
   stayAfterUnmount?: boolean;
+  children?: ReactNode;
 }
 
 export const DynamicConnectAsyncReducers: FC<DynamicConnectAsyncReducersProps> = (props) => {

@@ -1,25 +1,10 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { StoreDecorator } from 'shared/config/storyBook/StoreDecorator/StoreDecorator';
 import { ThemeDecorator } from 'shared/config/storyBook/ThemeDecorator/ThemeDecorator';
+import { mockedNormalizedComments } from 'shared/mocked/mockedComment';
 import { ArticleComments } from './ArticleComments';
 
-const articleComments = {
-  isLoading: false,
-  error: undefined,
-  ids: ['1', '2'],
-  entities: {
-    1: {
-      id: '1',
-      text: 'hello world',
-      user: { id: '1', username: 'Vasya' },
-    },
-    2: {
-      id: '2',
-      text: 'bye bye world',
-      user: { id: '2', username: 'Petya' },
-    },
-  },
-};
+const comments = mockedNormalizedComments(3);
 
 export default {
   title: 'widgets/ArticleComments',
@@ -35,12 +20,12 @@ const Template: ComponentStory<typeof ArticleComments> = (args) => <ArticleComme
 
 export const LightNormal = Template.bind({});
 LightNormal.args = {};
-LightNormal.decorators = [StoreDecorator({ articleComments })];
+LightNormal.decorators = [StoreDecorator({ articleComments: comments })];
 
 export const DarkNormal = Template.bind({});
 DarkNormal.args = {
 };
-DarkNormal.decorators = [ThemeDecorator('dark'), StoreDecorator({ articleComments })];
+DarkNormal.decorators = [ThemeDecorator('dark'), StoreDecorator({ articleComments: comments })];
 
 export const LightNoComments = Template.bind({});
 LightNoComments.args = {

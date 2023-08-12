@@ -23,6 +23,7 @@ export const CommentCard: FC<CommentCardProps> = memo((props: CommentCardProps) 
     return (
       <VStack
         max
+        gap={8}
         data-testid="CommentCard"
         className={classNames([s.CommentCard, className, s.skeleton])}
       >

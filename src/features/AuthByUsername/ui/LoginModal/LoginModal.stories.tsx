@@ -1,7 +1,6 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { StoreDecorator } from 'shared/config/storyBook/StoreDecorator/StoreDecorator';
 import { ThemeDecorator } from 'shared/config/storyBook/ThemeDecorator/ThemeDecorator';
-import { LoginForm } from '../LoginForm/LoginForm';
 
 import { LoginModal } from './LoginModal';
 
@@ -21,7 +20,6 @@ const Template: ComponentStory<typeof LoginModal> = (args) => <LoginModal {...ar
 
 export const Primary = Template.bind({});
 Primary.args = {
-  children: <LoginForm isOpen onSuccess={() => {}} />,
 };
 Primary.decorators = [
   StoreDecorator({ loginForm: { username: 'user', password: 'pass' } }),
@@ -29,7 +27,6 @@ Primary.decorators = [
 
 export const PrimaryDark = Template.bind({});
 PrimaryDark.args = {
-  children: <LoginForm isOpen onSuccess={() => {}} />,
 };
 PrimaryDark.decorators = [
   ThemeDecorator('dark'),
@@ -38,7 +35,6 @@ PrimaryDark.decorators = [
 
 export const PrimaryError = Template.bind({});
 PrimaryError.args = {
-  children: <LoginForm isOpen onSuccess={() => {}} />,
 };
 PrimaryError.decorators = [
   StoreDecorator({ loginForm: { username: 'user', password: 'pass', error: 'ERROR' } }),
@@ -46,7 +42,6 @@ PrimaryError.decorators = [
 
 export const PrimaryDarkError = Template.bind({});
 PrimaryDarkError.args = {
-  children: <LoginForm isOpen onSuccess={() => {}} />,
 };
 PrimaryDarkError.decorators = [
   ThemeDecorator('dark'),
@@ -55,7 +50,6 @@ PrimaryDarkError.decorators = [
 
 export const PrimaryLoading = Template.bind({});
 PrimaryLoading.args = {
-  children: <LoginForm isOpen onSuccess={() => {}} />,
 };
 PrimaryLoading.decorators = [
   StoreDecorator({ loginForm: { username: 'user', password: 'pass', isLoading: true } }),
@@ -63,7 +57,6 @@ PrimaryLoading.decorators = [
 
 export const PrimaryDarkLoading = Template.bind({});
 PrimaryDarkLoading.args = {
-  children: <LoginForm isOpen onSuccess={() => {}} />,
 };
 PrimaryDarkLoading.decorators = [
   ThemeDecorator('dark'),

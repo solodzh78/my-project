@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC, ReactNode } from 'react';
 import { Provider } from 'react-redux';
 import { ReducersMapObject } from '@reduxjs/toolkit';
 import { DeepPartial } from 'shared/types/DeepPartial';
@@ -8,6 +8,7 @@ import { StateSchema } from '../config/StateSchema';
 interface StoreProviderProps {
   initialState?: DeepPartial<StateSchema>;
   asyncReducers?: DeepPartial<ReducersMapObject<StateSchema>>
+  children?: ReactNode;
 }
 
 export const StoreProvider: FC<StoreProviderProps> = (props) => {

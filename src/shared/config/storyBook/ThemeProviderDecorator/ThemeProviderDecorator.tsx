@@ -1,9 +1,9 @@
 import { Story } from '@storybook/react';
 import { ThemeProvider, useTheme } from 'app/providers/ThemeProvider';
 import 'app/styles/index.scss';
-import { FC } from 'react';
+import { FC, ReactNode } from 'react';
 
-const Temp: FC = ({ children }) => {
+const Temp: FC<{children: ReactNode}> = ({ children }) => {
   const { theme } = useTheme();
   return (
     <div className={`app ${theme === 'dark' ? 'light' : 'dark'}`}>

@@ -2,6 +2,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { ThemeDecorator } from 'shared/config/storyBook/ThemeDecorator/ThemeDecorator';
 import { Article } from 'entities/Article';
 import { StoreDecorator } from 'shared/config/storyBook/StoreDecorator/StoreDecorator';
+import { mockedNormalizedComments } from 'shared/mocked/mockedComment';
 import { ArticleDetailsPage } from './ArticleDetailsPage';
 
 const articleData: Article = {
@@ -78,6 +79,7 @@ const articleData: Article = {
     },
   ],
 };
+const comments = mockedNormalizedComments(3);
 
 export default {
   title: 'pages/ArticleDetailsPage',
@@ -92,6 +94,7 @@ export default {
     article: {
       articleData,
     },
+    articleComments: comments,
   })],
   // argTypes: {
   //   backgroundColor: { control: 'color' },

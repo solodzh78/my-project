@@ -1,5 +1,6 @@
 import { addDecorator } from '@storybook/react';
 import { StyleDecorator } from '../../src/shared/config/storyBook/StyleDecorator/StyleDecorator';
+import { StoreDecorator } from '../../src/shared/config/storyBook/StoreDecorator/StoreDecorator';
 import { ThemeDecorator } from '../../src/shared/config/storyBook/ThemeDecorator/ThemeDecorator';
 import { RouterDecorator } from '../../src/shared/config/storyBook/RouterDecorator/RouterDecorator';
 import { SuspenseDecorator }
@@ -32,5 +33,6 @@ addDecorator(StyleDecorator);
 addDecorator(ThemeDecorator('light'));
 addDecorator(RouterDecorator);
 addDecorator(SuspenseDecorator);
+addDecorator(StoreDecorator({}));
 // addDecorator(StoreDecorator);
 // addDecorator(i18nDecorator);

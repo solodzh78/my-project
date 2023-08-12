@@ -78,3 +78,12 @@ export const mockedArticle = {
     },
   ],
 };
+
+export const mockedArticles = (n: number) => (
+  new Array(n)
+    .fill(0)
+    .map((elem, index) => ({
+      ...mockedArticle,
+      id: String(index + 1),
+    }))
+);

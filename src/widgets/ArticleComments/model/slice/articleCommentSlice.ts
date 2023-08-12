@@ -8,7 +8,7 @@ import { Comment } from 'entities/Comment';
 import { ArticleCommentsSchema } from '../types/articleCommentList';
 import {
   fetchCommentsByArticleId,
-} from '../services/fetchCommentsArticleId/fetchCommentsArticleId';
+} from '../services/fetchCommentsByArticleId/fetchCommentsByArticleId';
 
 const commentsAdapter = createEntityAdapter<Comment>({
   selectId: (comment) => comment.id,

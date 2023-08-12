@@ -2,13 +2,15 @@ import { FC, memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Text } from 'shared/ui/Text/Text';
 import { AddNewComment } from 'features/AddNewComment';
-import { fetchCommentsByArticleId } from 'features/ArticleCommentsList';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { DynamicConnectAsyncReducers } from 'shared/lib/DynamicConnectAsyncReducers';
 import { CommentList } from 'entities/Comment';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { useSelector } from 'react-redux';
 import { VStack } from 'shared/ui/Stack';
+import {
+  fetchCommentsByArticleId,
+} from '../../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
 import { sendArticleComment } from '../../model/services/sendArticleComment/sendArticleComment';
 import { articleCommentsReducer, getArticleComments } from '../../model/slice/articleCommentSlice';
 import { getArticleCommentsIsLoading } from '../../model/selectors/articleComments';

@@ -34,8 +34,6 @@ export const AppRouter = () => {
         : element,
     };
 
-    console.log('mappedRoute: ', mappedRoute);
-
     return mappedRoute;
   }), [isAuth, userRoles]);
 

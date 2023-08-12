@@ -8,6 +8,20 @@ import { DropDown } from './DropDown';
 export default {
   title: 'shared/DropDown',
   component: DropDown,
+  args: {
+    trigger: <Button>Open</Button>,
+    items: [
+      {
+        content: 'item1',
+      },
+      {
+        content: 'item2',
+      },
+      {
+        content: 'item3',
+      },
+    ],
+  },
   // decorators: [i18nDecorator],
   // argTypes: {
   //   backgroundColor: { control: 'color' },
@@ -18,23 +32,9 @@ export default {
 const Template: ComponentStory<typeof DropDown> = (args) => <DropDown {...args} />;
 
 export const Normal = Template.bind({});
-Normal.args = {
-  trigger: <Button>Open</Button>,
-  items: [
-    {
-      content: 'item1',
-    },
-    {
-      content: 'item2',
-    },
-    {
-      content: 'item3',
-    },
-  ],
-};
+Normal.args = {};
 Normal.decorators = [StoreDecorator({})];
 
 export const Dark = Template.bind({});
-Dark.args = {
-};
+Dark.args = {};
 Dark.decorators = [ThemeDecorator('dark'), StoreDecorator({})];

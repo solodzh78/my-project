@@ -1,11 +1,7 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { StoreDecorator } from 'shared/config/storyBook/StoreDecorator/StoreDecorator';
+import { useState } from 'react';
+import { ThemeDecorator } from 'shared/config/storyBook/ThemeDecorator/ThemeDecorator';
 import { HSelect } from './HSelect';
-
-export default {
-  title: 'shared/HSelect',
-  component: HSelect,
-} as ComponentMeta<typeof HSelect>;
 
 const items = [
   {
@@ -22,9 +18,42 @@ const items = [
   },
 ];
 
-// eslint-disable-next-line react/jsx-props-no-spreading
-const Template: ComponentStory<typeof HSelect> = () => <HSelect items={items} />;
+export default {
+  title: 'shared/HSelect',
+  component: HSelect,
+  args: {
+    items,
+    label: 'select item',
+    defaultValue: 'item not selected',
+  },
+} as ComponentMeta<typeof HSelect>;
 
-export const LightNoAuth = Template.bind({});
-LightNoAuth.args = {};
-LightNoAuth.decorators = [StoreDecorator({})];
+// eslint-disable-next-line react/jsx-props-no-spreading
+const Template: ComponentStory<typeof HSelect> = (args) => {
+  const [v, setV] = useState<string>();
+
+  return (
+    <HSelect
+      value={v}
+      onChange={
+        (item) => {
+          setV(item);
+        }
+      }
+      {...args}
+    />
+  );
+};
+
+export const Primary = Template.bind({});
+Primary.args = {
+};
+Primary.decorators = [(Story) => <div style={{ padding: '200px' }}><Story /></div>];
+
+export const PrimaryDark = Template.bind({});
+PrimaryDark.args = {
+};
+PrimaryDark.decorators = [
+  (Story) => <div style={{ padding: '200px' }}><Story /></div>,
+  ThemeDecorator('dark'),
+];

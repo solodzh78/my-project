@@ -49,6 +49,10 @@ export const ArticlesPageFilters: FC<ArticlesPageFiltersProps> = memo(
     const search = useSelector(getArticlesPageSearch);
 
     useEffect(() => {
+      // if (__PROJECT__ === 'storybook') {
+      //   return;
+      // }
+
       const newSearchParams = {
         sort,
         order,
