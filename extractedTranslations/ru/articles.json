@@ -1,0 +1,23 @@
+{
+  "addComment": "addComment",
+  "article_details_page_not_found": "article_details_page_not_found",
+  "article_error_message": "article_error_message",
+  "articles_not_founded": "articles_not_founded",
+  "asc": "asc",
+  "at": "at",
+  "backToList": "backToList",
+  "comments": "comments",
+  "create_new_article": "create_new_article",
+  "date": "date",
+  "desc": "desc",
+  "edit": "edit",
+  "edit_article_with_id": "edit_article_with_id",
+  "nocomments": "nocomments",
+  "readMore": "readMore",
+  "recommend": "recommend",
+  "search": "search",
+  "send": "send",
+  "sort": "sort",
+  "title": "title",
+  "views": "views"
+}

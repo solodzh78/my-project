@@ -4,7 +4,8 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import { Text } from 'shared/ui/Text/Text';
 import { List, ListRowProps, WindowScroller } from 'react-virtualized';
 import s from './ArticleList.module.scss';
-import { Article, ArticleView, VIEW } from '../../model/types/article';
+import { Article, ArticleView } from '../../model/types/article';
+import { VIEW } from '../../model/const/article';
 import { ArticleListItem } from '../ArticleListItem/ArticleListItem';
 import { ArticleListItemSkeleton } from '../ArticleListItem/ArticleListItemSkeleton';
 

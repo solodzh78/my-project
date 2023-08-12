@@ -11,10 +11,11 @@ import { RoutePaths } from 'shared/config/routes';
 import { AppLink } from 'shared/ui/AppLink';
 import { HStack, VStack } from 'shared/ui/Stack';
 import {
-  Article, ArticleTextBlock, ArticleView, VIEW,
+  Article, ArticleTextBlock, ArticleView,
 } from '../../model/types/article';
 import s from './ArticleListItem.module.scss';
 import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
+import { VIEW } from '../../model/const/article';
 
 interface ArticleListItemProps {
   className?: string;

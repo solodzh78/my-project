@@ -4,3 +4,8 @@ export const articleType = {
   SCIENCE: 'SCIENCE',
   ECONOMICS: 'ECONOMICS',
 } as const;
+
+export const VIEW = {
+  LIST: 'list',
+  GRID: 'grid',
+} as const;

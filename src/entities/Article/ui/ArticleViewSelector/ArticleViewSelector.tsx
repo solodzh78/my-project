@@ -4,7 +4,8 @@ import ListIcon from 'shared/assets/icons/list-24-24.svg';
 import GridIcon from 'shared/assets/icons/grid-24-24.svg';
 import { Button } from 'shared/ui/Button';
 import { Icon } from 'shared/ui/Icon/Icon';
-import { ArticleView, VIEW } from '../../model/types/article';
+import { ArticleView } from '../../model/types/article';
+import { VIEW } from '../../model/const/article';
 import s from './ArticleViewSelector.module.scss';
 
 interface ArticleViewSelectorProps {

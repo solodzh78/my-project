@@ -3,7 +3,8 @@ import { StoreDecorator } from 'shared/config/storyBook/StoreDecorator/StoreDeco
 import { ThemeDecorator } from 'shared/config/storyBook/ThemeDecorator/ThemeDecorator';
 import { mockedArticle } from 'shared/mocked/mockedArticle';
 import { ArticleListItem } from './ArticleListItem';
-import { Article, VIEW } from '../../model/types/article';
+import { Article } from '../../model/types/article';
+import { VIEW } from '../../model/const/article';
 
 const article = mockedArticle as Article;
 

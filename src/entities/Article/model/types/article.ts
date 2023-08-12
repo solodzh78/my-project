@@ -1,6 +1,6 @@
 import { User } from 'entities/User';
 import { ValueOf } from 'shared/types/ValueOf';
-import { articleType } from '../const/article';
+import { VIEW, articleType } from '../const/article';
 
 export type ArticleBlockType = 'TEXT' | 'CODE' | 'IMAGE'
 
@@ -47,10 +47,5 @@ export interface ArticleSchema {
   error?: string;
   articleData: Article
 }
-
-export const VIEW = {
-  LIST: 'list',
-  GRID: 'grid',
-} as const;
 
 export type ArticleView = ValueOf<typeof VIEW>

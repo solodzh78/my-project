@@ -1,0 +1,21 @@
+{
+  "INCORRECT_AGE": "INCORRECT_AGE",
+  "INCORRECT_COUNTRY": "INCORRECT_COUNTRY",
+  "INCORRECT_USER_DATA": "INCORRECT_USER_DATA",
+  "NO_DATA": "NO_DATA",
+  "SERVER_ERROR": "SERVER_ERROR",
+  "age": "age",
+  "avatar": "avatar",
+  "cancel": "cancel",
+  "card_title": "card_title",
+  "city": "city",
+  "country": "country",
+  "currency": "currency",
+  "edit": "edit",
+  "error_message": "error_message",
+  "error_title": "error_title",
+  "firstName": "firstName",
+  "lastName": "lastName",
+  "save": "save",
+  "username": "username"
+}

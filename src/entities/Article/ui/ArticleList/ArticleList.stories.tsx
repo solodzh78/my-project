@@ -2,7 +2,8 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { StoreDecorator } from 'shared/config/storyBook/StoreDecorator/StoreDecorator';
 import { ThemeDecorator } from 'shared/config/storyBook/ThemeDecorator/ThemeDecorator';
 import { mockedArticles } from 'shared/mocked/mockedArticle';
-import { Article, VIEW } from '../../model/types/article';
+import { Article } from '../../model/types/article';
+import { VIEW } from '../../model/const/article';
 import { ArticleList } from './ArticleList';
 
 const articles = mockedArticles as (n: number) => Article[];

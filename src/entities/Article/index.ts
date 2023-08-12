@@ -3,12 +3,12 @@ export { ArticleDetails } from './ui/ArticleDetails/ArticleDetails';
 export { articleReducer } from './model/slice/articleSlice';
 
 export type {
-  Article, ArticleSchema, ArticleView, ArticleType, VIEW,
+  Article, ArticleSchema, ArticleView, ArticleType,
 } from './model/types/article';
 
 export type { ArticleSortField } from './model/types/ArticleSortField';
 
-export { articleType } from './model/const/article';
+export { articleType, VIEW } from './model/const/article';
 
 export { ArticleList } from './ui/ArticleList/ArticleList';
 

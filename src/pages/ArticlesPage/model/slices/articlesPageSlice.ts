@@ -5,9 +5,9 @@ import {
 } from '@reduxjs/toolkit';
 import { StateSchema } from 'app/providers/StoreProvider';
 import {
-  Article, VIEW, ArticleView, articleType, ArticleType,
+  Article, VIEW, ArticleView, articleType, ArticleType, articleSortField,
 } from 'entities/Article';
-import { ArticleSortField, articleSortField } from 'entities/Article/model/types/ArticleSortField';
+import { ArticleSortField } from 'entities/Article/';
 import { SortOrder } from 'shared/types/SortOrder';
 import { ArticlesPageSchema } from '../types/articlesPageSchema';
 import { fetchArticlesList } from '../services/fetchArticlesList/fetchArticlesList';

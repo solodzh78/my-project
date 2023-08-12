@@ -3,10 +3,13 @@ import { buildScssLoader } from './loaders/buildScssLoader';
 import { BuildOptions } from './types/config';
 import { buildSvgLoader } from './loaders/buildSvgLoader';
 import { buildBabelLoader } from './loaders/buildBabelLoader';
-import { buildTypescriptLoader } from './loaders/buildTypescriptLoader';
+// import { buildTypescriptLoader } from './loaders/buildTypescriptLoader';
 
-export function buildLoaders({ isDev }: BuildOptions): RuleSetRule[] {
-  const babelLoader = buildBabelLoader(isDev);
+export function buildLoaders(options: BuildOptions): RuleSetRule[] {
+  const { isDev } = options;
+
+  const codeBabelLoader = buildBabelLoader({ ...options, isTsx: false });
+  const tsxCodeBabelLoader = buildBabelLoader({ ...options, isTsx: true });
 
   const assetLoader = {
     test: /\.(png|jpe?g|gif|woff2|woff)$/i,
@@ -17,13 +20,15 @@ export function buildLoaders({ isDev }: BuildOptions): RuleSetRule[] {
 
   const sassLoader = buildScssLoader(isDev);
 
-  const typescriptLoader = buildTypescriptLoader(isDev);
+  // const typescriptLoader = buildTypescriptLoader(isDev);
 
   return [
     assetLoader,
     svgLoader,
-    babelLoader,
-    typescriptLoader,
+    codeBabelLoader,
+    tsxCodeBabelLoader,
+    // babelLoader,
+    // typescriptLoader,
     sassLoader,
   ];
 }
