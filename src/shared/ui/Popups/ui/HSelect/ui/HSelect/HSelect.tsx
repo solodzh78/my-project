@@ -3,9 +3,11 @@ import { Listbox } from '@headlessui/react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import CheckIcon from 'shared/assets/icons/check.svg';
 import { DropDirection } from 'shared/types/ui';
-import { HStack } from '../../../Stack';
-import { Button } from '../../../Button';
+import { HStack } from '../../../../../Stack';
+import { Button } from '../../../../../Button';
 import s from './HSelect.module.scss';
+import popupStyles from '../../../../styles/popup.module.scss';
+import { mappedClassesPopupDirection } from '../../../../styles/consts';
 
 export interface HSelectItem<T extends string, R = string> {
   id: T;
@@ -23,13 +25,6 @@ interface HSelectProps<T extends string> {
   label?: string;
   direction?: DropDirection;
 }
-
-const mappedClassesListboxDirection = {
-  up_right: 'optionsUpRight',
-  down_right: 'optionsDownRight',
-  up_left: 'optionsUpLeft',
-  down_left: 'optionsDownLeft',
-};
 
 export const HSelect = <T extends string>(props: HSelectProps<T>) => {
   const {
@@ -59,7 +54,7 @@ export const HSelect = <T extends string>(props: HSelectProps<T>) => {
 
   return (
     <Listbox
-      className={classNames([s.HSelect, className], { [s.borderless]: readOnly })}
+      className={classNames([popupStyles.popup, className], { [s.borderless]: readOnly })}
       as="div"
       value={value}
       onChange={onChange}
@@ -68,7 +63,7 @@ export const HSelect = <T extends string>(props: HSelectProps<T>) => {
     >
       <HStack gap={4}>
         {label && <Listbox.Label>{label}</Listbox.Label>}
-        <div className={s.wrapper}>
+        <div className={popupStyles.popup}>
           <Listbox.Button className={s.buttonWrapper} as="div">
             <Button
               theme="outline"
@@ -78,7 +73,7 @@ export const HSelect = <T extends string>(props: HSelectProps<T>) => {
             </Button>
           </Listbox.Button>
           <Listbox.Options
-            className={classNames([s.items, s[mappedClassesListboxDirection[direction]]])}
+            className={classNames([s.items, mappedClassesPopupDirection[direction]])}
           >
             {items?.map((item) => (
               <Listbox.Option
@@ -93,8 +88,7 @@ export const HSelect = <T extends string>(props: HSelectProps<T>) => {
                       classNames(
                         [s.item],
                         {
-                          [s.active]: active,
-                          [s.disabled]: false,
+                          [popupStyles.active]: active,
                         },
                       )
                     }

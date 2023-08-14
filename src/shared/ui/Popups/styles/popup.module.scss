@@ -1,0 +1,36 @@
+.popup {
+  position: relative;
+}
+
+.btn {
+  background: none;
+  outline: transparent;
+  border: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+}
+
+.active {
+  background-color: var(--inverted-primary-color);
+}
+
+.optionsUpRight {
+  bottom: 100%;
+  left: 0;
+}
+
+.optionsDownRight {
+  top: 100%;
+  left: 0;
+}
+
+.optionsUpLeft {
+  bottom: 100%;
+  right: 0;
+}
+
+.optionsDownLeft {
+  top: 100%;
+  right: 0;
+}

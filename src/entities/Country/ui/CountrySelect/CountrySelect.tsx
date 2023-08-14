@@ -1,7 +1,7 @@
 import { memo, useCallback, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { classNames } from 'shared/lib/classNames/classNames';
-import { HSelect, HSelectItem } from 'shared/ui/HSelect';
+import { HSelect, HSelectItem } from 'shared/ui/Popups/ui/HSelect';
 import { Country } from '../../model/types/country';
 
 // import s from './CountrySelect.module.scss';

@@ -5,3 +5,11 @@
     display: block;
   }
 }
+
+.invertedIcon {
+  fill: var(--inverted-primary-color);
+
+  svg {
+    display: block;
+  }
+}

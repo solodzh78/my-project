@@ -11,6 +11,9 @@ import { DropDirection } from 'shared/types/ui';
 // eslint-disable-next-line solodzh-eslint-plugin/path-checker
 import { AppLink } from 'shared/ui/AppLink';
 import s from './DropDown.module.scss';
+import popupStyles from '../../../../styles/popup.module.scss';
+
+import { mappedClassesPopupDirection } from '../../../../styles/consts';
 
 interface DropDownItem {
   disabled?: boolean;
@@ -24,16 +27,7 @@ interface DropDownProps {
   items: DropDownItem[];
   trigger?: ReactNode;
   direction?: DropDirection;
-  // src?: string;
-  // avatar?: ReactNode;
 }
-
-const mappedClassesDropDownDirection = {
-  up_right: 'optionsUpRight',
-  down_right: 'optionsDownRight',
-  up_left: 'optionsUpLeft',
-  down_left: 'optionsDownLeft',
-};
 
 export const DropDown: FC<DropDownProps> = memo((props: DropDownProps) => {
   const {
@@ -41,24 +35,21 @@ export const DropDown: FC<DropDownProps> = memo((props: DropDownProps) => {
     items,
     trigger,
     direction = 'down_right',
-    // src,
-    // avatar,
   } = props;
 
   // const { t } = useTranslation();
 
   return (
-    <Menu as="div" className={classNames([s.DropDown, className])}>
-      <Menu.Button className={s.btn}>{trigger}</Menu.Button>
-      {/* <Menu.Button as={Avatar} src={src} className={s.avatar} /> */}
+    <Menu as="div" className={classNames([popupStyles.popup, className])}>
+      <Menu.Button className={popupStyles.btn}>{trigger}</Menu.Button>
       <Menu.Items
-        className={classNames([s.menu, s[mappedClassesDropDownDirection[direction]]])}
+        className={classNames([s.menu, mappedClassesPopupDirection[direction]])}
       >
         {items.map((item) => {
           const content = ({ active }: {active: boolean}) => (
             <button
               type="button"
-              className={classNames([s.item], { [s.active]: active })}
+              className={classNames([s.item], { [popupStyles.active]: active })}
               onClick={item.onClick}
             >
               {item.content}
