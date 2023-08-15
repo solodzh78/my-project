@@ -9,6 +9,9 @@
   pointer-events: none;
   transition: 0.3s opacity;
   font-family: var(--font-family-main);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .content {
@@ -24,8 +27,7 @@
 .opened {
   z-index: var(--modal-z-index);
   opacity: 1;
-  pointer-events: all;
-  transform: scale(1);
+  pointer-events: auto;
 
   .content {
     transform: scale(1);

@@ -1,7 +1,6 @@
 import { useTheme } from 'app/providers/ThemeProvider';
-import {
-  FC, MouseEventHandler, ReactNode, useCallback, useEffect, useState,
-} from 'react';
+import { FC, ReactNode } from 'react';
+import { useModal } from 'shared/lib/hooks/useModal/useModal';
 import { classNames } from '../../../../lib/classNames/classNames';
 import { Portal } from '../../../Portal';
 import { Overlay } from '../../../Overlay/Overlay';
@@ -16,8 +15,6 @@ interface ModalProps {
   lazy?: boolean;
 }
 
-const ANIMATION_DELAY = 300;
-
 export const Modal: FC<ModalProps> = (props) => {
   const {
     className,
@@ -27,56 +24,16 @@ export const Modal: FC<ModalProps> = (props) => {
     lazy,
   } = props;
 
-  const [isClosing, setIsClosing] = useState(false);
-  const [isMounted, setIsMounted] = useState(false);
   const { theme } = useTheme();
 
+  const {
+    isClosing, isOpened, isMounted, close,
+  } = useModal({ onClose, isOpen, animationDelay: 300 });
+
   const mods: Record<string, boolean> = {
-    [s.opened]: isOpen,
+    [s.opened]: isOpened,
     [s.closing]: isClosing,
-    dark: theme === 'dark',
   };
-
-  const closeHandler = () => {
-    if (onClose) {
-      setIsClosing(true);
-    }
-  };
-
-  const keyDownHandler = useCallback((e: KeyboardEvent) => {
-    if (e.key === 'Escape') {
-      setIsClosing(true);
-    }
-  }, []);
-
-  const contentClickHandler: MouseEventHandler<HTMLDivElement> = (e) => { e.stopPropagation(); };
-
-  useEffect(() => {
-    if (!isClosing) {
-      return () => {};
-    }
-
-    const timer = setTimeout(() => {
-      if (!onClose) {
-        return;
-      }
-      onClose();
-      setIsClosing(false);
-    }, ANIMATION_DELAY);
-    return () => clearTimeout(timer);
-  }, [isClosing, onClose]);
-
-  useEffect(() => {
-    if (!isOpen) {
-      return () => {};
-    }
-
-    if (!isMounted) {
-      setIsMounted(true);
-    }
-    window.addEventListener('keydown', keyDownHandler);
-    return () => window.removeEventListener('keydown', keyDownHandler);
-  }, [isMounted, isOpen, keyDownHandler]);
 
   if (lazy && !isMounted) {
     return null;
@@ -85,16 +42,14 @@ export const Modal: FC<ModalProps> = (props) => {
   return (
     <Portal>
       <div
-        className={classNames([s.modal, className, 'app_modal'], mods)}
+        className={classNames([s.modal, className, theme, 'app_modal'], mods)}
       >
-        <Overlay onClick={closeHandler}>
-          <div
-            className={classNames([s.content])}
-            onClick={contentClickHandler}
-          >
-            { children }
-          </div>
-        </Overlay>
+        <Overlay onClick={close} />
+        <div
+          className={classNames([s.content])}
+        >
+          { children }
+        </div>
       </div>
     </Portal>
   );
